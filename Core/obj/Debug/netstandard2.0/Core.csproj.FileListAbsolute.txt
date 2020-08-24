@@ -1,0 +1,9 @@
+/Users/brandymkundenga/Desktop/PhotoBook/core/bin/Debug/netstandard2.0/Core.deps.json
+/Users/brandymkundenga/Desktop/PhotoBook/Core/bin/Debug/netstandard2.0/Core.dll
+/Users/brandymkundenga/Desktop/PhotoBook/Core/bin/Debug/netstandard2.0/Core.pdb
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.csprojAssemblyReference.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.AssemblyInfoInputs.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.AssemblyInfo.cs
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.csproj.CoreCompileInputs.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.dll
+/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/Debug/netstandard2.0/Core.pdb
