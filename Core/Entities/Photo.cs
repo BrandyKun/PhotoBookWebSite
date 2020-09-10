@@ -9,6 +9,7 @@ namespace Core.Entities
         public DateTime DataCreated { get; set; }
         public string Description { get; set; }
         public string PublicId { get; set; }
-        public ICollection<PhotoTag> PhotoTag { get; set; }
+        public Tag Tag { get; set; }
+        public int TagId { get; set; }
     }
 }

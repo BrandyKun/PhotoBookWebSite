@@ -8,22 +8,6 @@ namespace Infrastructure.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Photos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Url = table.Column<string>(nullable: true),
-                    DataCreated = table.Column<DateTime>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    PublicId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Photos", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Tags",
                 columns: table => new
                 {
@@ -37,25 +21,22 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PhotoTags",
+                name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    PhotoId = table.Column<int>(nullable: false),
+                    Url = table.Column<string>(nullable: false),
+                    DataCreated = table.Column<DateTime>(type: "Datetime", nullable: false),
+                    Description = table.Column<string>(maxLength: 180, nullable: false),
+                    PublicId = table.Column<string>(nullable: false),
                     TagId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhotoTags", x => x.Id);
+                    table.PrimaryKey("PK_Photos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PhotoTags_Photos_PhotoId",
-                        column: x => x.PhotoId,
-                        principalTable: "Photos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PhotoTags_Tags_TagId",
+                        name: "FK_Photos_Tags_TagId",
                         column: x => x.TagId,
                         principalTable: "Tags",
                         principalColumn: "Id",
@@ -63,21 +44,13 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhotoTags_PhotoId",
-                table: "PhotoTags",
-                column: "PhotoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PhotoTags_TagId",
-                table: "PhotoTags",
+                name: "IX_Photos_TagId",
+                table: "Photos",
                 column: "TagId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "PhotoTags");
-
             migrationBuilder.DropTable(
                 name: "Photos");
 

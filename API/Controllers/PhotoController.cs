@@ -15,22 +15,27 @@ using Microsoft.Extensions.Options;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PhotoController : ControllerBase
+    public class PhotoController : BaseApiController
     {
         private readonly IMapper _mapper;
+                                
+        private readonly IPhotosRepository _photoRepo;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
         private readonly IGenericRepository<Photo> _genRepo;
+        private readonly IGenericRepository<Tag> _tagRepo;
 
         public PhotoController(IOptions<CloudinarySettings> cloudinaryConfig,
                                 IGenericRepository<Photo> genRepo,
+                                IGenericRepository<Tag> tagRepo,
+                                IPhotosRepository photoRepo,
                                 IMapper mapper)
         {
+            _tagRepo = tagRepo;
             _genRepo = genRepo;
             _cloudinaryConfig = cloudinaryConfig;
             _mapper = mapper;
+            _photoRepo = photoRepo;
 
             Account acc = new Account(
                 _cloudinaryConfig.Value.CloudName,
@@ -61,9 +66,19 @@ namespace API.Controllers
             return Ok(photo);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddPhoto(PhotoForCreationDto photoForCreationDto)
+        [HttpGet("tags")]
+        public async Task<ActionResult<IReadOnlyList<Tag>>> GetPhotoTag(int Id)
         {
+            var tags = await _tagRepo.ListAllAsync();
+
+            return Ok(tags);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPhoto([FromForm] PhotoForCreationDto photoForCreationDto)
+        {
+            var photosFromRepo = await _photoRepo.GetPhotosAsync();
+
             var file = photoForCreationDto.File;
 
             var uploadResult = new ImageUploadResult();
@@ -86,15 +101,15 @@ namespace API.Controllers
             photoForCreationDto.PublicId = uploadResult.PublicId;
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
-            
 
-            if (await _genRepo.SaveAll())
-            {
+            photosFromRepo.Append(photo);
+
+            
                 var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
                 return CreatedAtRoute("GetPhoto", new { id = photo.Id }, photoToReturn);
-            };
+            
 
-            return BadRequest("could not return photo");
+           //Sreturn BadRequest("could not return photo");
 
         }
 

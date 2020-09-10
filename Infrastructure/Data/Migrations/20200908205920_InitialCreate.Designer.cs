@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200820090848_InitialCreate")]
+    [Migration("20200908205920_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,41 +25,29 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DataCreated")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("Datetime");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(180);
 
                     b.Property<string>("PublicId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Photos");
-                });
-
-            modelBuilder.Entity("Core.Entities.PhotoTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PhotoId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TagId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.HasIndex("PhotoId");
+                    b.HasKey("Id");
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("PhotoTags");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Core.Entities.Tag", b =>
@@ -76,16 +64,10 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("Core.Entities.PhotoTag", b =>
+            modelBuilder.Entity("Core.Entities.Photo", b =>
                 {
-                    b.HasOne("Core.Entities.Photo", "Photo")
-                        .WithMany("PhotoTag")
-                        .HasForeignKey("PhotoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.Tag", "Tag")
-                        .WithMany("PhotoTag")
+                        .WithMany()
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

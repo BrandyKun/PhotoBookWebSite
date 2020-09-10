@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "waterfall"
+  },
+  {
+    "Id": 2,
+    "Name": "Nature"
+  },
+  {
+    "Id": 3,
+    "Name": "Fire"
+  },
+  {
+    "Id": 4,
+    "Name": "Sky"
+  }
+]
