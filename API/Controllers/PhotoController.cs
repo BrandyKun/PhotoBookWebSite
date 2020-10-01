@@ -7,6 +7,7 @@ using AutoMapper;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Core.Entities;
+using Core.Specification;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -18,24 +19,18 @@ namespace API.Controllers
     public class PhotoController : BaseApiController
     {
         private readonly IMapper _mapper;
-                                
-        private readonly IPhotosRepository _photoRepo;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
-        private readonly IGenericRepository<Photo> _genRepo;
-        private readonly IGenericRepository<Tag> _tagRepo;
+        private readonly IUnitOfWork _unitOfWork;
 
         public PhotoController(IOptions<CloudinarySettings> cloudinaryConfig,
-                                IGenericRepository<Photo> genRepo,
-                                IGenericRepository<Tag> tagRepo,
-                                IPhotosRepository photoRepo,
+                                IUnitOfWork unitOfWork,
                                 IMapper mapper)
         {
-            _tagRepo = tagRepo;
-            _genRepo = genRepo;
+            _unitOfWork = unitOfWork;
             _cloudinaryConfig = cloudinaryConfig;
             _mapper = mapper;
-            _photoRepo = photoRepo;
+
 
             Account acc = new Account(
                 _cloudinaryConfig.Value.CloudName,
@@ -49,35 +44,39 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Photo>>> GetPhotos()
+        public async Task<ActionResult<Pagination<PhotoForReturnDto>>> GetPhotos([FromQuery] PhotoSpecParams photoSpecParams)
         {
-            var photos = await _genRepo.ListAllAsync();
+            var spec = new PhotosWithTagsSpecification(photoSpecParams);
 
-            return Ok(photos);
+            var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
+
+            var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
+
+            var photos = await _unitOfWork.Repository<Photo>().ListAsync(spec);
+
+            var data = _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos);
+
+            return Ok(new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}", Name = "GetPhoto")]
-        public async Task<ActionResult<Photo>> GetPhoto(int id)
+        public async Task<ActionResult<PhotoForReturnDto>> GetPhoto(int id)
         {
-            var photoFromRepo = await _genRepo.GetById(id);
+            var spec = new PhotosWithTagsSpecification(id);
 
-            var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
+            var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
+
+            var photo = _mapper.Map<Photo, PhotoForReturnDto>(photoFromRepo);
 
             return Ok(photo);
         }
 
-        [HttpGet("tags")]
-        public async Task<ActionResult<IReadOnlyList<Tag>>> GetPhotoTag(int Id)
-        {
-            var tags = await _tagRepo.ListAllAsync();
+        
 
-            return Ok(tags);
-        }
-
-        [HttpPost]
+        [HttpPost("addPhoto")]
         public async Task<IActionResult> AddPhoto([FromForm] PhotoForCreationDto photoForCreationDto)
         {
-            var photosFromRepo = await _photoRepo.GetPhotosAsync();
+            // IEnumerable<Photo> photosfromRepo = await _unitOfWork.Repository<Photo>().ListAllAsync();
 
             var file = photoForCreationDto.File;
 
@@ -102,15 +101,43 @@ namespace API.Controllers
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 
-            photosFromRepo.Append(photo);
 
-            
+            _unitOfWork.Repository<Photo>().Add(photo);
+
+            if (await _unitOfWork.Complete() >= 0)
+            {
                 var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
-                return CreatedAtRoute("GetPhoto", new { id = photo.Id }, photoToReturn);
-            
+                return CreatedAtRoute("GetPhoto", new { id = photo.Id, tagId = photo.TagId }, photoToReturn);
+            }
+            return BadRequest("could not return photo");
 
-           //Sreturn BadRequest("could not return photo");
+        }
 
+        [HttpGet("tags")]
+        public async Task<ActionResult<IReadOnlyList<Tag>>> GetPhotoTags(int Id)
+        {
+            var tags = await _unitOfWork.Repository<Tag>().ListAllAsync();
+
+            return Ok(tags);
+        }
+
+        [HttpPost("AddTag")]
+        public async Task<ActionResult> AddTag( [FromBody] string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var newTag = new Tag {
+                    Name = name
+                };
+
+                _unitOfWork.Repository<Tag>().Add(newTag);
+
+                await _unitOfWork.Complete();
+
+                return StatusCode(201);
+            }
+
+            return BadRequest("Could not create new tag");
         }
 
     }

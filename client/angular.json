@@ -30,6 +30,7 @@
             "styles": [
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/ngx-bootstrap/datepicker",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -97,7 +98,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": []
           }

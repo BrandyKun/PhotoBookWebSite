@@ -27,8 +27,8 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Url = table.Column<string>(nullable: false),
-                    DataCreated = table.Column<DateTime>(type: "Datetime", nullable: false),
-                    Description = table.Column<string>(maxLength: 180, nullable: false),
+                    DataCreated = table.Column<DateTime>(nullable: false),
+                    Description = table.Column<string>(maxLength: 180, nullable: true),
                     PublicId = table.Column<string>(nullable: false),
                     TagId = table.Column<int>(nullable: false)
                 },

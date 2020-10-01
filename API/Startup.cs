@@ -26,7 +26,13 @@ namespace API
         {
             services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(MappingProfiles));
-            services.AddControllers();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddControllers()
+                .AddNewtonsoftJson(opt =>
+                {
+                    opt.SerializerSettings.ReferenceLoopHandling = 
+                    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
             services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPhotosRepository, PhotoRepository>();
             services.AddScoped((typeof(IGenericRepository<>)), (typeof(GenericRepository<>)));
@@ -50,6 +56,10 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 

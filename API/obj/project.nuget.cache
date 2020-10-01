@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "vUdf1j7so7jcOPkaBDjwiThbn5eRK8yEjYqqdQ6L3ov/xgdOYz3RKqsDrD23WDXnVN7WJAu+UPcvB6ao6XiwyQ==",
+  "dgSpecHash": "wIIbCRwRCMqlCNskk2nojoeDOCwmFEtvIpDsOz7SUwFpALxnAVOWNZYlZuyZJMV4v5a5imCsHwB9D1bqyVMBZQ==",
   "success": true,
   "projectFilePath": "/Users/brandymkundenga/Desktop/PhotoBook/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/brandymkundenga/.nuget/packages/automapper/10.0.0/automapper.10.0.0.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.0.1/automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/cloudinarydotnet/1.12.0/cloudinarydotnet.1.12.0.nupkg.sha512",
+    "/Users/brandymkundenga/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.1.8/microsoft.aspnetcore.jsonpatch.3.1.8.nupkg.sha512",
+    "/Users/brandymkundenga/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.1.8/microsoft.aspnetcore.mvc.newtonsoftjson.3.1.8.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -32,6 +34,7 @@
     "/Users/brandymkundenga/.nuget/packages/microsoft.extensions.options/3.1.6/microsoft.extensions.options.3.1.6.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/microsoft.extensions.primitives/3.1.6/microsoft.extensions.primitives.3.1.6.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/brandymkundenga/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.2/sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/sqlitepclraw.core/2.0.2/sqlitepclraw.core.2.0.2.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.2/sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",

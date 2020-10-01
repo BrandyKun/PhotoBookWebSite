@@ -23,10 +23,9 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DataCreated")
-                        .HasColumnType("Datetime");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(180);
 

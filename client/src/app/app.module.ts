@@ -1,22 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { NgxUploaderModule } from 'ngx-uploader';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CoreModule } from './core/core.module';
+import { AlbumModule } from './album/album.module';
+import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent
-  ],
+  declarations: [AppComponent, PhotoEditorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    NgxUploaderModule,
+    HttpClientModule,
+    CoreModule,
+    AlbumModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

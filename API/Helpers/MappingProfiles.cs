@@ -8,8 +8,10 @@ namespace API.Helpers
     {
         public MappingProfiles()
         {
-            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<Photo, PhotoForReturnDto>()
+                .ForMember(d => d.Tag, o => o.MapFrom(s => s.Tag.Name));
             CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<Photo, PhotoForCreationDto>();
 
         }
 
