@@ -1,29 +1,26 @@
-<div class="masonry-container">
-  
-    <ng-masonry-grid
-      [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }"
-      [useAnimation]="true"
-      [useImagesLoaded]="true"
-      [scrollAnimationOptions]="{
-        animationEffect: 'effect-4',
-        minDuration: 0.4,
-        maxDuration: 0.7
-      }"
-      class="row"
+<div class="masonry-layout container-fluid">
+  <ng-masonry-grid
+    [masonryOptions]="{ transitionDuration: '0.8s', gutter: 10 }"
+    [useAnimation]="true"
+    [useImagesLoaded]="true"
+    [scrollAnimationOptions]="{
+      animationEffect: 'effect-4',
+      minDuration: 0.4,
+      maxDuration: 0.7
+    }"
+    class="row "
+  >
+    <!-- Masonry Grid Item -->
+    <ng-masonry-grid-item
+      class="col-md-4 col-sm-12 masonry-photos"
+      id="{{ photo.id }}"
+      *ngFor="let photo of photos"
+      (click)="removeItem($event)"
     >
-      <!-- Masonry Grid Item -->
-      <ng-masonry-grid-item
-        class="col-md-3 col-sm-12"
-        style="ma"
-        id="{{ photo.id }}"
-        *ngFor="let photo of photos"
-        (click)="removeItem($event)"
-      >
-        <!-- Grid Content  -->
-        <div class="card mb-4 shadow-sm">
-          <app-photo-item [photo]="photo"></app-photo-item>
-        </div>
-      </ng-masonry-grid-item>
-    </ng-masonry-grid>
-  
+      <!-- Grid Content  -->
+      <div class="card mb-4 shadow-sm" style="max-width: 415.25px; max-height: 1924px;">
+        <app-photo-item [photo]="photo"></app-photo-item>
+      </div>
+    </ng-masonry-grid-item>
+  </ng-masonry-grid>
 </div>

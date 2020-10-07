@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { NgxUploaderModule } from 'ngx-uploader';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxMasonryModule } from 'ngx-masonry';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,7 @@ import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
     NgxUploaderModule,
     HttpClientModule,
     CoreModule,
-    AlbumModule,
+    AlbumModule
   ],
   providers: [],
   bootstrap: [AppComponent],

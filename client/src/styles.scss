@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $client-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$client-theme: mat-light-theme((
-  color: (
-    primary: $client-primary,
-    accent: $client-accent,
-    warn: $client-warn,
+$client-theme: mat-light-theme(
+  (
+    color: (
+      primary: $client-primary,
+      accent: $client-accent,
+      warn: $client-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -37,19 +38,22 @@ $client-theme: mat-light-theme((
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
 
 html {
-    // min-height: 100%;
-    // background-color: #f8002f;
-    // background-image: linear-gradient(326deg, #f8002f 0%, #000c14 74%);
-    // background-repeat: no-repeat;
-    // background-size: cover;
-  }
-  body {
-    background-position: top center;
-    min-height: 100%;
-  }
-html, body { min-height: 100%; background-color: #f8002f;
   background-image: linear-gradient(326deg, #f8002f 0%, #000c14 74%);
   background-repeat: no-repeat;
   background-size: cover;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-position: top center;
+  min-height: 100%;
+}
+html,
+body {
+  min-height: 100%;
+  background-image: linear-gradient(326deg, #f8002f 0%, #000c14 74%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
