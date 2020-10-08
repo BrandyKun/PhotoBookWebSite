@@ -89,7 +89,7 @@ namespace API.Controllers
                     var uploadParams = new ImageUploadParams()
                     {
                         File = new FileDescription(file.Name, stream),
-                        Transformation = new Transformation().Width(415.15).Height(500).Crop("fill").Gravity("center")
+                        Transformation = new Transformation().Width(550).Crop("fill").Gravity("center")
                     };
 
                     uploadResult = _cloudinary.Upload(uploadParams);

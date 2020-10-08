@@ -4,18 +4,16 @@ header {
   text-align: center;
   align-items: center;
 }
-img {
-}
+
 .logo {
   max-height: 150px;
   padding: 40px 0 20px 0;
 }
 
 nav {
-
-    display: inline-block;
-    align-content: space-between;
-    justify-content: space-between;
+  display: inline-block;
+  align-content: space-between;
+  justify-content: space-between;
 
   a {
     font-size: 20px;
@@ -30,11 +28,15 @@ nav {
   }
 }
 
-.social a {
-  text-decoration: none;
-  color: #434343;
-  margin-left: 15px;
-  font-size: 20px;
+.social {
+  padding-top: 20px;
+
+  a {
+    text-decoration: none;
+    color: #434343;
+    margin-left: 15px;
+    font-size: 20px;
+  }
 }
 @media (max-width: 768px) {
 }

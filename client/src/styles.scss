@@ -56,4 +56,37 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  align-items: center;
+}
+
+//tablet view
+@media (max-width: 768px) {
+  html {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  }
+  body {
+    background-position: top center;
+    min-height: 100%;
+  }
+  html,
+  body {
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  }
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    align-items: center;
+  }
+}
+
+//Mobile view landescape
+@media(max-width: 767.98px) {
+
+}
+
+//Mobile view portrait
+@media(max-width: 575.98px) {
+
 }
