@@ -1,12 +1,11 @@
 .container {
   margin-top: 6.25rem;
-  min-height: 500px;
+  max-height: 100%;
   max-width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   overflow: hidden;
   align-items: center;
-  text-align: center;
 }
 
 .col {
@@ -23,7 +22,6 @@
 
 @media (max-width: 1181px) {
   .container {
-    margin: 0 auto;
     margin-top: 6.25rem;
     margin-left: 20px;
   }
@@ -35,7 +33,16 @@
 
 //Mobile view portrait
 @media (max-width: 575.98px) {
+  .container{
+    margin-top: 6.25rem;
+    margin-left: 7px;
+  }
   .col {
-    width: 100%;
+    width: 99%;
+    margin: 0;
+  }
+
+  .image-card {
+    padding: 0;
   }
 }
