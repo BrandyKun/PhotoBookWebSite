@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { AlbumComponent } from './album.component';
+import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: AlbumComponent },
+  { path: ':id', component: PhotoDetailsComponent },
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    RouterModule.forRoot(routes),
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class AlbumRoutingModule { }
+export class AlbumRoutingModule {}

@@ -2,10 +2,12 @@
   <img
     src="../../assets/AdelgioMain.svg"
     class="logo"
+    [routerLink]="['/']"
     style="width: 24em; align-content: center"
   />
   <nav style="margin-top: 35px">
-    <a>Photos</a>
+    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a>
+    <a [routerLink]="['/photos']"  routerLinkActive="active">Photos</a>
     <a>Digital store</a>
     <a>About Us</a>
     <a>Contact</a>

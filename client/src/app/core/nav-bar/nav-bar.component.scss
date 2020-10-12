@@ -8,6 +8,15 @@ header {
     max-height: 150px;
     padding: 40px 0 20px 0;
   }
+  .logo:hover {
+    transition: ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:focus{
+      outline: none;
+    }
+  }
 
   nav {
     display: inline-block;
@@ -16,14 +25,19 @@ header {
 
     a {
       font-size: 20px;
-
       margin-left: 30px;
-      color: #a78857;
+      color: #CB560C;
       font-family: "Josefin Slab", serif;
+
+      &.active{
+        color: #a78857;;
+      }
     }
     a:hover {
       transition: ease-in-out;
       color: orangered;
+      cursor: pointer;
+      text-decoration: none;
     }
   }
 
@@ -45,7 +59,6 @@ header {
 //Tablet View
 @media (max-width: 1181px) {
   header {
-
     nav {
       display: none;
     }
@@ -58,7 +71,7 @@ header {
       display: block;
     }
 
-    .mob-nav{
+    .mob-nav {
       display: none;
     }
   }

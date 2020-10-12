@@ -20,6 +20,12 @@
   padding-bottom: 2.75rem;
 }
 
+.pagination{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
 @media (max-width: 1181px) {
   .container {
     margin-top: 6.25rem;

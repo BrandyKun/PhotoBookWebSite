@@ -19,9 +19,8 @@ export class PhotoItemComponent implements OnInit {
   constructor(private albumService: AlbumService) {}
 
   ngOnInit() {
-    this.albumService.getPhotos().subscribe((response) => {
-      this.photos = response.data;
-    });
+    
+    
   }
 
 }

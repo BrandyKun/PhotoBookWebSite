@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { AlbumModule } from './album/album.module';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [AppComponent, PhotoEditorComponent],
@@ -19,7 +20,7 @@ import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
     NgxUploaderModule,
     HttpClientModule,
     CoreModule,
-    AlbumModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

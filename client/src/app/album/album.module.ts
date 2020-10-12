@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlbumComponent } from './album.component';
 import { NgMasonryGridModule } from 'ng-masonry-grid';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { PhotoItemComponent } from './photo-item/photo-item.component';
+import { SharedModule } from '../shared/shared.module';
+import { PhotoDetailsComponent } from './photo-details/photo-details.component';
+import { AlbumRoutingModule } from './album-routing.module';
+
 
 @NgModule({
-  declarations: [AlbumComponent, PhotoItemComponent],
+  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent],
   imports: [
     CommonModule,
     NgMasonryGridModule,
-    MatCardModule,
-    MatButtonModule
+    SharedModule,
+    AlbumRoutingModule
   ],
-  exports: [AlbumComponent],
+  exports: [],
 })
 export class AlbumModule {}
