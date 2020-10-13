@@ -12,8 +12,6 @@
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.csproj.CoreCompileInputs.cache
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.MvcApplicationPartsAssemblyInfo.cache
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.RazorTargetAssemblyInfo.cache
-/Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/staticwebassets/API.StaticWebAssets.Manifest.cache
-/Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/staticwebassets/API.StaticWebAssets.xml
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.dll
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.pdb
 /Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.genruntimeconfig.cache
@@ -69,3 +67,15 @@
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.MvcApplicationPartsAssemblyInfo.cs
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.RazorAssemblyInfo.cache
+/Users/brandymkundenga/Desktop/PhotoBook/API/obj/Debug/netcoreapp3.1/API.RazorAssemblyInfo.cs
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Razor.dll

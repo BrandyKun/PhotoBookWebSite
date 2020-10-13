@@ -19,7 +19,7 @@ namespace Core.Specification
             {
                 switch (photoSpecParams.Sort)
                 {
-                    case "DateDesc":
+                    case "dateDesc":
                         AddOrdebyDescending(p=>p.DataCreated);
                         break;
                     default:
