@@ -79,3 +79,15 @@
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
 /Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Razor.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/Users/brandymkundenga/Desktop/PhotoBook/API/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll

@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { HomeModule } from './home/home.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, PhotoEditorComponent],
@@ -20,7 +21,8 @@ import { HomeModule } from './home/home.module';
     NgxUploaderModule,
     HttpClientModule,
     CoreModule,
-    HomeModule, 
+    HomeModule,
+    FormsModule, 
     
   ],
   providers: [

@@ -1,0 +1,27 @@
+<div class="detail-box">
+  <div class="row">
+    <div class="photo-card" *ngIf="photo">
+      <img src="{{ photo.url }}" alt="{{ photo.description }}" />
+    </div>
+
+    <section class="description">
+      <div class="title">
+         <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+          <h1>Title:</h1>
+          <span>{{ photo.id }}</span>
+          <hr />
+          <h2>Tags:</h2>
+          <span>{{ photo.tag }}</span>
+          <textarea
+            name="description"
+            rows="6"
+            class="form-control"
+            [(ngModel)]="photo.description"
+          >
+          hola
+          </textarea> 
+        </form> 
+      </div>
+    </section>
+  </div>
+</div>

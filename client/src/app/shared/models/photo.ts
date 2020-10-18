@@ -3,5 +3,5 @@ export interface IPhoto {
     url: string;
     description: string;
     dateAdded: Date;
-    TagId: number;
+    tag: string;
 }

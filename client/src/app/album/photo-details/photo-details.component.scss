@@ -1,0 +1,30 @@
+.detail-box {
+  margin: 50px;
+//   display: flex;
+//   flex-direction: row;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .photo-card {
+      border: 2px gray solid;
+      border-radius: 2%;
+      height: 500px;
+
+      img {
+        border-radius: inherit;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .description {
+      display: inline-flex;
+      height: 500px;
+      width: 60%;
+      border: 5px lightcyan solid;
+    }
+  }
+}
