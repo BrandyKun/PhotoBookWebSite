@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'server-error', component: ServerErrorComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
+  { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

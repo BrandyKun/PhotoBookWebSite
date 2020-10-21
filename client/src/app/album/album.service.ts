@@ -5,12 +5,14 @@ import { AlbumParams } from '../shared/models/albumParams';
 import { ITag } from '../shared/models/tag';
 import { map, delay } from 'rxjs/operators';
 import { IPhoto } from '../shared/models/photo';
+import { environment } from '../../../src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlbumService {
-  baseUrl = 'https://localhost:5003/api/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

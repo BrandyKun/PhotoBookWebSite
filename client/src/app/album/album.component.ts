@@ -43,7 +43,7 @@ export class AlbumComponent implements OnInit {
         this.photos = response.data;
         this.albumParams.pageNumber = response.pageIndex;
         this.albumParams.pageSize = response.pageSize;
-        
+        this.totalCount = response.count;
       },(error) => {
         console.log(error);
       }

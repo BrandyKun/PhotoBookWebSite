@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IPhoto } from './shared/models/photo';
 import { IPagination } from './shared/models/pagination';
+import { AccountService } from './account/account.service';
 declare var $: any;
 
 @Component({
@@ -12,13 +13,18 @@ declare var $: any;
 export class AppComponent implements OnInit {
   title = 'Photobook website';
 
-  constructor() {}
+  constructor(private accountService: AccountService) {}
 
-  ngOnInit(): void {
-    $(document).ready(function () {
-      $('.burgermenu').on('click', function () {
-        $('.mob-nav').fadeToggle(400);
-      });
-    });
+  ngOnInit() {
+    this.loadCurrentUser();
   }
+
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
+      this.accountService.loadCurrentUser(token).subscribe(()=> {
+        console.log('loaded user');
+      }, error =>
+      console.log(error))
+    
+  };
 }

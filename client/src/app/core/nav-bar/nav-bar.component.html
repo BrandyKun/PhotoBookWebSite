@@ -13,6 +13,14 @@
     <a>Contact</a>
     <a [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a>
 
+    <ng-container *ngIf="(currentUser$ | async) == null">
+      <a [routerLink]="['/account/login']"  routerLinkActive="active">Login</a>
+      <a [routerLink]="['/account/register']"  routerLinkActive="active">Register</a>
+    </ng-container>
+    <ng-container *ngIf="currentUser$ | async">
+      <a href="#"> Welcome {{(currentUser$ | async).displayName }}</a>
+    </ng-container>
+
   </nav>
   <div class="social">
     <a href="#" target="_blank" rel="noopener noreferrer">

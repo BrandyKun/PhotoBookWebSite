@@ -22,8 +22,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     CoreModule,
     HomeModule,
-    FormsModule, 
-    
+    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

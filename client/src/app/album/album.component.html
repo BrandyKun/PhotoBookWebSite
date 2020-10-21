@@ -29,12 +29,9 @@
   </section>
   <div class="pagination">
     <pagination
-      [boundaryLinks]="true"
+      
       [totalItems]="this.totalCount"
-      previousText="&lsaquo;"
-      nextText="&rsaquo;"
-      firstText="&laquo;"
-      lastText="&raquo;"
+      (pageChanged)="onPageChanged($event)"
     >
     </pagination>
   </div>
