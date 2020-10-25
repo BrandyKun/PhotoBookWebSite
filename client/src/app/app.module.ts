@@ -8,12 +8,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
-import { PhotoEditorComponent } from './photo-editor/photo-editor.component';
 import { HomeModule } from './home/home.module';
 import { FormsModule } from '@angular/forms';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
-  declarations: [AppComponent, PhotoEditorComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     CoreModule,
     HomeModule,
-    FormsModule
+    FormsModule,
+    FileUploadModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { IPhoto } from 'src/app/shared/models/photo';
 import { NgForm } from '@angular/forms';
 import { AlbumService } from '../album.service';
@@ -10,8 +10,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./photo-details.component.scss'],
 })
 export class PhotoDetailsComponent implements OnInit {
+
+  
   
   photo: IPhoto;
+  viewerOpen = false;
 
   constructor(private albumService: AlbumService,
               private activatedRoute: ActivatedRoute) {}

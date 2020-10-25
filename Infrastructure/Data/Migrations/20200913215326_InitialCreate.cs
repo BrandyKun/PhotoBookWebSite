@@ -30,7 +30,7 @@ namespace Infrastructure.Data.Migrations
                     DataCreated = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(maxLength: 180, nullable: true),
                     PublicId = table.Column<string>(nullable: false),
-                    TagId = table.Column<int>(nullable: false)
+                    TagId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

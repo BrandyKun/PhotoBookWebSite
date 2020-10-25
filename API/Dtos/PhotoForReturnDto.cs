@@ -10,5 +10,6 @@ namespace API.Dtos
         public DateTime DateAdded { get; set; }
         public string PublicId { get; set; }
         public string Tag { get; set; }
+
     }
 }

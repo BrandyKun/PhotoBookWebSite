@@ -18,9 +18,17 @@
 .image-card {
   padding-right: 2.75rem;
   padding-bottom: 2.75rem;
+  outline: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+    outline: none;
+    border: none;
+  }
 }
 
-.pagination{
+.pagination {
   display: flex;
   justify-content: center;
   margin: 10px 0;
@@ -39,7 +47,7 @@
 
 //Mobile view portrait
 @media (max-width: 575.98px) {
-  .container{
+  .container {
     margin-top: 6.25rem;
     margin-left: 7px;
   }

@@ -46,4 +46,8 @@ export class AlbumService {
   getPhoto(id: number) {
     return this.http.get<IPhoto>(this.baseUrl + 'photo/' + id);
   }
+
+  deletePhoto(id: number) {
+    return this.http.delete(this.baseUrl + 'photo' + id)
+  }
 }

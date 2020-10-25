@@ -1,20 +1,22 @@
 <div class="detail-box">
   <div class="row">
-    <div class="photo-card" *ngIf="photo">
+    <div
+      class="photo-card viewer-container"
+      *ngIf="photo"
+      (click)="viewerOpen = true">
       <img src="{{ photo.url }}" alt="{{ photo.description }}" />
+      <app-photo-full [photo]="photo" [open]="viewerOpen" (close)="viewerOpen = false"></app-photo-full>
     </div>
 
     <section class="description">
       <div class="title">
-         <h1>Title: </h1>
-         <span>{{photo.id}}</span>
-         <hr>
-         <h2>Tags:</h2>
-         <span>{{photo.tag}}</span>
-         <h2>Description:</h2>
-         <p>{{photo?.description}}</p>
-
-
+        <h1>Title:</h1>
+        <span>{{ photo.id }}</span>
+        <hr />
+        <h2>Tags:</h2>
+        <span>{{ photo.tag }}</span>
+        <h2>Description:</h2>
+        <p>{{ photo?.description }}</p>
       </div>
     </section>
   </div>

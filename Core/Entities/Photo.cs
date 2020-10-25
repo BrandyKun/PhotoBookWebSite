@@ -11,5 +11,10 @@ namespace Core.Entities
         public string PublicId { get; set; }
         public Tag Tag { get; set; }
         public int TagId { get; set; }
+
+        public Photo()
+        {
+            DataCreated = DateTime.UtcNow;
+        }
     }
 }

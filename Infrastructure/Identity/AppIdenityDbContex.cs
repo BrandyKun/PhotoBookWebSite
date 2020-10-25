@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Core.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity
 {
@@ -13,6 +14,8 @@ namespace Infrastructure.Identity
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            
         }
     }
 }

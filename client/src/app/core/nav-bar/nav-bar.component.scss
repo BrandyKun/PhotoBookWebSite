@@ -13,9 +13,13 @@ header {
     transition: ease-in-out;
     cursor: pointer;
     text-decoration: none;
+    outline: none;
 
-    &:focus{
+    a img:focus,
+    &:active {
       outline: none;
+      border: none;
+      -moz-outline-style: none;
     }
   }
 
@@ -28,9 +32,9 @@ header {
       font-size: 20px;
       margin-left: 30px;
       color: #5c5c5c;
-      font-family: 'Crimson Text', serif;
+      font-family: "Crimson Text", serif;
 
-      &.active{
+      &.active {
         color: #a78857;
       }
     }

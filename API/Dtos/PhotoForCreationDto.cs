@@ -11,10 +11,10 @@ namespace API.Dtos
         public DateTime DateAdded { get; set; }
         public string PublicId { get; set; }
         public int TagId { get; set; }
-
         public PhotoForCreationDto()
         {
-            DateAdded = DateTime.Now;
+            DateAdded  = DateTime.Now;
         }
+
     }
 }

@@ -113,6 +113,29 @@ namespace API.Controllers
 
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePhoto(int id)
+        {
+            var spec = new PhotosWithTagsSpecification(id);
+
+            var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
+
+            var deleteParams = new DeletionParams(photoFromRepo.PublicId);
+            var results = _cloudinary.Destroy(deleteParams);
+
+            if (results.Result == "ok")
+            {
+                _unitOfWork.Repository<Photo>().Delete(photoFromRepo);
+            }
+
+            if (await _unitOfWork.Complete() >= 0)
+            {
+                return Ok();
+            }
+
+            return BadRequest("Failed to deelte image");
+        }
+
         [HttpGet("tags")]
         public async Task<ActionResult<IReadOnlyList<Tag>>> GetPhotoTags(int Id)
         {

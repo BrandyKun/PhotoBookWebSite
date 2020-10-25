@@ -23,7 +23,7 @@ namespace Core.Specification
                         AddOrdebyDescending(p=>p.DataCreated);
                         break;
                     default:
-                        AddOrdeby(p=>p.DataCreated);
+                        AddOrdebyDescending(p=>p.Id);
                         break;
                         
                 }
