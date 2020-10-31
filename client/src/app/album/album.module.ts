@@ -5,16 +5,15 @@ import { NgMasonryGridModule } from 'ng-masonry-grid';
 import { PhotoItemComponent } from './photo-item/photo-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
-import { PhotoEditComponent } from './photo-edit/photo-edit.component';
 import { AlbumRoutingModule } from './album-routing.module';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
-import { AlbumEditorComponent } from './album-editor/album-editor.component';
 import { PhotoFullComponent } from './photo-full/photo-full.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent,PhotoEditComponent, AlbumEditorComponent, PhotoFullComponent ],
+  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent,PhotoFullComponent ],
   imports: [
     CommonModule,
     NgMasonryGridModule,
@@ -22,6 +21,7 @@ import { PhotoFullComponent } from './photo-full/photo-full.component';
     AlbumRoutingModule,
     FormsModule,
     FileUploadModule,
+    FlexLayoutModule
   ],
   exports: [],
 })

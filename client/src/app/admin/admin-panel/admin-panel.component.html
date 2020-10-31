@@ -1,0 +1,13 @@
+<div class="container-fluid panel mt-5">
+  <h2> Admin Panel</h2>
+  <div class="tab-panel">
+    <tabset class="Member-tabset">
+      <tab heading="User Management" *appHasRole="['Admin']">
+        <app-user-management></app-user-management>
+      </tab>
+      <tab heading="Album Management" *appHasRole="['Admin', 'Moderator']">
+        <app-album-editor></app-album-editor>
+      </tab>
+    </tabset>
+  </div>
+</div>

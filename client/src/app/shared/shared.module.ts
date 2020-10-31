@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 
@@ -12,7 +14,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     CommonModule,
     PaginationModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   exports: [PaginationModule, ReactiveFormsModule, TextInputComponent]
 

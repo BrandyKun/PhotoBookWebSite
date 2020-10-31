@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
-import { AlbumService } from '../album.service';
+import { AlbumService } from '../../album/album.service';
 import { ToastrService } from 'ngx-toastr';
+import { ITag } from 'src/app/shared/models/tag';
 
 @Component({
   selector: 'app-album-editor',
@@ -13,6 +14,7 @@ export class AlbumEditorComponent implements OnInit {
 
   uploader:FileUploader;
   hasBaseDropZoneOver:boolean;
+  tags: ITag[];
   baseUrl = environment.apiUrl;
 
   constructor(private albumService: AlbumService,
@@ -20,6 +22,7 @@ export class AlbumEditorComponent implements OnInit {
 
   ngOnInit(){
     this.initializeUploader();
+    this.getTags();
   }
 
   fileOverBase(e:any):void {
@@ -32,10 +35,12 @@ export class AlbumEditorComponent implements OnInit {
       isHTML5: true,
       allowedFileType:['image'],
       removeAfterUpload:true,
-      autoUpload: false
+      autoUpload: false,
+      additionalParameter: { tag: this.tags }
     });
+    // this.uploader.setOptions({additionalParameter: })
 
-    this.uploader.onAfterAddingAll = file => {file.withCredentials = true;}
+    this.uploader.onAfterAddingAll = file => {file.withCredentials = "true";}
   }
 
   deletePhoto(id: number) {
@@ -47,5 +52,13 @@ export class AlbumEditorComponent implements OnInit {
     //     this.toastr.error('Failed to load the photo')
     //   })
     // })
+  }
+
+  getTags() {
+    this.albumService.getTags().subscribe((response) => {
+      this.tags = response;
+    },(error) => {
+      console.log(error);
+    });
   }
 }

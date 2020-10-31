@@ -61,6 +61,35 @@ header {
     display: none;
   }
 }
+.dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  padding-top: 20px;
+}
+
+.navbutton:hover .dropdown {
+  display: block;
+}
+
+.dropdown .navbutton {
+  width: 100px;
+  background-color: transparent;
+}
+.dropdown .navbutton a {
+  color: #36302E;
+}
+.navbutton {
+  background-color: transparent;
+  color: rgba(85, 85, 85, 0.5);
+  border: 1px solid white;
+  // font-family: 'Playfair Display', serif;
+  padding: 11px 11px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  
+}
 //Tablet View
 @media (max-width: 1181px) {
   header {

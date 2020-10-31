@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlbumService } from '../album.service';
+import { AlbumService } from '../../album/album.service';
 import { ActivatedRoute } from '@angular/router';
 import { IPhoto } from 'src/app/shared/models/photo';
 import { NgForm } from '@angular/forms';

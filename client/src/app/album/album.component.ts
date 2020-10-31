@@ -5,6 +5,7 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewEncapsulation,
 } from '@angular/core';
 import { AlbumService } from './album.service';
 import { IPhoto } from '../shared/models/photo';

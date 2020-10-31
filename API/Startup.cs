@@ -16,6 +16,9 @@ using API.Errors;
 using Infrastructure.Identity;
 using API.Extensions;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace API
 {
@@ -32,11 +35,19 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddScoped<ITokenService, TokenService>();
             services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddControllers()
+            services.AddControllers(options => 
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+
+                    options.Filters.Add(new AuthorizeFilter(policy));
+            })
                 .AddNewtonsoftJson(opt =>
                 {
                     opt.SerializerSettings.ReferenceLoopHandling =
@@ -70,7 +81,7 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                    policy.WithOrigins("https://localhost:4200").AllowAnyHeader().AllowCredentials().AllowAnyMethod();
                 });
             });
             services.AddSwaggerGen(c =>

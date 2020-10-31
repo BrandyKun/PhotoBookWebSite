@@ -16,9 +16,6 @@
       
           Multiple
           <input type="file" ng2FileSelect [uploader]="uploader" multiple /><br />
-      
-          Single
-          <input type="file" ng2FileSelect [uploader]="uploader" />
         </div>
       
         <div class="col-md-9" style="margin-bottom: 40px">
@@ -29,6 +26,9 @@
             <thead>
               <tr>
                 <th width="50%">Name</th>
+                <th width="20%">Tags
+                  
+                </th>
                 <th>Size</th>
                 <th>Progress</th>
                 <th>Status</th>
@@ -39,6 +39,20 @@
               <tr *ngFor="let item of uploader.queue">
                 <td>
                   <strong>{{ item?.file?.name }}</strong>
+                </td>
+                <td>
+                  <div class="tags-selector">
+                      <form #rolesForm="ngForm" id="rolesForm">
+                            <div class="form-check" *ngFor="let tag of tags">
+                              <input type="checkbox" 
+                              class="form-check-input" 
+                              value="={{tag.name}}" 
+                              [checked]="tag.checked"
+                              (change)="tag.checked = !tag.checked">
+                              <label>{{tag.name}}</label>
+                            </div>
+                          </form>
+                  </div>
                 </td>
                 <td *ngIf="uploader.options.isHTML5" nowrap>
                   {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB

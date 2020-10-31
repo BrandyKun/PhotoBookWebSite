@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IPhoto } from './shared/models/photo';
 import { IPagination } from './shared/models/pagination';
 import { AccountService } from './account/account.service';
+import { custom } from '../assets/scripts/custom.js';
 declare var $: any;
 
 @Component({
@@ -20,11 +21,24 @@ export class AppComponent implements OnInit {
   }
 
   loadCurrentUser() {
+    //   const token = localStorage.getItem('token');
+    //     this.accountService.loadCurrentUser(token).subscribe(()=> {
+    //       console.log('loaded user');
+    //     }, error =>
+    //     console.log(error))
+
+    // };
+
     const token = localStorage.getItem('token');
-      this.accountService.loadCurrentUser(token).subscribe(()=> {
-        console.log('loaded user');
-      }, error =>
-      console.log(error))
-    
-  };
+    if (token) {
+      this.accountService.loadCurrentUser(token).subscribe(
+        () => {
+          console.log('loaded user');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  }
 }

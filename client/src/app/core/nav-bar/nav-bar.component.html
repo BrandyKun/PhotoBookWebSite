@@ -6,19 +6,29 @@
     style="width: 24em; align-content: center"
   />
   <nav style="margin-top: 35px">
-    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a>
+    <!-- <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a> -->
     <a [routerLink]="['/photos']"  routerLinkActive="active">Photos</a>
-    <a>Digital store</a>
+    <!-- <a>Digital store</a> -->
     <a>About Us</a>
     <a>Contact</a>
-    <a [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a>
+    <a *appHasRole="['Admin']" [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a>
 
     <ng-container *ngIf="(currentUser$ | async) == null">
       <a [routerLink]="['/account/login']"  routerLinkActive="active">Login</a>
       <a [routerLink]="['/account/register']"  routerLinkActive="active">Register</a>
     </ng-container>
     <ng-container *ngIf="currentUser$ | async">
-      <a href="#"> Welcome {{(currentUser$ | async).displayName }}</a>
+      <div class="navbutton">
+        <a href="#" >Welcome {{(currentUser$ | async).displayName }}</a>
+        <div class="dropdown">
+          <div class="navbutton"><a (click)="logOut()">Logout</a></div>
+        </div>
+      </div>
+      <!-- <a href="#"> Welcome {{(currentUser$ | async).displayName }}</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a (click)="logOut()">Logout</a>
+      </div> -->
+      <a  *appHasRole="['Admin','Moderator']" [routerLink]="['admin']"  routerLinkActive="active">Admin</a>
     </ng-container>
 
   </nav>
