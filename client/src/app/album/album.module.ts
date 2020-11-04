@@ -14,7 +14,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 
 
 @NgModule({
-  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent,PhotoFullComponent ],
+  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent,PhotoFullComponent],
   imports: [
     CommonModule,
     NgMasonryGridModule,

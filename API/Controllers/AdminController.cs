@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    [AllowAnonymous]
     public class AdminController : BaseApiController
     {
         private readonly IUnitOfWork _unitOfWork;

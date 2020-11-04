@@ -7,10 +7,10 @@
   />
   <nav style="margin-top: 35px">
     <!-- <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a> -->
-    <a [routerLink]="['/photos']"  routerLinkActive="active">Photos</a>
+    <a [routerLink]="['/photos']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Photos</a>
     <!-- <a>Digital store</a> -->
-    <a>About Us</a>
-    <a>Contact</a>
+    <a [routerLink]="['/home/about']"  routerLinkActive="active">About Us</a>
+    <a [routerLink]="['/home/contact-us']" routerLinkActive="active">Contact</a>
     <a *appHasRole="['Admin']" [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a>
 
     <ng-container *ngIf="(currentUser$ | async) == null">

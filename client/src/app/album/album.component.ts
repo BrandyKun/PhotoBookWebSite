@@ -12,6 +12,7 @@ import { IPhoto } from '../shared/models/photo';
 
 import { AlbumParams } from '../shared/models/albumParams';
 import { ITag } from '../shared/models/tag';
+import { MasonryOptions } from 'ng-masonry-grid';
 
 @Component({
   selector: 'app-album',
@@ -19,9 +20,7 @@ import { ITag } from '../shared/models/tag';
   styleUrls: ['./album.component.scss'],
 })
 export class AlbumComponent implements OnInit {
-  masonryImages = [];
-  limit = 15;
-
+  viewerOpen = false;
   photos: IPhoto[];
   tags: ITag[];
   albumParams = new AlbumParams();
@@ -30,7 +29,12 @@ export class AlbumComponent implements OnInit {
     {name: 'Alphabaetical', value: 'name'},
     {name: 'Oldest to Newest', value: 'dateAsc'},
     {name: 'Newest to Oldest', value: 'dateDesc'}  
-  ]
+  ];
+
+  public myOptions: MasonryOptions = {
+    transitionDuration: '0.9s'
+  };
+
 
   constructor(private albumService: AlbumService) {}
 

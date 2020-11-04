@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HomeRoutingModule } from './home-routing.module';
 
 
 
@@ -12,7 +13,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     AboutComponent,
     ContactUsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    HomeRoutingModule
   ],
   exports:[HomeComponent]
 })

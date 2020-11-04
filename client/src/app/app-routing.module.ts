@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'server-error', component: ServerErrorComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
+  { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)},
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
   { path: 'admin', component: AdminPanelComponent},
   { path: '',

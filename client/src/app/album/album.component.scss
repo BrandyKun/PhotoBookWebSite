@@ -1,6 +1,7 @@
 section {
   max-width: 1401px;
   margin: 0 auto;
+ 
   .contenitore {
     margin-top: 6.25rem;
     max-height: 100%;
@@ -10,6 +11,8 @@ section {
     align-items: center !important;
     margin-right: auto !important;
     margin-left: auto !important;
+    z-index: 0 !important;
+    position: relative;
     .col {
       // margin-left: 3.125rem;
       width: 33%;
