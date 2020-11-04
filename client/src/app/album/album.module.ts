@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
 import { PhotoFullComponent } from './photo-full/photo-full.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AlbumRoutingModule,
     FormsModule,
     FileUploadModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxMasonryModule
   ],
   exports: [],
 })

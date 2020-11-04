@@ -45,7 +45,76 @@
   </div>
 
   <div class="mobile-wrap">
-    <img
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler">
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a [routerLink]="['/']"  routerLinkActive="active">Photos</a></li>
+              <!-- <li><a>Digital store</a></li> -->
+              <li [routerLink]="['/home/about']"  routerLinkActive="active"><a>About Us</a></li>
+              <li><a>Contact</a></li>
+              <li *appHasRole="['Admin']"><a  [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a></li>
+              <ng-container *ngIf="(currentUser$ | async) === null">
+                <li>
+                  <a [routerLink]="['/account/login']"  routerLinkActive="active">Login</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/account/register']"  routerLinkActive="active">Register</a>
+                </li>
+              </ng-container>
+              <ng-container *ngIf="currentUser$ | async">
+                  <li>
+                    <a href="#" >Welcome {{(currentUser$ | async).displayName }}</a>
+                  </li>
+                    <li>
+                      <a (click)="logOut()">Logout</a>
+                    </li>
+                <li>
+                  <a  *appHasRole="['Admin','Moderator']" [routerLink]="['admin']"  routerLinkActive="active">Admin</a>
+                </li>
+              </ng-container>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  ><i class="fa fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  ><i class="fa fa-pinterest"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="social">
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer"
+                ><i class="fa fa-facebook-f"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer"
+                ><i class="fa fa-pinterest"></i
+              ></a>
+            </li>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- <img
       src="../../assets/icon-burger-menu.svg"
       alt="Mobile Menu Icon"
       style="width: 40px;"
@@ -56,6 +125,6 @@
       <a>Digital store</a>
       <a>About Us</a>
       <a>Contact</a>
-    </div>
+    </div> -->
   </div>
 </header>

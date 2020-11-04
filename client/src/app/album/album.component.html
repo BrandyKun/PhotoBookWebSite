@@ -1,25 +1,25 @@
-  <section>
+<!-- <section>
     <ng-masonry-grid
-      [masonryOptions]="{ transitionDuration: '0.8s',fitWidth: true, gutter: 20, originTop: true, horizontalOrder: true }"
+      [masonryOptions]="{ transitionDuration: '0.8s', gutter: 20, originTop: true, horizontalOrder: true }"
       [useAnimation]="true"
       [useImagesLoaded]="true"
       [scrollAnimationOptions]="{
-        animationEffect: 'effect-4',
+        animationEffect: 'effect-8',
         minDuration: 0.6,
         maxDuration: 0.7
       }"
       class="container"
-    >
+    > -->
       <!-- Masonry Grid Item -->
-      <ng-masonry-grid-item
+      <!-- <ng-masonry-grid-item
         class="col masonry-photos"
         id="{{ photo.id }}"
         *ngFor="let photo of photos"
         (click)="removeItem($event)"
         
-      >
+      > -->
         <!-- Grid Content  -->
-        <div class="image-card" routerLink="/photos/{{photo.id}}" >
+        <!-- <div class="image-card"  >
           <app-photo-item [photo]="photo" ></app-photo-item>
           
         </div>
@@ -28,10 +28,30 @@
   </section>
   <div class="pagination">
     <pagination
-      
+      [boundaryLinks]="true"
       [totalItems]="this.totalCount"
       (pageChanged)="onPageChanged($event)"
+      [itemsPerPage] = "this.albumParams.pageSize"
     >
     </pagination>
-  </div>
+  </div> -->
 
+  <section>
+    <ngx-masonry class="contenitore">
+     <div ngxMasonryItem class="masonry-item col masonry-photos" *ngFor="let photo of photos" (click)="removeItem($event)">
+       <div class="image-card">
+         <app-photo-item [photo]="photo" ></app-photo-item>
+       </div>
+    </div>
+   </ngx-masonry>
+  </section>
+ <div class="pagination">
+   <div class="pagination">
+     <pagination
+       [boundaryLinks]="true"
+       [totalItems]="this.totalCount"
+       (pageChanged)="onPageChanged($event)"
+       [itemsPerPage] = "this.albumParams.pageSize"
+     >
+     </pagination>
+   </div> 
