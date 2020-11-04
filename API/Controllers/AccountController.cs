@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [AllowAnonymous]
+    
     public class AccountController : BaseApiController
     {
         private readonly UserManager<User> _userManager;
@@ -27,8 +27,8 @@ namespace API.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
         }
-
-        [HttpGet]
+        [Authorize]
+        [HttpGet("currentUser")]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
 
@@ -48,6 +48,7 @@ namespace API.Controllers
             return await _userManager.FindByEmailAsync(email) != null;
         }
 
+        [Authorize]
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
@@ -56,6 +57,7 @@ namespace API.Controllers
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
 
+        [Authorize]
         [HttpPut("addres")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {

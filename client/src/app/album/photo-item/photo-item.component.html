@@ -1,1 +1,2 @@
-<img src="{{ photo.url }}" alt="{{ photo.description }}" class="image-fluid"  />
+<img src="{{ photo.url }}" alt="{{ photo.description }}" class="image-fluid" (click)="viewerOpen = true"  />
+<app-photo-full [photo]="photo" [open]="viewerOpen" (close)="viewerOpen = false"></app-photo-full>

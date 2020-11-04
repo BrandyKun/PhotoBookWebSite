@@ -9,6 +9,7 @@ import { AlbumService } from '../album.service';
   styleUrls: ['./photo-item.component.scss']
 })
 export class PhotoItemComponent implements OnInit {
+  viewerOpen = false;
   @Input() photo: IPhoto;
 
   masonryImages = [];

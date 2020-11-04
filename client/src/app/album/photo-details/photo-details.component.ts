@@ -10,9 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./photo-details.component.scss'],
 })
 export class PhotoDetailsComponent implements OnInit {
-
-  
-  
   photo: IPhoto;
   viewerOpen = false;
 

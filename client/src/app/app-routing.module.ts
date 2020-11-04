@@ -10,12 +10,14 @@ import { AlbumComponent } from './album/album.component';
 
 
 const routes: Routes = [
-  { path: '', component: AlbumComponent },
+  // { path: '', component: AlbumComponent },
+  { path: '', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
   { path: 'test-error', component: TestErrorComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
+  // { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
+  { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)},
   { path: 'admin', component: AdminPanelComponent},
   { path: '',
     runGuardsAndResolvers: 'always',

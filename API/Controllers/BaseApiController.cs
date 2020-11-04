@@ -5,7 +5,6 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [AllowAnonymous]
     public class BaseApiController : ControllerBase
     {
         

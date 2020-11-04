@@ -12,6 +12,8 @@ import { IPhoto } from '../shared/models/photo';
 
 import { AlbumParams } from '../shared/models/albumParams';
 import { ITag } from '../shared/models/tag';
+import { NgxMasonryOptions } from 'ngx-masonry';
+import { MasonryOptions } from 'ng-masonry-grid';
 
 @Component({
   selector: 'app-album',
@@ -21,7 +23,6 @@ import { ITag } from '../shared/models/tag';
 export class AlbumComponent implements OnInit {
   masonryImages = [];
   limit = 15;
-
   photos: IPhoto[];
   tags: ITag[];
   albumParams = new AlbumParams();
@@ -31,6 +32,9 @@ export class AlbumComponent implements OnInit {
     {name: 'Oldest to Newest', value: 'dateAsc'},
     {name: 'Newest to Oldest', value: 'dateDesc'}  
   ]
+  public myOptions: MasonryOptions = {
+    transitionDuration: '1.s'
+  };
 
   constructor(private albumService: AlbumService) {}
 
@@ -72,9 +76,18 @@ export class AlbumComponent implements OnInit {
     // });
   }
 
+  // onSortSelected(sort:string){
+  //   this.albumParams.sort = sort;
+  //   this.getPhotos();
+  // }
+
   onPageChanged(event:any) {
     this.albumParams.pageNumber = event.page;
     this.getPhotos();
   }
+
+  // onNgMasonryInit($event: Masonry) {
+  //   this._masonry = $event;
+  // }
 
 }
