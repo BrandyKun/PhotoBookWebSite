@@ -25,7 +25,7 @@ import { RoleModalComponent } from './role-modal/role-modal.component';
     FileUploadModule,
     CoreModule,
     TabsModule.forRoot(),
-    ModalModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [ 
     PhotoEditComponent,

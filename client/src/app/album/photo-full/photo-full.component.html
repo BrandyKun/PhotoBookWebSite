@@ -1,12 +1,12 @@
 <div *ngIf="open" class="viewer-container">
   <div class="viewer-content">
-    <a class="close-button" (click)="close.emit()">
-      <i class="fa fas fa-times fa-5x fa-fw left-icon" style="font-size: 25px;"></i>Close Image
+    <a class="close-button" (click)="close.emit(photo.id)">
+      <i class="fa fas fa-chevron-left fa-5x fa-fw left-icon" style="font-size: 25px;"></i>Close Image
   </a>
-    <a class="previuos-button" (click)="close.emit()">
+    <a class="previuos-button" (click)="close.emit(photo.id)">
       <i class="fa fas fa-chevron-left fa-5x fa-fw left-icon" style="font-size: 25px;"></i>previous Image
   </a>
-    <a class="next-button" (click)="close.emit()">
+    <a class="next-button" (click)="close.emit(photo.id)">
       Next Image<i class="fa fas fa-chevron-right fa-5x fa-fw right-icon" style="font-size: 25px;"></i>
   </a>
     

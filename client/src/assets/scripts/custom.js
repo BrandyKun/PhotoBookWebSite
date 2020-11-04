@@ -4,6 +4,6 @@ $(document).ready(function(){
     })
 });
 
-// $(function() {
-//     alert('Hello, custom js');
-// });
+$(function() {
+    alert('Hello, custom js');
+});

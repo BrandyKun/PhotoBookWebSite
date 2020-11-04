@@ -16,7 +16,6 @@ export class NavBarComponent implements OnInit {
   constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit() {
-    if(this.accountService.loadCurrentUser)
     this.currentUser$ = this.accountService.currentUser$;
   }
 

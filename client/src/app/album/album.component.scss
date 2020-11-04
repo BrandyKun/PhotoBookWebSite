@@ -1,31 +1,27 @@
-section {
-  max-width: 1401px;
-  margin: 0 auto;
-  .contenitore {
-    margin-top: 6.25rem;
-    max-height: 100%;
-    max-width: 100% !important;
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-    .col {
-      // margin-left: 3.125rem;
-      width: 33%;
-      margin-bottom: 2.75rem;
+.container {
+  margin-top: 6.25rem;
+  max-height: 100%;
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  left: 0 !important;
 
-      .image-card {
-        // padding-right: 2.75rem;
-        padding-bottom: 2.75rem;
+  .col {
+    // margin-left: 3.125rem;
+    width: 28%;
+    margin-bottom: 2.75rem;
+
+    .image-card {
+      // padding-right: 2.75rem;
+      padding-bottom: 2.75rem;
+      outline: none;
+
+      &:focus,
+      &:active {
         outline: none;
-
-        &:focus,
-        &:active {
-          outline: none;
-          outline: none;
-          border: none;
-        }
+        outline: none;
+        border: none;
       }
     }
   }
@@ -38,37 +34,32 @@ section {
 }
 
 @media (max-width: 1181px) {
-  section {
-    max-width: 100%;
-    margin: 0 auto;
-    .contenitore {
-      max-width: 100% !important;
-      margin-top: 6.25rem;
+  .container {
+    max-width: 100% !important;
+    margin-top: 6.25rem;
 
-      .col {
-        width: 48%;
-      }
+    .col {
+      width: 47%;
+      
     }
   }
 }
 
 //Mobile view portrait
 @media (max-width: 575.98px) {
-  section {
-    max-width: 100%;
-    margin: 0 auto;
-    .contenitore {
-      margin-top: 6.25rem;
+  .container {
+    margin-top: 6.25rem;
+    margin-left: auto;
+    margin-right: auto;
 
-      .col {
-        width: 99%;
-        margin: 0 auto;
-        left: 0 !important;
-      }
+    .col {
+      width: 98%;
+      margin: 0 auto;
+      left: 0 !important;
+    }
 
-      .image-card {
-        padding: 0;
-      }
+    .image-card {
+      padding: 0;
     }
   }
 }

@@ -2,5 +2,5 @@ export class AlbumParams{
     tagId = 0;
     sort = 'dateAsc';
     pageNumber = 1;
-    pageSize = 25;
+    pageSize = 20;
 }

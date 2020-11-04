@@ -26,6 +26,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     HomeModule,
     FormsModule,
     FileUploadModule,
+    AdminModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
