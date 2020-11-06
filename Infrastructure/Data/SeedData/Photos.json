@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600034073/riqif572maltyvos6cx1.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "riqif572maltyvos6cx1",
     "TagId": 1
@@ -10,7 +10,7 @@
   {
     "Id": 2,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600068582/pd7aqqbrwcl79o2uurxi.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "pd7aqqbrwcl79o2uurxi",
     "TagId": 3
@@ -18,7 +18,7 @@
   {
     "Id": 3,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600068788/jjplvfl50idxxmlxx6yh.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "jjplvfl50idxxmlxx6yh",
     "TagId": 2
@@ -26,7 +26,7 @@
   {
     "Id": 4,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600068855/ykpquiujwo01gdgws4kf.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "ykpquiujwo01gdgws4kf",
     "TagId": 4
@@ -34,7 +34,7 @@
   {
     "Id": 5,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600068880/o2ptigbbdcqzpdiwkp3g.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "o2ptigbbdcqzpdiwkp3g",
     "TagId": 1
@@ -42,7 +42,7 @@
   {
     "Id": 6,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600069033/slwx6xc76rhyfzcfp77o.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "slwx6xc76rhyfzcfp77o",
     "TagId": 2
@@ -50,7 +50,7 @@
   {
     "Id": 7,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600115123/bzmwqgvxd0aubp59molx.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "bzmwqgvxd0aubp59molx",
     "TagId": 3
@@ -58,7 +58,7 @@
   {
     "Id": 8,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600115733/k4t2htwhxmzegc1z8swm.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "k4t2htwhxmzegc1z8swm",
     "TagId": 4
@@ -66,7 +66,7 @@
   {
     "Id": 9,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600116132/qkgeh1gwp4uy4jnko3sr.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "qkgeh1gwp4uy4jnko3sr",
     "TagId": 1
@@ -74,7 +74,7 @@
   {
     "Id": 10,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600116959/ikvf41ur57ljexsf0b5l.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "ikvf41ur57ljexsf0b5l",
     "TagId": 2
@@ -82,7 +82,7 @@
   {
     "Id": 11,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600239333/d1hrh16t0sxcddko0cm3.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "d1hrh16t0sxcddko0cm3",
     "TagId": 3
@@ -90,7 +90,7 @@
   {
     "Id": 12,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600239840/cmsiyzcocdl6zzmfmwts.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "cmsiyzcocdl6zzmfmwts",
     "TagId": 4
@@ -98,7 +98,7 @@
   {
     "Id": 13,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600239967/brapahp517rihlidesmg.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "brapahp517rihlidesmg",
     "TagId": 3
@@ -106,7 +106,7 @@
   {
     "Id": 14,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600240461/gfisq7y6pnhgxzeap90g.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "gfisq7y6pnhgxzeap90g",
     "TagId": 2
@@ -114,7 +114,7 @@
   {
     "Id": 15,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241009/jcncvdbsfgm3ibg9svpn.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "jcncvdbsfgm3ibg9svpn",
     "TagId": 1
@@ -122,7 +122,7 @@
   {
     "Id": 16,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241500/wnjgotoercfp12l26yc1.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "wnjgotoercfp12l26yc1",
     "TagId": 3
@@ -130,7 +130,7 @@
   {
     "Id": 17,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241514/vbwifpfjitqzczlftmio.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "vbwifpfjitqzczlftmio",
     "TagId": 4
@@ -138,7 +138,7 @@
   {
     "Id": 18,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241538/ovatnabntqqqnji9ldpw.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "ovatnabntqqqnji9ldpw",
     "TagId": 4
@@ -146,7 +146,7 @@
   {
     "Id": 19,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241562/bz7qzsdp5slutc37zzj1.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "bz7qzsdp5slutc37zzj1",
     "TagId": 1
@@ -154,7 +154,7 @@
   {
     "Id": 20,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241599/t0md1bptduafinmtnivt.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "t0md1bptduafinmtnivt",
     "TagId": 1
@@ -162,7 +162,7 @@
   {
     "Id": 21,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241795/eszltunjz67zznuquuqf.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "eszltunjz67zznuquuqf",
     "TagId": 1
@@ -170,7 +170,7 @@
   {
     "Id": 22,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600241972/jhmcjub4u7y4roe8seip.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "jhmcjub4u7y4roe8seip",
     "TagId": 1
@@ -178,7 +178,7 @@
   {
     "Id": 23,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600242123/b71t4dgmykl99cp0ae8e.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "fkoewgmorgowrmgo",
     "PublicId": "b71t4dgmykl99cp0ae8e",
     "TagId": 1
@@ -186,7 +186,7 @@
   {
     "Id": 24,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600242652/vurwvfrtfwp6hf4di8zb.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "im tired of this test",
     "PublicId": "vurwvfrtfwp6hf4di8zb",
     "TagId": 2
@@ -194,7 +194,7 @@
   {
     "Id": 25,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600246476/bnnqbhvxtr1ba7qes51s.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "im tired of this test",
     "PublicId": "bnnqbhvxtr1ba7qes51s",
     "TagId": 4
@@ -202,7 +202,7 @@
   {
     "Id": 26,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1600247753/evl27a2hd20fuezlgv5j.gif",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "m tired of this test",
     "PublicId": "evl27a2hd20fuezlgv5j",
     "TagId": 3
@@ -210,7 +210,7 @@
   {
     "Id": 27,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603318023/dxmgxszlbxmfbglkyxji.png",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "dxmgxszlbxmfbglkyxji",
     "TagId": 4
@@ -218,7 +218,7 @@
   {
     "Id": 28,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603319567/r9txtwmlfy9yogqszuv7.jpg",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "r9txtwmlfy9yogqszuv7",
     "TagId": 3
@@ -226,7 +226,7 @@
   {
     "Id": 29,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603319718/xkqz0s3psenu3cb6q1rd.jpg",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "xkqz0s3psenu3cb6q1rd",
     "TagId": 2
@@ -234,7 +234,7 @@
   {
     "Id": 30,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603319720/pl3obxoiolcrc78wq0ym.jpg",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "pl3obxoiolcrc78wq0ym",
     "TagId": 1
@@ -242,7 +242,7 @@
   {
     "Id": 31,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603319728/f3ytribafsqn5jbfmynu.png",
-    "DataCreated": "0001-01-01 00:00:00",
+    "DataCreated": "0001-01-01T00:00:00",
     "Description": "",
     "PublicId": "f3ytribafsqn5jbfmynu",
     "TagId": 4
@@ -250,7 +250,7 @@
   {
     "Id": 32,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1603322014/ogdqsg9zjul5lvhiogdj.png",
-    "DataCreated": "2020-10-22 00:13:35.676873",
+    "DataCreated": "2020-10-22T00:13:35.676873",
     "Description": "trying datetime",
     "PublicId": "ogdqsg9zjul5lvhiogdj",
     "TagId": 3
@@ -258,7 +258,7 @@
   {
     "Id": 33,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604089135/vvspqenwqbgyoyitiuq4.jpg",
-    "DataCreated": "2020-10-30 20:18:56.315611",
+    "DataCreated": "2020-10-30T20:18:56.315611",
     "Description": "adding functionality",
     "PublicId": "vvspqenwqbgyoyitiuq4",
     "TagId": 3
@@ -266,7 +266,7 @@
   {
     "Id": 34,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604089260/njoq7korvju9cmwskk7i.jpg",
-    "DataCreated": "2020-10-30 20:21:00.88896",
+    "DataCreated": "2020-10-30T20:21:00.88896",
     "Description": "adding functionality",
     "PublicId": "njoq7korvju9cmwskk7i",
     "TagId": 2
@@ -274,7 +274,7 @@
   {
     "Id": 35,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604090662/y48kgvr9ungbteyrk9rf.jpg",
-    "DataCreated": "2020-10-30 20:44:24.834743",
+    "DataCreated": "2020-10-30T20:44:24.834743",
     "Description": "adding functionality",
     "PublicId": "y48kgvr9ungbteyrk9rf",
     "TagId": 2
@@ -282,7 +282,7 @@
   {
     "Id": 36,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604090969/n9azzfrxqwdcgyg0pbg7.jpg",
-    "DataCreated": "2020-10-30 20:49:31.438051",
+    "DataCreated": "2020-10-30T20:49:31.438051",
     "Description": "",
     "PublicId": "n9azzfrxqwdcgyg0pbg7",
     "TagId": 0
@@ -290,7 +290,7 @@
   {
     "Id": 37,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604182033/sc6t4rvkwislx4dqybgx.jpg",
-    "DataCreated": "2020-10-31 22:07:14.059775",
+    "DataCreated": "2020-10-31T22:07:14.059775",
     "Description": "",
     "PublicId": "sc6t4rvkwislx4dqybgx",
     "TagId": 0
@@ -298,7 +298,7 @@
   {
     "Id": 38,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604530533/bvenvdvgfulwwuga0art.jpg",
-    "DataCreated": "2020-11-04 22:55:34.525025",
+    "DataCreated": "2020-11-04T22:55:34.525025",
     "Description": "",
     "PublicId": "bvenvdvgfulwwuga0art",
     "TagId": 3
@@ -306,7 +306,7 @@
   {
     "Id": 39,
     "Url": "http://res.cloudinary.com/dzgeffn1u/image/upload/v1604530666/pojwsvrwghmdrhriydrd.jpg",
-    "DataCreated": "2020-11-04 22:57:46.95094",
+    "DataCreated": "2020-11-04T22:57:46.95094",
     "Description": "",
     "PublicId": "pojwsvrwghmdrhriydrd",
     "TagId": 2
