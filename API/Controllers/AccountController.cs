@@ -28,8 +28,8 @@ namespace API.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
         [Authorize]
+        [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
 
@@ -43,12 +43,14 @@ namespace API.Controllers
             };
         }
 
+
         [HttpGet("emailexists")]
         public async Task<ActionResult<bool>> CheckEmailExistsAsync([FromQuery] string email)
         {
             return await _userManager.FindByEmailAsync(email) != null;
         }
 
+        [Authorize]
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
@@ -57,6 +59,7 @@ namespace API.Controllers
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
 
+        [Authorize]
         [HttpPut("addres")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
@@ -72,6 +75,7 @@ namespace API.Controllers
             return BadRequest("Problem updating the user");
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto logingDto)
         {
@@ -92,7 +96,8 @@ namespace API.Controllers
                 DisplayName = user.DisplayName
             };
         }
-
+        
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
@@ -119,7 +124,5 @@ namespace API.Controllers
                 Email = user.Email
             };
         }
-
-
     }
 }

@@ -32,7 +32,7 @@ export class AlbumComponent implements OnInit {
   ];
 
   public myOptions: MasonryOptions = {
-    transitionDuration: '0.9s'
+    transitionDuration: '1.s'
   };
 
 
@@ -44,11 +44,14 @@ export class AlbumComponent implements OnInit {
   }
 
   getPhotos() {
+    // this.albumService.getPhotos().subscribe((response) => {
+    //   this.photos = response.data;
+    // });
     this.albumService.getPhotos(this.albumParams).subscribe((response) => {
-        this.photos = response.data;
-        this.albumParams.pageNumber = response.pageIndex;
-        this.albumParams.pageSize = response.pageSize;
-        this.totalCount = response.count;
+        this.photos = response;
+        // this.albumParams.pageNumber = response.pageIndex;
+        // this.albumParams.pageSize = response.pageSize;
+        // this.totalCount = response.count;
       },(error) => {
         console.log(error);
       }
@@ -76,9 +79,9 @@ export class AlbumComponent implements OnInit {
     // });
   }
 
-  onPageChanged(event:any) {
-    this.albumParams.pageNumber = event.page;
-    this.getPhotos();
-  }
+  // onPageChanged(event:any) {
+  //   this.albumParams.pageNumber = event.page;
+  //   this.getPhotos();
+  // }
 
 }

@@ -7,19 +7,31 @@
   />
   <nav style="margin-top: 35px">
     <!-- <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home </a> -->
-    <a [routerLink]="['/photos']"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Photos</a>
+    <a
+      [routerLink]="['/photos']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Photos</a
+    >
     <!-- <a>Digital store</a> -->
-    <a [routerLink]="['/home/about']"  routerLinkActive="active">About Us</a>
+    <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
     <a [routerLink]="['/home/contact-us']" routerLinkActive="active">Contact</a>
-    <a *appHasRole="['Admin']" [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a>
+    <a
+      *appHasRole="['Admin']"
+      [routerLink]="['/test-error']"
+      routerLinkActive="active"
+      >Errors</a
+    >
 
     <ng-container *ngIf="(currentUser$ | async) == null">
-      <a [routerLink]="['/account/login']"  routerLinkActive="active">Login</a>
-      <a [routerLink]="['/account/register']"  routerLinkActive="active">Register</a>
+      <a [routerLink]="['/account/login']" routerLinkActive="active">Login</a>
+      <a [routerLink]="['/account/register']" routerLinkActive="active"
+        >Register</a
+      >
     </ng-container>
     <ng-container *ngIf="currentUser$ | async">
       <div class="navbutton">
-        <a href="#" >Welcome {{(currentUser$ | async).displayName }}</a>
+        <a>Welcome {{ (currentUser$ | async).displayName }}</a>
         <div class="dropdown">
           <div class="navbutton"><a (click)="logOut()">Logout</a></div>
         </div>
@@ -28,9 +40,13 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a (click)="logOut()">Logout</a>
       </div> -->
-      <a  *appHasRole="['Admin','Moderator']" [routerLink]="['admin']"  routerLinkActive="active">Admin</a>
+      <a
+        *appHasRole="['Admin', 'Moderator']"
+        [routerLink]="['admin']"
+        routerLinkActive="active"
+        >Admin</a
+      >
     </ng-container>
-
   </nav>
   <div class="social">
     <a href="#" target="_blank" rel="noopener noreferrer">
@@ -46,15 +62,89 @@
 
   <div class="mobile-wrap">
     <div class="menu-wrap">
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li>
+                <a [routerLink]="['/']" routerLinkActive="active">Photos</a>
+              </li>
+              <!-- <li><a>Digital store</a></li> -->
+              <li [routerLink]="['/home/about']" routerLinkActive="active">
+                <a>About Us</a>
+              </li>
+              <li><a>Contact</a></li>
+              <li *appHasRole="['Admin']">
+                <a [routerLink]="['/test-error']" routerLinkActive="active"
+                  >Errors</a
+                >
+              </li>
+              <ng-container *ngIf="(currentUser$ | async) === null">
+                <li>
+                  <a [routerLink]="['/account/login']" routerLinkActive="active"
+                    >Login</a
+                  >
+                </li>
+                <li>
+                  <a
+                    [routerLink]="['/account/register']"
+                    routerLinkActive="active"
+                    >Register</a
+                  >
+                </li>
+              </ng-container>
+              <ng-container *ngIf="currentUser$ | async">
+                <li>
+                  <a href="#"
+                    >Welcome {{ (currentUser$ | async).displayName }}</a
+                  >
+                </li>
+                <li>
+                  <a (click)="logOut()">Logout</a>
+                </li>
+                <li>
+                  <a
+                    *appHasRole="['Admin', 'Moderator']"
+                    [routerLink]="['admin']"
+                    routerLinkActive="active"
+                    >Admin</a
+                  >
+                </li>
+              </ng-container>
+            </ul>
+            <ul class="social-link">
+              <li class="mob-social">
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa fa-instagram"></i
+                ></a>
+              </li>
+              <li class="mob-social">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  ><i class="fa fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="mob-social">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                  ><i class="fa fa-pinterest"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="menu-wrap">
       <input type="checkbox" class="toggler">
       <div class="hamburger"><div></div></div>
       <div class="menu">
         <div>
           <div>
             <ul>
-              <li><a [routerLink]="['/']"  routerLinkActive="active">Photos</a></li>
-              <!-- <li><a>Digital store</a></li> -->
-              <li [routerLink]="['/home/about']"  routerLinkActive="active"><a>About Us</a></li>
+              <li><a [routerLink]="['/']"  routerLinkActive="active">Photos</a></li> -->
+    <!-- <li><a>Digital store</a></li> -->
+    <!-- <li [routerLink]="['/home/about']"  routerLinkActive="active"><a>About Us</a></li>
               <li><a>Contact</a></li>
               <li *appHasRole="['Admin']"><a  [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a></li>
               <ng-container *ngIf="(currentUser$ | async) === null">
@@ -113,7 +203,7 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
     <!-- <img
       src="../../assets/icon-burger-menu.svg"
       alt="Mobile Menu Icon"

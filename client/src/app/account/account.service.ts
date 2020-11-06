@@ -16,10 +16,12 @@ export class AccountService {
   decodedToken: any;
   jwtHelper = new JwtHelperService();
   currentUser$ = this.currentUserSource.asObservable();
+  
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loadCurrentUser(token: string) {
+  loadCurrentUser(token:string) {
+  //  const token = localStorage.getItem('token');
     if (token === null) {
       this.currentUserSource.next(null);
       return of(null);

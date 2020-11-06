@@ -43,19 +43,19 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Pagination<PhotoForReturnDto>>> GetPhotos([FromQuery] PhotoSpecParams photoSpecParams)
+        public async Task<ActionResult<IEnumerable<PhotoForReturnDto>>> GetPhotos([FromQuery] PhotoSpecParams photoSpecParams)
         {
             var spec = new PhotosWithTagsSpecification(photoSpecParams);
 
             var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
 
-            var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
+            // var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
 
             var photos = await _unitOfWork.Repository<Photo>().ListAsync(spec);
 
-            var data = _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos);
+          return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
 
-            return Ok(new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
+            // return Ok(new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}", Name = "GetPhoto")]

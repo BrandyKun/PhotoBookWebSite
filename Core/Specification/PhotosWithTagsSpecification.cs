@@ -12,7 +12,7 @@ namespace Core.Specification
         {
             AddInclude(x => x.Tag);
             AddOrdeby(x => x.DataCreated);
-            ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
+            // ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
 
 
             if (!string.IsNullOrEmpty(photoSpecParams.Sort))

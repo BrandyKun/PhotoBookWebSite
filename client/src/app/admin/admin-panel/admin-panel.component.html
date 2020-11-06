@@ -1,7 +1,7 @@
-<div class="container-fluid panel mt-5">
+<div class="container panel mt-5">
   <h2> Admin Panel</h2>
   <div class="tab-panel">
-    <tabset class="Member-tabset">
+    <tabset [vertical]="true" class="Member-tabset">
       <tab heading="User Management" *appHasRole="['Admin']">
         <app-user-management></app-user-management>
       </tab>

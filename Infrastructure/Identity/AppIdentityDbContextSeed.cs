@@ -47,16 +47,16 @@ namespace Infrastructure.Identity
                 //creatre admin
                 var adminUser = new User
                 {
-                    DisplayName = "Admin",
-                    Email = "TechAdmin@Test.com",
+                    DisplayName = "Tech Admin",
+                    Email = "TechAdmin@photobook.com",
                     UserName = "TechAdmin"
                 };
 
-                var result = userManager.CreateAsync(adminUser, "Pa$$w0rd").Result;
+                var result = userManager.CreateAsync(adminUser, "20AdelgioVelo$0511").Result;
 
                 if (result.Succeeded)
                 {
-                    var admin = userManager.FindByEmailAsync("TechAdmin@Test.com").Result;
+                    var admin = userManager.FindByEmailAsync("TechAdmin@photobook.com").Result;
                     userManager.AddToRolesAsync(admin, new[] {"Admin","Moderator"}).Wait();
                 }
             }
