@@ -10,7 +10,7 @@ namespace Core.Entities
         public string Description { get; set; }
         public string PublicId { get; set; }
         public Tag Tag { get; set; }
-        public int TagId { get; set; }
+        public int? TagId { get; set; }
 
         public Photo()
         {

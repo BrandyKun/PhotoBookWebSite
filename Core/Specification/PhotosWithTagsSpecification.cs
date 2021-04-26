@@ -11,7 +11,7 @@ namespace Core.Specification
             ) 
         {
             AddInclude(x => x.Tag);
-            AddOrdeby(x => x.DataCreated);
+            AddOrdebyDescending(x => x.Id);
             // ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
 
 

@@ -4,6 +4,7 @@ import { IPhoto } from './shared/models/photo';
 import { IPagination } from './shared/models/pagination';
 import { AccountService } from './account/account.service';
 import { custom } from '../assets/scripts/custom.js';
+import { JwtHelperService } from '@auth0/angular-jwt';
 declare var $: any;
 
 @Component({
@@ -13,8 +14,10 @@ declare var $: any;
 })
 export class AppComponent implements OnInit {
   title = 'Photobook website';
+  jwtHelper = new JwtHelperService();
 
-  constructor(private accountService: AccountService) {}
+
+  constructor(private accountService: AccountService,) {}
 
   ngOnInit() {
     this.loadCurrentUser();
@@ -22,7 +25,7 @@ export class AppComponent implements OnInit {
 
   loadCurrentUser() {
     const token = localStorage.getItem('token');
-    if (token ) {
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
       this.accountService.loadCurrentUser(token).subscribe(() => {
         console.log('loaded user');
       }, error => {

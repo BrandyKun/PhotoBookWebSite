@@ -1,13 +1,15 @@
-<div class="container panel mt-5">
-  <h2> Admin Panel</h2>
-  <div class="tab-panel">
-    <tabset [vertical]="true" class="Member-tabset">
-      <tab heading="User Management" *appHasRole="['Admin']">
-        <app-user-management></app-user-management>
-      </tab>
-      <tab heading="Album Management" *appHasRole="['Admin', 'Moderator']">
-        <app-album-editor></app-album-editor>
-      </tab>
-    </tabset>
+<div class="admin-container">
+  <div class="panel">
+    <h2> Admin Panel</h2>
+    <div class="tab-panel">
+      <tabset [vertical]="true" class="Member-tabset">
+        <tab class="tabName" heading="User Management" *appHasRole="['Admin']">
+          <app-user-management></app-user-management>
+        </tab>
+        <tab class="tabName" heading="Album Management" *appHasRole="['Admin', 'Moderator']">
+          <app-album-editor></app-album-editor>
+        </tab>
+      </tabset>
+    </div>
   </div>
 </div>

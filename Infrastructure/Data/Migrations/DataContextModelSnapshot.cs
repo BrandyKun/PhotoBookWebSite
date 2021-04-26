@@ -16,6 +16,38 @@ namespace Infrastructure.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6");
 
+            modelBuilder.Entity("Core.Entities.AppDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AboutDescription")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("AboutPicture")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FacebookLink")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MainLogoImage")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Pinterest")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppDets");
+                });
+
             modelBuilder.Entity("Core.Entities.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -26,8 +58,7 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT")
-                        .HasMaxLength(180);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PublicId")
                         .IsRequired()
@@ -47,24 +78,6 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("Core.Entities.PhotoTag", b =>
-                {
-                    b.Property<int>("TagId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PhotoId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TagId", "PhotoId");
-
-                    b.HasIndex("PhotoId");
-
-                    b.ToTable("photoTags");
-                });
-
             modelBuilder.Entity("Core.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -81,21 +94,6 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Photo", b =>
                 {
-                    b.HasOne("Core.Entities.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Core.Entities.PhotoTag", b =>
-                {
-                    b.HasOne("Core.Entities.Photo", "Photo")
-                        .WithMany()
-                        .HasForeignKey("PhotoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.Tag", "Tag")
                         .WithMany()
                         .HasForeignKey("TagId")

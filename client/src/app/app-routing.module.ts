@@ -7,6 +7,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AlbumComponent } from './album/album.component';
+import { AboutEditComponent } from './admin/about-edit/about-edit.component';
 
 
 const routes: Routes = [
@@ -17,12 +18,16 @@ const routes: Routes = [
   { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
   { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)},
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
-  { path: 'admin', component: AdminPanelComponent},
-  { path: '',
-    runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
-    children: [{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)}]},
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)},
+  // { path: 'admin', component: AdminPanelComponent},
+  // { path: 'admin-panel', component: AdminPanelComponent},
+  { path: 'edit-about', component: AboutEditComponent},
+  
+  // { path: '',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate: [AuthGuard],
+  //   children: [{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)}]},
+  { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -5,7 +5,6 @@ import { NgxUploaderModule } from 'ngx-uploader';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
@@ -25,7 +24,6 @@ import { FileUploadModule } from 'ng2-file-upload';
     CoreModule,
     FormsModule,
     FileUploadModule,
-    AdminModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

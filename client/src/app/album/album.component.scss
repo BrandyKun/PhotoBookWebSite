@@ -1,34 +1,15 @@
-section {
-  max-width: 1401px;
+.album-container {
+  width: 100%;
   margin: 0 auto;
- 
-  .contenitore {
-    margin-top: 6.25rem;
-    max-height: 100%;
-    max-width: 100% !important;
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-    z-index: 0 !important;
-    position: relative;
-    .col {
-      // margin-left: 3.125rem;
+
+  .album-gallery {
+    max-width: calc(100vw - 20vw);
+    margin: 0 auto;
+    width: 100%;
+
+    .masonry-photos {
       width: 33%;
-      margin-bottom: 2.75rem;
-
-      .image-card {
-        // padding-right: 2.75rem;
-        outline: none;
-
-        &:focus,
-        &:active {
-          outline: none;
-          outline: none;
-          border: none;
-        }
-      }
+      padding: 0.75rem;
     }
   }
 }
@@ -40,36 +21,33 @@ section {
 }
 
 @media (max-width: 1181px) {
-  section {
-    max-width: 98%;
-    margin: 0 auto;
-    .contenitore {
+  .album-container {
+    width: 100%;
+    margin: 0;
+
+    .album-gallery {
       max-width: 100% !important;
       margin-top: 6.25rem;
 
-      .col {
-        width: 50%;
+      .masonry-photos {
+        width: 33%;
       }
     }
   }
 }
 
 //Mobile view portrait
-@media (max-width: 575.98px) {
-  section {
-    max-width: 100%;
+@media (max-width: 768px) {
+  .album-container {
+    max-width: calc(100% -20px);
     margin: 0 auto;
-    .contenitore {
+    .album-gallery {
       margin-top: 6.25rem;
 
-      .col {
-        width: 100%;
-        margin: 0 auto;
-        left: 0 !important;
-      }
-
-      .image-card {
-        padding: 0;
+      .masonry-photos {
+        width: 50%;
+        margin: 0 ;
+        // left: 0 !important;
       }
     }
   }

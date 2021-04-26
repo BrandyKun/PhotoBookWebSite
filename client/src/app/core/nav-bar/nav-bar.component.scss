@@ -9,7 +9,12 @@ header {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
+  z-index: 10;
+
+  img {
+    outline: none;
+  }
 
   .logo {
     max-height: 150px;
@@ -20,13 +25,6 @@ header {
     cursor: pointer;
     text-decoration: none;
     outline: none;
-
-    a img:focus,
-    &:active {
-      outline: none;
-      border: none;
-      -moz-outline-style: none;
-    }
   }
 
   nav {
@@ -43,13 +41,15 @@ header {
       &.active {
         color: #a78857;
       }
-    }
-    a:hover {
-      transition: ease-in-out;
+    
+    &:hover {
+      transition: transform 0.2 ease-in-out;
+      transform: scale(2) !important;
       color: orangered;
       cursor: pointer;
       text-decoration: none;
     }
+  }
   }
 
   .social {
@@ -79,11 +79,16 @@ header {
 }
 
 .dropdown .navbutton {
-  width: 100px;
-  background-color: transparent;
+  max-width: 250px;
+  background-color: white;
 }
 .dropdown .navbutton a {
   color: #36302e;
+}
+.dropdown ul li  {
+  margin-left: 0;
+  margin-bottom: 20px;
+  text-align: left;
 }
 .navbutton {
   background-color: transparent;

@@ -1,0 +1,12 @@
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/bin/Release/netstandard2.1/Infrastructure.deps.json
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/bin/Release/netstandard2.1/Infrastructure.dll
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/bin/Release/netstandard2.1/Infrastructure.pdb
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/bin/Release/netstandard2.1/Core.dll
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/bin/Release/netstandard2.1/Core.pdb
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.csprojAssemblyReference.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.AssemblyInfoInputs.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.AssemblyInfo.cs
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.csproj.CoreCompileInputs.cache
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.csproj.CopyComplete
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.dll
+/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/Release/netstandard2.1/Infrastructure.pdb

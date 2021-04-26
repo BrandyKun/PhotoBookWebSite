@@ -13,12 +13,12 @@ import { CoreModule } from '../core/core.module';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RoleModalComponent } from './role-modal/role-modal.component';
+import { AboutEditComponent } from './about-edit/about-edit.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    AlbumModule,
     SharedModule,
     AdminRoutingModule,
     FormsModule,
@@ -32,13 +32,12 @@ import { RoleModalComponent } from './role-modal/role-modal.component';
     AlbumEditorComponent,
     UserManagementComponent,
     AdminPanelComponent,
+    AboutEditComponent,
     RoleModalComponent
   ],
   entryComponents: [
     RoleModalComponent
   ],
-  exports: [
-   AdminPanelComponent
-  ]
+  
 })
 export class AdminModule { }

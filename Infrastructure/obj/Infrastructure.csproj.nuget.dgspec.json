@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/Infrastructure.csproj": {}
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/brandymkundenga/Desktop/PhotoBook/Core/Core.csproj": {
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brandymkundenga/Desktop/PhotoBook/Core/Core.csproj",
+        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/brandymkundenga/Desktop/PhotoBook/Core/Core.csproj",
+        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "packagesPath": "/Users/brandymkundenga/.nuget/packages/",
-        "outputPath": "/Users/brandymkundenga/Desktop/PhotoBook/Core/obj/",
+        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -35,7 +36,12 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[3.1.8, )"
@@ -56,18 +62,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/Infrastructure.csproj": {
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/Infrastructure.csproj",
+        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/Infrastructure.csproj",
         "packagesPath": "/Users/brandymkundenga/.nuget/packages/",
-        "outputPath": "/Users/brandymkundenga/Desktop/PhotoBook/Infrastructure/obj/",
+        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
@@ -80,9 +86,10 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "/Users/brandymkundenga/Desktop/PhotoBook/Core/Core.csproj": {
-                "projectPath": "/Users/brandymkundenga/Desktop/PhotoBook/Core/Core.csproj"
+              "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {
+                "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj"
               }
             }
           }
@@ -95,6 +102,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -108,6 +116,10 @@
               "target": "Package",
               "version": "[3.1.6, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.6, )"
@@ -115,6 +127,10 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.7.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -136,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

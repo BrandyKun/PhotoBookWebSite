@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { AlbumService } from '../../album/album.service';
 import { ToastrService } from 'ngx-toastr';
 import { ITag } from 'src/app/shared/models/tag';
+import { formatCurrency } from '@angular/common';
 
 @Component({
   selector: 'app-album-editor',
@@ -36,11 +37,13 @@ export class AlbumEditorComponent implements OnInit {
       allowedFileType:['image'],
       removeAfterUpload:true,
       autoUpload: false,
-      additionalParameter: { tag: this.tags }
+      // additionalParameter: { tag: this.tags.id }
     });
     // this.uploader.setOptions({additionalParameter: })
 
-    this.uploader.onAfterAddingAll = file => {file.withCredentials = "true";}
+    this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
+      form.append('tag', this.tags);
+    };
   }
 
   deletePhoto(id: number) {

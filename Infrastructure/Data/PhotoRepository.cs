@@ -21,7 +21,15 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<Photo>> GetPhotosAsync()
         {
-            return await _context.Photos.ToListAsync();
+            var photos = await _context.Photos.ToListAsync();
+
+            foreach (var photo in photos)
+            {
+                if (photo.TagId ==null || photo.TagId == 0)
+                    photo.TagId = 1;
+            }
+
+            return photos;
         }
 
         public async Task<bool> SaveAll()

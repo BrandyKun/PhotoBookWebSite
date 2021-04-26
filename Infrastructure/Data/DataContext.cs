@@ -11,15 +11,17 @@ namespace Infrastructure.Data
         }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<PhotoTag> photoTags { get; set; }
+        // public DbSet<PhotoTag> photoTags { get; set; }
+        public DbSet<AppDetails> AppDets { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            modelBuilder.Entity<PhotoTag>()
-                .HasKey(cs => new {cs.TagId, cs.PhotoId});
+            // modelBuilder.Entity<PhotoTag>()
+            //     .HasKey(cs => new {cs.TagId, cs.PhotoId});
 
         }
     }

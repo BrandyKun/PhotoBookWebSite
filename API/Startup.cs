@@ -9,16 +9,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Linq;
 using API.Errors;
 using Infrastructure.Identity;
 using API.Extensions;
 using Infrastructure.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace API
 {
@@ -32,6 +28,23 @@ namespace API
 
         public IConfiguration Configuration { get; }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+            services.AddDbContext<DataContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentitySQlConnection")));
+            
+            ConfigureServices(services);
+        }
+        // public void ConfigureProductionServices(IServiceCollection services)
+        // {
+        //     services.AddDbContext<DataContext>(x => x.UseMySql(_config.GetConnectionString("DefaultConnection")));
+        //     services.AddDbContext<AppIdentityDbContext>(x => x.UseMySql(_config.GetConnectionString("IdentityConnection")));
+
+        //     ConfigureServices(services);
+        // }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,7 +53,10 @@ namespace API
             services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddControllers();
+            // services.AddControllers();
+            services
+                .AddControllers();
+                // .AddCofoundry(Configuration);
             //     options => 
             // {
             //     var policy = new AuthorizationPolicyBuilder()
@@ -71,8 +87,7 @@ namespace API
                             return new BadRequestObjectResult(errorResponse);
                         };
                 });
-            services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+            
             services.AddIdentityServices(_config);
 
             services.AddAuthentication();
@@ -103,6 +118,7 @@ namespace API
             app.UseRouting();
 
             app.UseStaticFiles();
+           
 
             app.UseCors("CorsPolicy");
 

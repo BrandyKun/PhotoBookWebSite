@@ -40,22 +40,54 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a (click)="logOut()">Logout</a>
       </div> -->
-      <a
-        *appHasRole="['Admin', 'Moderator']"
-        [routerLink]="['admin']"
-        routerLinkActive="active"
-        >Admin</a
-      >
+      <div class="navbutton">
+        <a
+          *appHasRole="['Admin', 'Moderator']"
+          [routerLink]="['admin/']"
+          routerLinkActive="active"
+          >Admin Module</a
+        >
+        <div class="dropdown">
+          <ul>
+            <li>
+              <a
+                *appHasRole="['Admin', 'Moderator']"
+                [routerLink]="['admin/edit-pages']"
+                routerLinkActive="active"
+                >About edit</a
+              >
+            </li>
+            <li>
+              <a
+                *appHasRole="['Admin', 'Moderator']"
+                [routerLink]="['admin/about-pages']"
+                routerLinkActive="active"
+                >Hola</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
     </ng-container>
   </nav>
   <div class="social">
-    <a href="#" target="_blank" rel="noopener noreferrer">
+    <a
+      href="{{ appDetails?.instagram }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <i class="fa fa-instagram"></i
     ></a>
-    <a href="#" target="_blank" rel="noopener noreferrer"
+    <a
+      href="{{ appDetails?.facebookLink }}"
+      target="_blank"
+      rel="noopener noreferrer"
       ><i class="fa fa-facebook-f"></i
     ></a>
-    <a href="#" target="_blank" rel="noopener noreferrer"
+    <a
+      href="{{ appDetails?.pinterest }}"
+      target="_blank"
+      rel="noopener noreferrer"
       ><i class="fa fa-pinterest"></i
     ></a>
   </div>
@@ -97,20 +129,20 @@
               </ng-container>
               <ng-container *ngIf="currentUser$ | async">
                 <li>
-                  <a href="#"
-                    >Welcome {{ (currentUser$ | async).displayName }}</a
-                  >
-                </li>
-                <li>
-                  <a (click)="logOut()">Logout</a>
-                </li>
-                <li>
                   <a
                     *appHasRole="['Admin', 'Moderator']"
                     [routerLink]="['admin']"
                     routerLinkActive="active"
                     >Admin</a
                   >
+                </li>
+                <li>
+                  <a href="#"
+                    >Welcome {{ (currentUser$ | async).displayName }}</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown" (click)="logOut()">Logout</a>
                 </li>
               </ng-container>
             </ul>

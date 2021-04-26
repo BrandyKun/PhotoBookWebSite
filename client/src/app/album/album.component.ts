@@ -40,7 +40,7 @@ export class AlbumComponent implements OnInit {
 
   ngOnInit() {
     this.getPhotos();
-    this.getTags();
+
   }
 
   getPhotos() {

@@ -64,6 +64,8 @@ namespace API.Controllers
             var spec = new PhotosWithTagsSpecification(id);
 
             var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
+            
+           
 
             var photo = _mapper.Map<Photo, PhotoForReturnDto>(photoFromRepo);
 
@@ -97,6 +99,9 @@ namespace API.Controllers
 
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
+            // photoForCreationDto.TagId = uploadResult.Tags.
+            if(photoForCreationDto.TagId == null || photoForCreationDto.TagId == 0)
+                photoForCreationDto.TagId = 1;
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 

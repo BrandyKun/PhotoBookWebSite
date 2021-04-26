@@ -9,7 +9,7 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<Photo> builder)
         {
             builder.Property(p => p.Id).IsRequired();
-            builder.Property(p => p.Description).HasMaxLength(180);
+            builder.Property(p => p.Description);
             builder.Property(p => p.DataCreated);
             builder.Property(p => p.Url).IsRequired();
             builder.Property(p => p.PublicId).IsRequired();

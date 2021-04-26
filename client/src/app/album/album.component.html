@@ -1,21 +1,14 @@
 
-<section>
-  <ngx-masonry class="contenitore" [options]="myOptions">
-    <div ngxMasonryItem class="masonry-item col masonry-photos" *ngFor="let photo of photos" >
-      <div class="image-card" >
-        <app-photo-item [photo]="photo" ></app-photo-item>
-      </div>
-   </div>
-  </ngx-masonry>
-</section>
-<!-- <div class="pagination">
-  <div class="pagination">
-    <pagination
-      [boundaryLinks]="true"
-      [totalItems]="this.totalCount"
-      (pageChanged)="onPageChanged($event)"
-      [itemsPerPage]="this.albumParams.pageSize"
-    >
-    </pagination>
+<div class="album-container">
+  <div class="album-gallery">
+    <ngx-masonry [options]="myOptions">
+      <div ngxMasonryItem class="masonry-photos" *ngFor="let photo of photos" >
+        <div class="image-card" >
+          <app-photo-item [photo]="photo" ></app-photo-item>
+        </div>
+     </div>
+    </ngx-masonry>
   </div>
-</div> -->
+</div>
+
+ 

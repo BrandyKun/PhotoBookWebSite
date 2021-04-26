@@ -1,5 +1,10 @@
-<app-photo-full [photo]="photo" [open]="viewerOpen" (close)="viewerOpen = false"></app-photo-full>
-<div class="image" (click)="viewerOpen = true">
-    <img src="{{ photo.url }}" alt="{{ photo.description }}" class="image-fluid"  />
-</div>
 
+<a [routerLink]="['/album/' + photo.id]">
+  <div class="image">
+    <img
+      src="{{ photo.url }}"
+      alt="{{ photo.description }}"
+      class="image-fluid"
+    />
+  </div>
+</a>

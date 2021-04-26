@@ -22,7 +22,7 @@ export class AccountService {
 
   loadCurrentUser(token:string) {
   //  const token = localStorage.getItem('token');
-    if (token === null) {
+    if (token === null || this.jwtHelper.isTokenExpired(token)) {
       this.currentUserSource.next(null);
       return of(null);
     }

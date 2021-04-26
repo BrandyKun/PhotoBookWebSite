@@ -3,12 +3,12 @@
     <a class="close-button" (click)="close.emit(photo.id)">
       <i class="fa fas fa-chevron-left fa-5x fa-fw left-icon" style="font-size: 25px;"></i>Close Image
   </a>
-    <a class="previuos-button" (click)="close.emit(photo.id)">
+    <!-- <a class="previuos-button" (click)="previousPhoto(photo.id)">
       <i class="fa fas fa-chevron-left fa-5x fa-fw left-icon" style="font-size: 25px;"></i>previous Image
   </a>
-    <a class="next-button" (click)="close.emit(photo.id)">
+    <a class="next-button" (click)="nextPhoto()">
       Next Image<i class="fa fas fa-chevron-right fa-5x fa-fw right-icon" style="font-size: 25px;"></i>
-  </a>
+  </a> -->
     
     <img class="main-img" [src]="photo.url"/>
   </div>
