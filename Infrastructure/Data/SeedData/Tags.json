@@ -1,22 +1,17 @@
 [
   {
-    "Id": 1,
     "Name": "untagged"
   },
   {
-    "Id": 2,
     "Name": "Nature"
   },
   {
-    "Id": 3,
     "Name": "Fire"
   },
   {
-    "Id": 4,
     "Name": "Sky"
   },
   {
-    "Id": 5,
     "Name": "Sky"
   }
 

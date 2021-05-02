@@ -13,6 +13,12 @@
       [routerLinkActiveOptions]="{ exact: true }"
       >Photos</a
     >
+    <a
+      [routerLink]="['/photos']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Collections</a
+    >
     <!-- <a>Digital store</a> -->
     <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
     <a [routerLink]="['/home/contact-us']" routerLinkActive="active">Contact</a>
@@ -40,34 +46,12 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a (click)="logOut()">Logout</a>
       </div> -->
-      <div class="navbutton">
         <a
           *appHasRole="['Admin', 'Moderator']"
           [routerLink]="['admin/']"
           routerLinkActive="active"
           >Admin Module</a
         >
-        <div class="dropdown">
-          <ul>
-            <li>
-              <a
-                *appHasRole="['Admin', 'Moderator']"
-                [routerLink]="['admin/edit-pages']"
-                routerLinkActive="active"
-                >About edit</a
-              >
-            </li>
-            <li>
-              <a
-                *appHasRole="['Admin', 'Moderator']"
-                [routerLink]="['admin/about-pages']"
-                routerLinkActive="active"
-                >Hola</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
     </ng-container>
   </nav>
   <div class="social">

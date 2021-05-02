@@ -10,7 +10,7 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Photo, PhotoForReturnDto>()
-                .ForMember(d => d.Tag, o => o.MapFrom(s => s.Tag.Name));
+                .ForMember(d => d.Tag, o => o.MapFrom(s => s.PhotoTags));
             CreateMap<PhotoForCreationDto, Photo>();
             CreateMap<Photo, PhotoForCreationDto>();
             CreateMap<Address, AddressDto>();

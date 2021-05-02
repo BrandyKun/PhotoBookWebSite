@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,8 @@ import { HomeRoutingModule } from './home-routing.module';
     ContactUsComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule
   ],
   exports:[HomeComponent]
 })

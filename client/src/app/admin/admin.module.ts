@@ -1,3 +1,4 @@
+import { AdminComponent } from './admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotoEditComponent } from './photo-edit/photo-edit.component';
@@ -33,7 +34,8 @@ import { AboutEditComponent } from './about-edit/about-edit.component';
     UserManagementComponent,
     AdminPanelComponent,
     AboutEditComponent,
-    RoleModalComponent
+    RoleModalComponent, 
+    AdminComponent
   ],
   entryComponents: [
     RoleModalComponent

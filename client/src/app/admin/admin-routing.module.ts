@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutEditComponent } from './about-edit/about-edit.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminComponent } from './admin.component';
 import { AlbumEditorComponent } from './album-editor/album-editor.component';
-import { PhotoEditComponent } from './photo-edit/photo-edit.component';
-//import { AboutEditComponent } from './about-edit/about-edit.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 const routes: Routes = [
-      { path: '', component: AdminPanelComponent, data: { roles: ['Admin'] } },
+      { path: '', component: AdminComponent, data: { roles: ['Admin'] } },
+      { path: 'users-roles', component: UserManagementComponent, data: { roles: ['Admin'] } },
+      // { path: 'collections', component: RoleModalComponent, data: { roles: ['Admin'] } },
       { path: 'album-editor', component: AlbumEditorComponent, data: { roles: ['Admin'] } },
       { path: 'edit-pages', component: AboutEditComponent, data: { roles: ['Admin'] } },
 

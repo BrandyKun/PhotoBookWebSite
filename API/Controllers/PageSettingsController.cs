@@ -36,7 +36,7 @@ namespace API.Controllers
             var details = await _unitOfWork.Repository<AppDetails>().GetById(id);
 
             details.AboutDescription = detailsDto.AboutDescription;
-            details.AboutPicture = detailsDto.AboutPicture;
+            details.AboutPictureUrl = detailsDto.AboutPicture;
             details.CompanyName = detailsDto.CompanyName;
             details.FacebookLink = detailsDto.FacebookLink;
            

@@ -30,8 +30,8 @@ namespace API
 
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
+            // services.AddDbContext<DataContext>(x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            // services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
             services.AddDbContext<DataContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentitySQlConnection")));
             

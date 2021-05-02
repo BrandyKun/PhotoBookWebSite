@@ -47,7 +47,7 @@ namespace API.Controllers
         {
             var spec = new PhotosWithTagsSpecification(photoSpecParams);
 
-            var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
+            // var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
 
             // var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
 
@@ -111,7 +111,7 @@ namespace API.Controllers
             if (await _unitOfWork.Complete() >= 0)
             {
                 var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
-                return CreatedAtRoute("GetPhoto", new { id = photo.Id, tagId = photo.TagId }, photoToReturn);
+                return CreatedAtRoute("GetPhoto", new { id = photo.Id }, photoToReturn);
             }
             return BadRequest("could not return photo");
 

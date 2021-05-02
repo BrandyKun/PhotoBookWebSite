@@ -36,20 +36,21 @@ header {
       font-size: 20px;
       margin-left: 30px;
       color: #5c5c5c;
-      font-family: "Crimson Text", serif;
+      text-transform: uppercase;
+      font-family: "Alcumbierre", "arial", sans-serif;
 
       &.active {
         color: #a78857;
       }
-    
-    &:hover {
-      transition: transform 0.2 ease-in-out;
-      transform: scale(2) !important;
-      color: orangered;
-      cursor: pointer;
-      text-decoration: none;
+
+      &:hover {
+        transition: transform 0.2 ease-in-out;
+        transform: scale(2) !important;
+        color: orangered;
+        cursor: pointer;
+        text-decoration: none;
+      }
     }
-  }
   }
 
   .social {
@@ -85,7 +86,7 @@ header {
 .dropdown .navbutton a {
   color: #36302e;
 }
-.dropdown ul li  {
+.dropdown ul li {
   margin-left: 0;
   margin-bottom: 20px;
   text-align: left;
@@ -265,7 +266,7 @@ header {
         transition: color 0.4s ease;
       }
 
-      ul.social-link{
+      ul.social-link {
         margin-top: 50px;
       }
       ul li.mob-social {

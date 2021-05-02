@@ -4,6 +4,10 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 @import '~ngx-toastr/toastr-bs4-alert';
+@font-face {
+  font-family: Alcumbierre;
+  src: url(./assets/fonts/Alcubierre.otf) format("truetype");
+}
 // @import '../src/css-reset.css';
 
 // Custom Theming for Angular Material
@@ -61,14 +65,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  font-family: 'Helvetica' serif;
+  font-family: 'Alcumbierre', 'arial', sans-serif;
+  
   // background:linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
 
 }
 body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
   align-items: center;
 }
 

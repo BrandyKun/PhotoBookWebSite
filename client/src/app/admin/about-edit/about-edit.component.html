@@ -1,7 +1,6 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3 col-sm-12 col-xs-12">
-      <a>
+<div class="page-settings">
+  <div class="about-section">
+    <div class="about-img">
         <img
           src="https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png"
           srcset="
@@ -9,24 +8,24 @@
             https://format-com-cld-res.cloudinary.com/image/private/s--RQ_ZeVEU--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png 2x
           "
         />
-      </a>
       <button
         [disabled]="!editForm.dirty"
         form="editForm"
-        class="btn btn-success btn-block"
+        class="btn btn-success"
       >
         Save changes
       </button>
     </div>
-    <div
-      class="col-md-9 col-sm-12 col-xs-12"
-      style="padding: auto 0; margin: auto"
-    >
+    <div class="about-bio">
       <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have Made changes. Any unsaved changes
         will be lost
       </div>
-      <form #editForm="ngForm" id="editForm" (ngSubmit)="submitChanges(appDetails.id)">
+      <form
+        #editForm="ngForm"
+        id="editForm"
+        (ngSubmit)="submitChanges(appDetails.id)"
+      >
         <h1>Biography</h1>
         <h4>Edit Paragraph</h4>
         <textarea

@@ -5,12 +5,13 @@ namespace Core.Specification
     public class PhotosWithTagsSpecification : BaseSpecification<Photo>
     {
         public PhotosWithTagsSpecification(PhotoSpecParams photoSpecParams)
-            : base(x =>
-                (string.IsNullOrEmpty(photoSpecParams.Search)|| x.Tag.Name.ToLower().Contains(photoSpecParams.Search)) &&
-                (!photoSpecParams.TagId.HasValue|| x.TagId == photoSpecParams.TagId)
+            : base(
+                // x =>
+                // (string.IsNullOrEmpty(photoSpecParams.Search)|| x.Tag.Name.ToLower().Contains(photoSpecParams.Search)) &&
+                // (!photoSpecParams.TagId.HasValue|| x.TagId == photoSpecParams.TagId)
             ) 
         {
-            AddInclude(x => x.Tag);
+            // AddInclude(x => x.Tag);
             AddOrdebyDescending(x => x.Id);
             // ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
 
@@ -32,7 +33,7 @@ namespace Core.Specification
 
         public PhotosWithTagsSpecification(int id): base(x => x.Id == id)
         {
-            AddInclude(x => x.Tag);
+            // AddInclude(x => x.Tag);
         }
     }
 }

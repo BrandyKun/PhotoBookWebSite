@@ -16,7 +16,13 @@ namespace Infrastructure.Data
 
         public async Task<AppDetails> GetDetails()
         {
-            return await  _context.AppDets.FirstOrDefaultAsync();
+            return await _context.AppDets.FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> UpdatedDetails()
+        {
+            return await _context.SaveChangesAsync() > 0;
+
         }
     }
 }

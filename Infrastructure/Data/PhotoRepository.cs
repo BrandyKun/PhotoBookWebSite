@@ -23,11 +23,11 @@ namespace Infrastructure.Data
         {
             var photos = await _context.Photos.ToListAsync();
 
-            foreach (var photo in photos)
-            {
-                if (photo.TagId ==null || photo.TagId == 0)
-                    photo.TagId = 1;
-            }
+            // foreach (var photo in photos)
+            // {
+            //     if (photo.PhotoTags ==null || photo.PhotoTags == 0)
+            //         photo.PhotoTags = 1;
+            // }
 
             return photos;
         }
