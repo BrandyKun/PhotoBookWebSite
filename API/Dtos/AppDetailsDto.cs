@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace API.Dtos
 {
     public class AppDetailsDto
@@ -9,5 +11,10 @@ namespace API.Dtos
         public string FacebookLink { get; set; }
         public string Instagram { get; set; }
         public string Pinterest { get; set; }
+        public string LinkedIn { get; set; }
+        public string Twitter { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

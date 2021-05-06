@@ -1,5 +1,10 @@
 <div class="page-settings">
   <div class="about-section">
+    <form
+    #editForm="ngForm"
+    id="editForm"
+    (ngSubmit)="submitChanges(appDetails.id)"
+  >
     <div class="about-img">
         <img
           src="https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png"
@@ -21,11 +26,7 @@
         <strong>Information:</strong> You have Made changes. Any unsaved changes
         will be lost
       </div>
-      <form
-        #editForm="ngForm"
-        id="editForm"
-        (ngSubmit)="submitChanges(appDetails.id)"
-      >
+     
         <h1>Biography</h1>
         <h4>Edit Paragraph</h4>
         <textarea
@@ -59,7 +60,11 @@
             [(ngModel)]="appDetails.pinterest"
           />
         </div>
-      </form>
     </div>
+
+    <div class="contact-bio">
+
+    </div>
+  </form>
   </div>
 </div>

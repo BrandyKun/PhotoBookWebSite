@@ -30,19 +30,18 @@ namespace API.Controllers
         }
 
         [Authorize]
-        [HttpPut("changesettings/{1}")]
+        [HttpPut("changesettings/{id}")]
         public async Task<ActionResult<AppDetails>> UpdatAppDetails(int id,[FromQuery]AppDetailsDto detailsDto)
         {
             var details = await _unitOfWork.Repository<AppDetails>().GetById(id);
 
-            details.AboutDescription = detailsDto.AboutDescription;
-            details.AboutPictureUrl = detailsDto.AboutPicture;
-            details.CompanyName = detailsDto.CompanyName;
-            details.FacebookLink = detailsDto.FacebookLink;
-           
+            _mapper.Map(detailsDto, details);
+
+           _unitOfWork.Repository<AppDetails>().Update(details);
+
            await _unitOfWork.Complete();
 
-             return details;
+            return StatusCode(201);
         }
     }
 }

@@ -19,15 +19,9 @@ namespace Infrastructure.Data
             return await _context.Photos.FindAsync(id);
         }
 
-        public async Task<IReadOnlyList<Photo>> GetPhotosAsync()
+        public async Task<IEnumerable<Photo>> GetPhotosAsync()
         {
             var photos = await _context.Photos.ToListAsync();
-
-            // foreach (var photo in photos)
-            // {
-            //     if (photo.PhotoTags ==null || photo.PhotoTags == 0)
-            //         photo.PhotoTags = 1;
-            // }
 
             return photos;
         }

@@ -7,7 +7,7 @@ namespace Core.Interfaces
     public interface IPhotosRepository
     {
         Task<Photo> GetPhotoByIdAsync(int id);
-        Task<IReadOnlyList<Photo>> GetPhotosAsync();
+        Task<IEnumerable<Photo>> GetPhotosAsync();
         Task<bool> SaveAll();
 
         
