@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Core.Entities;
 
 namespace API.Dtos
 {
@@ -9,7 +11,7 @@ namespace API.Dtos
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public string PublicId { get; set; }
-        public string Tag { get; set; }
+        public IEnumerable<PhotoTag> Tags { get; set; }
 
     }
 }

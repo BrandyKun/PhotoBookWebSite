@@ -11,6 +11,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 // import { HomeModule } from './home/home.module';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     CoreModule,
     FormsModule,
     FileUploadModule,
+    SharedModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

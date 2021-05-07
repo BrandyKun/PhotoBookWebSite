@@ -11,7 +11,8 @@ namespace Core.Specification
                 // (!photoSpecParams.TagId.HasValue|| x.TagId == photoSpecParams.TagId)
             ) 
         {
-            // AddInclude(x => x.Tag);
+            AddInclude(x => x.Tags);
+            // AddIncludeThen(x=> x.);
             AddOrdebyDescending(x => x.Id);
             // ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
 

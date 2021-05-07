@@ -19,9 +19,18 @@ namespace Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            
+            modelBuilder.Entity<PhotoTag>(x=> x.HasKey(pt => new {pt.PhotoId, pt.TagId}));
 
             modelBuilder.Entity<PhotoTag>()
-                .HasKey(pt => new {pt.PhotoId, pt.TagId});
+                .HasOne(p => p.Photo)
+                .WithMany(t => t.Tags)
+                .HasForeignKey(pt => pt.PhotoId);
+
+            modelBuilder.Entity<PhotoTag>()
+                .HasOne(t => t.Tag)
+                .WithMany(p => p.Photos)
+                .HasForeignKey(pt => pt.TagId);
 
         }
     }

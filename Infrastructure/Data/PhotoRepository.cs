@@ -14,14 +14,37 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        public async Task<bool> AddPhotoTags(Photo photo, IEnumerable<Tag> tags)
+        {
+            var photoFromRepo = await _context.Photos
+                .Include(t => t.Tags).ThenInclude(t => t.Tag)
+                .FirstOrDefaultAsync(p => p.Id == photo.Id);
+
+            foreach (var tag in tags)
+            {
+                var newPhotoTag =  new PhotoTag {
+                    Photo = photo,
+                    Tag = tag
+                };
+
+               await _context.photoTags.AddAsync(newPhotoTag);
+            }
+
+            return await _context.SaveChangesAsync() > 0;
+        }
+
         public async Task<Photo> GetPhotoByIdAsync(int id)
         {
-            return await _context.Photos.FindAsync(id);
+            return await _context.Photos
+                .Include(t => t.Tags).ThenInclude(t => t.Tag)
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IEnumerable<Photo>> GetPhotosAsync()
         {
-            var photos = await _context.Photos.ToListAsync();
+            var photos = await _context.Photos
+                .Include(t => t.Tags).ThenInclude(t => t.Tag)
+                .ToListAsync();
 
             return photos;
         }

@@ -11,6 +11,7 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
+using Infrastructure.Data;
 
 namespace API.Controllers
 {
@@ -19,16 +20,20 @@ namespace API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
+        private readonly PhotoRepository _photoRepository;
         private Cloudinary _cloudinary;
         private readonly IUnitOfWork _unitOfWork;
 
         public PhotoController(IOptions<CloudinarySettings> cloudinaryConfig,
+                                PhotoRepository photoRepository,
                                 IUnitOfWork unitOfWork,
                                 IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _cloudinaryConfig = cloudinaryConfig;
+            _photoRepository = photoRepository;
             _mapper = mapper;
+            
 
 
             Account acc = new Account(
@@ -47,11 +52,13 @@ namespace API.Controllers
         {
             var spec = new PhotosWithTagsSpecification(photoSpecParams);
 
-            // var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
+            // // var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
 
-            // var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
+            // // var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
 
-            var photos = await _unitOfWork.Repository<Photo>().ListAsync(spec);
+            // var photos = await _unitOfWork.Repository<Photo>().ListAsync(spec);
+
+            var photos = await _photoRepository.GetPhotosAsync();
 
           return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
 
@@ -99,9 +106,8 @@ namespace API.Controllers
 
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
-            // photoForCreationDto.TagId = uploadResult.Tags.
-            if(photoForCreationDto.TagId == null || photoForCreationDto.TagId == 0)
-                photoForCreationDto.TagId = 1;
+            
+            
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 
@@ -166,6 +172,7 @@ namespace API.Controllers
 
             return BadRequest("Could not create new tag");
         }
+
 
     }
 }

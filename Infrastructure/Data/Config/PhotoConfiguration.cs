@@ -13,7 +13,7 @@ namespace Infrastructure.Data.Config
             builder.Property(p => p.DataCreated);
             builder.Property(p => p.Url).IsRequired();
             builder.Property(p => p.PublicId).IsRequired();
-            builder.HasMany(b => b.PhotoTags).WithOne(c=> c.Photo);
+            builder.HasMany(b => b.Tags);
         }
     }
 }

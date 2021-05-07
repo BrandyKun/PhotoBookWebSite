@@ -1,3 +1,4 @@
+using System.Linq;
 using API.Dtos;
 using AutoMapper;
 using Core.Entities;
@@ -10,7 +11,7 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Photo, PhotoForReturnDto>()
-                .ForMember(d => d.Tag, o => o.MapFrom(s => s.PhotoTags));
+                .ForMember(t => t.Tags, o => o.MapFrom(o => o.Tags.Select(cs => cs.Tag)));
             CreateMap<PhotoForCreationDto, Photo>();
             CreateMap<Photo, PhotoForCreationDto>();
             CreateMap<Address, AddressDto>();

@@ -1,6 +1,6 @@
 namespace Core.Entities
 {
-    public class PhotoTag : BaseEntity
+    public class PhotoTag 
     {
         public int PhotoId { get; set; }
         public Photo Photo { get; set; }

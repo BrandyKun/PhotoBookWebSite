@@ -9,7 +9,6 @@ namespace Core.Interfaces
         Task<Photo> GetPhotoByIdAsync(int id);
         Task<IEnumerable<Photo>> GetPhotosAsync();
         Task<bool> SaveAll();
-
-        
+        Task<bool> AddPhotoTags(Photo photoTocreate, IEnumerable<Tag> tag);
     }
 }

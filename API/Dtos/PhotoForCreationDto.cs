@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Core.Entities;
 using Microsoft.AspNetCore.Http;
 
 namespace API.Dtos
@@ -10,7 +12,7 @@ namespace API.Dtos
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public string PublicId { get; set; }
-        public int TagId { get; set; }
+        public IEnumerable<Tag> TagId { get; set; }
         public PhotoForCreationDto()
         {
             DateAdded  = DateTime.Now;

@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 
 
@@ -16,9 +17,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     PaginationModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxUploaderModule,
   ],
-  exports: [PaginationModule, ReactiveFormsModule, TextInputComponent, UploadPhotoComponent]
+  exports: [PaginationModule, ReactiveFormsModule, TextInputComponent, UploadPhotoComponent, NgxUploaderModule]
 
 })
 export class SharedModule { }

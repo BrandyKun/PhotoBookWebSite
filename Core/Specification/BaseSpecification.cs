@@ -34,6 +34,10 @@ namespace Core.Specification
         {
             Includes.Add(includeExpression);
         }
+        protected void AddIncludeThen(Expression<Func<T, object>> includeExpression)
+        {
+            Includes.Add(includeExpression);
+        }
 
         protected void AddOrdeby(Expression<Func<T, object>> OrderByExpression)
         {
