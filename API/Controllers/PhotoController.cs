@@ -20,12 +20,12 @@ namespace API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
-        private readonly PhotoRepository _photoRepository;
+        private readonly IPhotosRepository _photoRepository;
         private Cloudinary _cloudinary;
         private readonly IUnitOfWork _unitOfWork;
 
         public PhotoController(IOptions<CloudinarySettings> cloudinaryConfig,
-                                PhotoRepository photoRepository,
+                                IPhotosRepository photoRepository,
                                 IUnitOfWork unitOfWork,
                                 IMapper mapper)
         {
@@ -60,7 +60,7 @@ namespace API.Controllers
 
             var photos = await _photoRepository.GetPhotosAsync();
 
-          return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
+            return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
 
             // return Ok(new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
         }
@@ -72,8 +72,6 @@ namespace API.Controllers
 
             var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
             
-           
-
             var photo = _mapper.Map<Photo, PhotoForReturnDto>(photoFromRepo);
 
             return Ok(photo);
@@ -107,7 +105,7 @@ namespace API.Controllers
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
             
-            
+
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 

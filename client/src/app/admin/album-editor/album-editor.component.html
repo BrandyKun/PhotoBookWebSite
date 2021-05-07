@@ -42,13 +42,14 @@
                 </td>
                 <td>
                   <div class="tags-selector">
-                      <form #rolesForm="ngForm" id="rolesForm">
+                      <form *ngIf="ngForm" [formGroup]="ngForm" id="rolesForm">
                             <div class="form-check" *ngFor="let tag of tags">
                               <input type="checkbox" 
                               class="form-check-input" 
                               value="={{tag.name}}" 
                               [checked]="tag.checked"
-                              (change)="tag.checked = !tag.checked">
+                              (change)="onChange(tag.name, $event.target.checked)">
+                              <!-- (change)="tag.checked = !tag.checked"> -->
                               <label>{{tag.name}}</label>
                             </div>
                           </form>

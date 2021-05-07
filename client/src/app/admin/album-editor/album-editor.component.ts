@@ -1,29 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
 import { AlbumService } from '../../album/album.service';
 import { ToastrService } from 'ngx-toastr';
 import { ITag } from 'src/app/shared/models/tag';
 import { formatCurrency } from '@angular/common';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-album-editor',
   templateUrl: './album-editor.component.html',
   styleUrls: ['./album-editor.component.scss']
 })
-export class AlbumEditorComponent implements OnInit {
 
+export class AlbumEditorComponent implements OnInit {
+  ngForm: FormGroup;
   uploader:FileUploader;
   hasBaseDropZoneOver:boolean;
   tags: ITag[];
   baseUrl = environment.apiUrl;
 
   constructor(private albumService: AlbumService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private fb: FormBuilder) { }
 
   ngOnInit(){
     this.initializeUploader();
     this.getTags();
+    this.ngForm = this.fb.group({
+      name: this.fb.array([])});
   }
 
   fileOverBase(e:any):void {
@@ -37,7 +42,7 @@ export class AlbumEditorComponent implements OnInit {
       allowedFileType:['image'],
       removeAfterUpload:true,
       autoUpload: false,
-      // additionalParameter: { tag: this.tags.id }
+      // additionalParameter: { tags:  }
     });
     // this.uploader.setOptions({additionalParameter: })
 
@@ -63,5 +68,17 @@ export class AlbumEditorComponent implements OnInit {
     },(error) => {
       console.log(error);
     });
+  }
+
+  onChange(name: string, isChecked: boolean) {
+    const photoTag= (this.ngForm.controls.name as FormArray);
+
+    if (isChecked) {
+      photoTag.push(new FormControl(name));
+      console.log(photoTag);
+    } else {
+      const index = photoTag.controls.findIndex(x => x.value === name);
+      photoTag.removeAt(index);
+    }
   }
 }
