@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj": {}
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {}
   },
   "projects": {
-    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj": {
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj",
+        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj",
+        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "packagesPath": "/Users/brandymkundenga/.nuget/packages/",
-        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/obj/",
+        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"

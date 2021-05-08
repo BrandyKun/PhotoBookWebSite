@@ -3,7 +3,7 @@
     <form
     #editForm="ngForm"
     id="editForm"
-    (ngSubmit)="submitChanges(appDetails.id)"
+    (ngSubmit)="submitChanges(appDetails.id, $event.target)"
   >
     <div class="about-img">
         <img

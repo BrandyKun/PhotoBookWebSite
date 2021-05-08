@@ -16,7 +16,7 @@ export class HomeService {
   }
 
   updateAppSettings(changedDets : IAppDetails , id: number) {
-    return this.http.put(this.baseUrl + 'pagesettings' + id,changedDets)
+    return this.http.post(this.baseUrl + 'pagesettings/changesettings/' + id, {changedDets})
   }
 
 }

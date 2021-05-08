@@ -14,15 +14,28 @@ namespace Infrastructure.Data
             _context = context;
         }
 
-        public async Task<AppDetails> GetDetails()
+        public async Task<AppDetails> GetDetailsById(int id)
         {
             return await _context.AppDets.FirstOrDefaultAsync();
         }
 
-        public async Task<bool> UpdatedDetails()
+        public Task<bool> UpdatedDetails(AppDetails dets)
         {
-            return await _context.SaveChangesAsync() > 0;
-
+            throw new System.NotImplementedException();
         }
+
+        // public async Task<bool> UpdatedDetails(AppDetails dets)
+        // {
+        //     var details = await _context.AppDets.FirstOrDefaultAsync();
+
+
+        //     return ;
+
+        // }
+        //     public void Update(T entity)
+        // {
+        //     DbSet.Attach(entity);
+        //     ApplicationContext.Entry(entity).State = EntityState.Modified;
+        // }
     }
 }

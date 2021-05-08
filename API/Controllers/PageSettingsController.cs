@@ -9,7 +9,7 @@ using AutoMapper;
 
 namespace API.Controllers
 {
-    
+
     public class PageSettingsController : BaseApiController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -29,17 +29,17 @@ namespace API.Controllers
             return Ok(details);
         }
 
-        [Authorize]
-        [HttpPut("changesettings/{id}")]
-        public async Task<ActionResult<AppDetails>> UpdatAppDetails(int id,[FromQuery]AppDetailsDto detailsDto)
+        // [Authorize(Policy = "RequireAdminRole")]
+        [HttpPost("changesettings/{id}")]
+        public async Task<ActionResult<AppDetails>> UpdatAppDetails(int id, [FromForm]AppDetailsDto detailsDto)
         {
             var details = await _unitOfWork.Repository<AppDetails>().GetById(id);
 
-            _mapper.Map(detailsDto, details);
+            _mapper.Map<AppDetailsDto, AppDetails>(detailsDto);
 
-           _unitOfWork.Repository<AppDetails>().Update(details);
+            _unitOfWork.Repository<AppDetails>().Update(details);
 
-           await _unitOfWork.Complete();
+            await _unitOfWork.Complete();
 
             return StatusCode(201);
         }

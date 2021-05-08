@@ -5,8 +5,8 @@ namespace Core.Interfaces
 {
     public interface IDetailsRepository
     {
-        Task<AppDetails> GetDetails ();
+        Task<AppDetails> GetDetailsById(int id);
 
-        Task<bool> UpdatedDetails();
+        Task<bool> UpdatedDetails(AppDetails dets);
     }
 }
