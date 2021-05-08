@@ -17,6 +17,5 @@ namespace API.Dtos
         {
             DateAdded  = DateTime.Now;
         }
-
     }
 }

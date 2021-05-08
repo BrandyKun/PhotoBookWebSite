@@ -80,7 +80,7 @@ namespace API.Controllers
         
 
         [HttpPost("addPhoto")]
-        public async Task<IActionResult> AddPhoto([FromForm] PhotoForCreationDto photoForCreationDto)
+        public async Task<IActionResult> AddPhoto([FromForm]PhotoForCreationDto photoForCreationDto)
         {
             // IEnumerable<Photo> photosfromRepo = await _unitOfWork.Repository<Photo>().ListAllAsync();
 
@@ -97,18 +97,14 @@ namespace API.Controllers
                         File = new FileDescription(file.Name, stream),
                         Transformation = new Transformation().Width(550).Crop("fill").Gravity("center")
                     };
-
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }
 
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
-            
-
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
-
 
             _unitOfWork.Repository<Photo>().Add(photo);
 
@@ -118,7 +114,6 @@ namespace API.Controllers
                 return CreatedAtRoute("GetPhoto", new { id = photo.Id }, photoToReturn);
             }
             return BadRequest("could not return photo");
-
         }
 
         [HttpDelete("{id}")]

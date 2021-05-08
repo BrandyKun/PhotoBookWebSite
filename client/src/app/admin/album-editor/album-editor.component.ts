@@ -1,3 +1,4 @@
+// import { ITag } from './../../shared/models/tag';
 import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
@@ -19,6 +20,7 @@ export class AlbumEditorComponent implements OnInit {
   hasBaseDropZoneOver:boolean;
   tags: ITag[];
   baseUrl = environment.apiUrl;
+  photoTags : ITag[] = [];
 
   constructor(private albumService: AlbumService,
               private toastr: ToastrService,
@@ -42,13 +44,16 @@ export class AlbumEditorComponent implements OnInit {
       allowedFileType:['image'],
       removeAfterUpload:true,
       autoUpload: false,
-      // additionalParameter: { tags:  }
+      parametersBeforeFiles: true,
+      additionalParameter: { TagId: this.photoTags  },
     });
     // this.uploader.setOptions({additionalParameter: })
 
-    this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
-      form.append('tag', this.tags);
-    };
+    // this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
+    //   form.append('TagId', this.photoTags);
+    // };
+
+    // console.log(this.uploader)
   }
 
   deletePhoto(id: number) {
@@ -70,15 +75,25 @@ export class AlbumEditorComponent implements OnInit {
     });
   }
 
-  onChange(name: string, isChecked: boolean) {
+  onChange(tagpt: ITag, isChecked: boolean) {
     const photoTag= (this.ngForm.controls.name as FormArray);
 
     if (isChecked) {
-      photoTag.push(new FormControl(name));
-      console.log(photoTag);
+      photoTag.push(new FormControl(tagpt));
+      this.photoTags.push(tagpt);
+      console.log(this.photoTags);
     } else {
-      const index = photoTag.controls.findIndex(x => x.value === name);
+      const index = photoTag.controls.findIndex(x => x.value === tagpt.id);
       photoTag.removeAt(index);
+      // console.log(photoTag.value);
+      const indext = this.photoTags.findIndex( x => x.id === tagpt.id);
+      this.photoTags.splice(indext);
+      console.log(this.photoTags);
     }
   }
+
+//   submit(){
+//     let formData: FormData = new FormData();
+//     formData.append('TagId', this.photoTags);
+// }
 }

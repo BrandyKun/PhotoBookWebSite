@@ -48,7 +48,7 @@
                               class="form-check-input" 
                               value="={{tag.name}}" 
                               [checked]="tag.checked"
-                              (change)="onChange(tag.name, $event.target.checked)">
+                              (change)="onChange(tag, $event.target.checked)">
                               <!-- (change)="tag.checked = !tag.checked"> -->
                               <label>{{tag.name}}</label>
                             </div>
