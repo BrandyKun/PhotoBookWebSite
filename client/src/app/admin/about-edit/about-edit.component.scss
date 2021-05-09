@@ -13,15 +13,35 @@
       width: 100%;
       .website-settings{
         display: flex;
-        justify-content: center;
-        background-color: yellow;
-        height: 500px;
+        justify-content: flex-start;
+        height: 300px;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #c2c2c2;
+        h4{
+          width: 100%;
+        }
 
         .logo-container{
           width: 50%;
           height: 200px;
-          background-color: honeydew;
+          padding: 20px;
         }
+        .uploader{
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 2%;
+          border: 1px solid rgb(90, 90, 90);
+          height: 200px;
+        }
+        input{
+          width: 50%;
+          margin-left: 800px;
+        }
+
       }
 
       .about-img {
@@ -29,6 +49,7 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
+        border-bottom: 1px solid #c2c2c2;
         img::before {
           content: "";
         }
@@ -46,6 +67,7 @@
       .about-bio {
         flex: 0.9;
         padding: 20px;
+        border-bottom: 1px solid #c2c2c2;
 
         textarea {
           margin-top: 10px;
@@ -79,7 +101,7 @@
         flex-wrap: wrap;
         align-items: center;
 
-        h1 {
+        h4 {
           width: 100%;
           // flex: 100% 100% 100%;
         }
@@ -100,12 +122,14 @@
           width: 50%;
           max-height: 500px;
           height: 300px;
-          background-color: blue;
 
           img{
             object-fit: cover;
           }
         }
+      }
+      button{
+        width: 20%;
       }
     }
   }

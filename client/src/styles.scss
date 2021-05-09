@@ -1,9 +1,8 @@
- 
-// if you'd like to use it without importing all of bootstrap it requires 
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@import '~ngx-toastr/toastr-bs4-alert';
+// if you'd like to use it without importing all of bootstrap it requires
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~ngx-toastr/toastr-bs4-alert";
 @font-face {
   font-family: Alcumbierre;
   src: url(./assets/fonts/Alcubierre.otf) format("truetype");
@@ -49,8 +48,8 @@ $client-theme: mat-light-theme(
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
 * {
-  margin: 0 ;
-  padding: 0 ;
+  margin: 0;
+  padding: 0;
 }
 html {
   min-height: 100%;
@@ -58,22 +57,26 @@ html {
 body {
   height: 100%;
   background-position: top center;
-
 }
 html,
 body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  font-family: 'Alcumbierre', 'arial', sans-serif;
-  
-  // background:linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
+  font-family: "Alcumbierre", "arial", sans-serif;
 
+  // background:linear-gradient(to top, #040308, #AD4A28, #DD723C, #FC7001, #DCB697, #9BA5AE, #3E5879, #020B1A);
 }
 body {
   height: 100%;
   margin: 0;
   align-items: center;
+}
+
+h4 {
+  color: orangered;
+  margin-top: 30px;
+  font-weight: bold;
 }
 
 //tablet view
@@ -99,11 +102,9 @@ body {
 }
 
 //Mobile view landescape
-@media(max-width: 767.98px) {
-
+@media (max-width: 767.98px) {
 }
 
 //Mobile view portrait
-@media(max-width: 575.98px) {
-
+@media (max-width: 575.98px) {
 }

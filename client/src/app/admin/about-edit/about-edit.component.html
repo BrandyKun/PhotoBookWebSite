@@ -5,9 +5,34 @@
       id="editForm"
       (ngSubmit)="submitChanges(appDetails.id)"
     >
+    <div *ngIf="editForm.dirty" class="alert alert-info">
+      <strong>Information:</strong> You have Made changes. Any unsaved
+      changes will be lost
+    </div>
       <div class="website-settings">
-        <div class="logo-container"></div>
-        <div class="uploader"></div>
+        <h4> Website Settings </h4>
+        <div class="logo-container">
+          <img
+            src="{{ appDetails.mainLogoImageUrl || 'assets/adelgioMain.svg' }}"
+            alt="Logo"
+          />
+        </div>
+        <div
+          ng2FileDrop
+          [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+          (fileOver)="fileOverBase($event)"
+          [uploader]="uploader"
+          class="uploader"
+        ><i class="fa fa-upload fa-3x"></i>
+        Upload New logo</div>
+
+        <label for="websiteName">Website Name:</label>
+        <input
+          class="form-control"
+          type="text"
+          name="Enter website name"
+          [(ngModel)]="appDetails.companyName"
+        />
       </div>
       <div class="about-img">
         <img
@@ -17,19 +42,10 @@
             https://format-com-cld-res.cloudinary.com/image/private/s--RQ_ZeVEU--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png 2x
           "
         />
-        <button
-          [disabled]="!editForm.dirty"
-          form="editForm"
-          class="btn btn-success"
-        >
-          Save changes
-        </button>
+        
       </div>
       <div class="about-bio">
-        <div *ngIf="editForm.dirty" class="alert alert-info">
-          <strong>Information:</strong> You have Made changes. Any unsaved
-          changes will be lost
-        </div>
+        
 
         <h1>Biography</h1>
         <h4>Edit Paragraph</h4>
@@ -80,7 +96,7 @@
         </div>
       </div>
       <div class="contact-bio">
-        <h1>Contact Us form Information</h1>
+        <h4>Contact Us form Information</h4>
         <table>
           <tr>
             <th></th>
@@ -117,6 +133,13 @@
           <img src="{{ appDetails.aboutPictureUrl }}" />
         </div>
       </div>
+      <button
+          [disabled]="!editForm.dirty"
+          form="editForm"
+          class="btn btn-success"
+        >
+          Save changes
+        </button>
     </form>
   </div>
 </div>
