@@ -27,8 +27,8 @@ export class AboutEditComponent implements OnInit {
   }
 
   submitChanges(id: number) {
-    this.homeService.updateAppSettings(this.appDetails, id).subscribe();
-    console.log("form updated");
-    this.editForm.reset(this.appDetails);
+    this.homeService.updateAppSettings(this.appDetails).subscribe();
+    console.log(this.appDetails);
+    // this.editForm.reset(this.appDetails);
   }
 }

@@ -17,6 +17,7 @@ namespace API.Helpers
             CreateMap<Address, AddressDto>();
             CreateMap<AddressDto, Address>();
             CreateMap<AppDetailsDto, AppDetails>();
+            CreateMap<AppDetailsReturnDto, AppDetails>();
 
         }
 

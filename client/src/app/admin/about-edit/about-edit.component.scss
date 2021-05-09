@@ -11,18 +11,38 @@
       display: flex;
       flex-wrap: wrap;
       width: 100%;
+      .website-settings{
+        display: flex;
+        justify-content: center;
+        background-color: yellow;
+        height: 500px;
+
+        .logo-container{
+          width: 50%;
+          height: 200px;
+          background-color: honeydew;
+        }
+      }
 
       .about-img {
         flex: 0.1;
         padding: 20px;
         display: flex;
         flex-direction: column;
+        img::before {
+          content: "";
+        }
+        &:hover {
+          content: "change Image";
+          color: white;
+          background-color: rgba(169, 169, 169, 0.308);
+          opacity: 1;
+        }
 
         button {
           margin-top: 0.75rem;
         }
       }
-
       .about-bio {
         flex: 0.9;
         padding: 20px;
@@ -46,38 +66,47 @@
 
         .form-inline {
           margin-top: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
         }
       }
       .contact-bio {
         height: 500px;
         width: 100%;
-        background-color: green;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        h1 {
+          width: 100%;
+          // flex: 100% 100% 100%;
+        }
+        table {
+          flex: 0.5;
+          margin: 1.75rem 0.75rem;
+          width: 50%;
+          border-radius: 10px;
+
+
+          td {
+            border-bottom: 1px solid rgb(95, 95, 95);
+            margin-top: 20px;
+          }
+        }
+        .contact-image {
+          flex: 0.5;
+          width: 50%;
+          max-height: 500px;
+          height: 300px;
+          background-color: blue;
+
+          img{
+            object-fit: cover;
+          }
+        }
       }
     }
   }
-  // textarea {
-  //   margin-top: 10px;
-  //   padding-right: 100px;
-  // }
-  // h4 {
-  //   color: orangered;
-  //   margin-top: 30px;
-  //   font-weight: bold;
-  // }
-
-  // form {
-  //   padding-bottom: 100px;
-
-  //   div label {
-  //     margin-right: 5px;
-  //   }
-
-  //   input {
-  //     margin-right: 5px;
-  //   }
-
-  //   .form-inline {
-  //     margin-top: 20px;
-  //   }
-  // }
 }

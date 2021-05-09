@@ -30,14 +30,14 @@ namespace API.Controllers
         }
 
         // [Authorize(Policy = "RequireAdminRole")]
-        [HttpPost("changesettings/{id}")]
-        public async Task<ActionResult<AppDetails>> UpdatAppDetails(int id, [FromForm]AppDetailsDto detailsDto)
+        [HttpPut]
+        public async Task<ActionResult> UpdatAppDetails( AppDetailsReturnDto detailsDto)
         {
-            var details = await _unitOfWork.Repository<AppDetails>().GetById(id);
+            var details = await _unitOfWork.Repository<AppDetails>().GetById(1);
 
-            _mapper.Map<AppDetailsDto, AppDetails>(detailsDto);
+            _mapper.Map(detailsDto, details);
 
-            _unitOfWork.Repository<AppDetails>().Update(details);
+            // _unitOfWork.Repository<AppDetails>().Update(details);
 
             await _unitOfWork.Complete();
 
