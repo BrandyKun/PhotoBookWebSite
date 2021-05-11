@@ -15,6 +15,7 @@ using API.Errors;
 using Infrastructure.Identity;
 using API.Extensions;
 using Infrastructure.Services;
+using API.Services;
 
 namespace API
 {
@@ -92,6 +93,7 @@ namespace API
 
             services.AddAuthentication();
             services.AddScoped<IPhotosRepository, PhotoRepository>();
+            services.AddScoped<IBrandingService, BrandigService>();
             services.AddScoped((typeof(IGenericRepository<>)), (typeof(GenericRepository<>)));
             services.AddCors(opt =>
             {

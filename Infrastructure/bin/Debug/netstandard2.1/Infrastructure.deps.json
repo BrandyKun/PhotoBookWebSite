@@ -1947,7 +1947,6 @@
       },
       "Core/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.6",
           "Microsoft.Extensions.Identity.Stores": "3.1.8"
         },
         "runtime": {

@@ -3,7 +3,7 @@
     <form
       #editForm="ngForm"
       id="editForm"
-      (ngSubmit)="submitChanges(appDetails.id)"
+      (ngSubmit)="submitChanges(PageSettings.id)"
     >
     <div *ngIf="editForm.dirty" class="alert alert-info">
       <strong>Information:</strong> You have Made changes. Any unsaved
@@ -11,30 +11,43 @@
     </div>
       <div class="website-settings">
         <h4> Website Settings </h4>
-        <div class="logo-container">
+        <div class="logo-container" style="background-color:#1919191e ;">
           <img
-            src="{{ appDetails.mainLogoImageUrl || 'assets/adelgioMain.svg' }}"
+            src="{{mainLogoPreview$ | async }}"
             alt="Logo"
+            style="object-fit:scale-down;"
           />
         </div>
-        <div
+        <app-file-upload
+        aria-describedby="main-logo-validation-message"
+        name="mainLogoUpload"
+        #mainLogoUpload = "ngModel"
+        [(ngModel)]="PageSettings.mainLogoImageUrl"
+        [chooseAFileLabel]= "'Choose a file for Main Logo'"
+        [chooseADifferentFileLabel] = " 'Cho0se a different file for Main Logo' ">
+        </app-file-upload>
+        <!-- <div
           ng2FileDrop
           [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
           (fileOver)="fileOverBase($event)"
           [uploader]="uploader"
+          name="mainLogoUpload"
+          #mainLogoUpload= "ngModel"
+          [(ngModel)]=" PageSettings.mainLogoImageUrl"
           class="uploader"
         ><i class="fa fa-upload fa-3x"></i>
-        Upload New logo</div>
+        drop Image <br />or <br /> <input type="file" ng2FileSelect [uploader]="uploader" /><br /></div> -->
 
         <label for="websiteName">Website Name:</label>
         <input
           class="form-control"
           type="text"
           name="Enter website name"
-          [(ngModel)]="appDetails.companyName"
+          [(ngModel)]="PageSettings.companyName"
         />
       </div>
       <div class="about-img">
+        <input type="file" ng2FileSelect [uploader]="aboutUploader" /><br />
         <img
           src="https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png"
           srcset="
@@ -42,6 +55,7 @@
             https://format-com-cld-res.cloudinary.com/image/private/s--RQ_ZeVEU--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png 2x
           "
         />
+        
         
       </div>
       <div class="about-bio">
@@ -53,7 +67,7 @@
           name="description"
           rows="10"
           class="form-control"
-          [(ngModel)]="appDetails.aboutDescription"
+          [(ngModel)]="PageSettings.aboutDescription"
         >
         </textarea>
 
@@ -63,35 +77,35 @@
             class="form-control"
             type="text"
             name="Instagram"
-            [(ngModel)]="appDetails.instagram"
+            [(ngModel)]="PageSettings.instagram"
           />
           <label for="Facebook">Facebook:</label>
           <input
             class="form-control"
             type="text"
             name="Facebook"
-            [(ngModel)]="appDetails.facebookLink"
+            [(ngModel)]="PageSettings.facebookLink"
           />
           <label for="Pinterest">Pinterest:</label>
           <input
             class="form-control"
             type="text"
             name="Pinterest"
-            [(ngModel)]="appDetails.pinterest"
+            [(ngModel)]="PageSettings.pinterest"
           />
           <label for="Pinterest">Twitter:</label>
           <input
             class="form-control"
             type="text"
             name="Twitter"
-            [(ngModel)]="appDetails.pinterest"
+            [(ngModel)]="PageSettings.pinterest"
           />
           <label for="Pinterest">LinkedIn:</label>
           <input
             class="form-control"
             type="text"
             name="LinkedIn"
-            [(ngModel)]="appDetails.pinterest"
+            [(ngModel)]="PageSettings.pinterest"
           />
         </div>
       </div>
@@ -111,7 +125,7 @@
                 class="form-control"
                 type="text"
                 name="contact email"
-                [(ngModel)]="appDetails.contactEmail"
+                [(ngModel)]="PageSettings.contactEmail"
               />
             </td>
           </tr>
@@ -124,22 +138,38 @@
                 class="form-control"
                 type="text"
                 name="phone number"
-                [(ngModel)]="appDetails.contactNumber"
+                [(ngModel)]="PageSettings.contactNumber"
               />
             </td>
           </tr>
         </table>
+        <div
+          ng2FileDrop
+          [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+          (fileOver)="fileOverBase($event)"
+          [uploader]="contactUploader"
+          class="uploader"
+        ><i class="fa fa-upload fa-3x"></i>
+        Upload New logo</div>
         <div class="contact-image">
-          <img src="{{ appDetails.aboutPictureUrl }}" />
+          <img src="{{ PageSettings.aboutPictUrl}}" />
         </div>
-      </div>
-      <button
-          [disabled]="!editForm.dirty"
+      </div><div class="form-buttons">
+        
+        <button
+            [disabled]="!editForm.dirty"
+            form="editForm"
+            class="btn btn-success"
+          >
+            Save changes
+          </button>
+          <button
           form="editForm"
-          class="btn btn-success"
+          class="btn btn-secondary"
         >
-          Save changes
+          Cancel
         </button>
+      </div>
     </form>
   </div>
 </div>

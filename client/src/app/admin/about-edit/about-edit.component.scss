@@ -11,7 +11,7 @@
       display: flex;
       flex-wrap: wrap;
       width: 100%;
-      .website-settings{
+      .website-settings {
         display: flex;
         justify-content: flex-start;
         height: 300px;
@@ -19,16 +19,16 @@
         align-items: center;
         width: 100%;
         border-bottom: 1px solid #c2c2c2;
-        h4{
+        h4 {
           width: 100%;
         }
 
-        .logo-container{
+        .logo-container {
           width: 50%;
           height: 200px;
           padding: 20px;
         }
-        .uploader{
+        .uploader {
           width: 50%;
           display: flex;
           justify-content: center;
@@ -37,11 +37,10 @@
           border: 1px solid rgb(90, 90, 90);
           height: 200px;
         }
-        input{
+        input {
           width: 50%;
-          margin-left: 800px;
+          // margin-left: 800px;
         }
-
       }
 
       .about-img {
@@ -50,16 +49,25 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #c2c2c2;
-        img::before {
-          content: "";
+        input {
+          position: relative;
+          top: 230px;
+          left: 60px;
+          color: white;
+
+          &:hover {
+            z-index: 10;
+            color: blue;
+            cursor: pointer;
+          }
         }
-        &:hover {
+        img:hover {
           content: "change Image";
           color: white;
-          background-color: rgba(169, 169, 169, 0.308);
           opacity: 1;
+          filter: blur(1px);
+          z-index: -1;
         }
-
         button {
           margin-top: 0.75rem;
         }
@@ -88,7 +96,8 @@
 
         .form-inline {
           margin-top: 20px;
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(10, minmax(0, 1fr));
           flex-wrap: wrap;
           justify-content: space-between;
         }
@@ -111,7 +120,6 @@
           width: 50%;
           border-radius: 10px;
 
-
           td {
             border-bottom: 1px solid rgb(95, 95, 95);
             margin-top: 20px;
@@ -123,14 +131,29 @@
           max-height: 500px;
           height: 300px;
 
-          img{
+          img {
             object-fit: cover;
           }
         }
       }
-      button{
-        width: 20%;
+      .form-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        button {
+          width: 30%;
+        }
       }
     }
+  }
+}
+
+@media (max-width: 1181px) {
+  .form-inline {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }

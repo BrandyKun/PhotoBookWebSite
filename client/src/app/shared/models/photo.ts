@@ -5,3 +5,4 @@ export interface IPhoto {
     dateAdded: Date;
     tag: string;
 }
+

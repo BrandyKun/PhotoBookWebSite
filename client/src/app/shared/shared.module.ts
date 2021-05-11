@@ -1,3 +1,4 @@
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -11,7 +12,7 @@ import { NgxUploaderModule } from 'ngx-uploader';
 
 
 @NgModule({
-  declarations: [TextInputComponent,UploadPhotoComponent],
+  declarations: [TextInputComponent,UploadPhotoComponent,FileUploadComponent],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
@@ -20,7 +21,7 @@ import { NgxUploaderModule } from 'ngx-uploader';
     FlexLayoutModule,
     NgxUploaderModule,
   ],
-  exports: [PaginationModule, ReactiveFormsModule, TextInputComponent, UploadPhotoComponent, NgxUploaderModule]
+  exports: [PaginationModule, ReactiveFormsModule, TextInputComponent, UploadPhotoComponent, NgxUploaderModule, FileUploadComponent]
 
 })
 export class SharedModule { }

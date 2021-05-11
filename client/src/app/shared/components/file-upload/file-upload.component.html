@@ -1,0 +1,45 @@
+<div appDragDrop (FileDropped)="addFile($event)">
+
+  <span *ngIf="!hasFile">
+    <p>Drop a file here</p>
+ 
+
+    <p>or</p>
+  </span>
+
+  <input
+    type="file"
+    #uploadTarget
+    (change)="onFileChange($event)"
+    class="sr-only"
+    aria-hidden="true"
+    tabindex="-1"
+    [attr.accept]="acceptedMimeTypes.join(',')">
+
+  <button
+    [disabled]="disabled"
+    *ngIf="!hasFile"
+    type="button"
+    (click)="uploadTarget.click()"
+    (keyup.space)="uploadTarget.click()"
+    class="sg-btn-primary sg-btn-icon-plus"
+    [attr.aria-label]="chooseAFileLabel">
+    Choose a file
+  </button>
+
+  <p *ngIf="hasFile" [@inout]>
+    <span [@inout] class="upload-filename">
+      {{fileName}}
+    </span>
+
+    <button
+      [disabled]="disabled"
+      [@inout]
+      type="button"
+      (click)="reset()"
+      class="sg-btn-simple sg-btn-small sg-btn-round sg-btn-icon-pencil"
+      [attr.aria-label]="chooseADifferentFileLabel">
+    </button>
+  </p>
+
+</div>

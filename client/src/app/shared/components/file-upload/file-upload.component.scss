@@ -1,0 +1,20 @@
+div {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+    min-height: 10rem;
+    text-align: center;
+    box-sizing: content-box;
+
+    &.drag-over {
+
+        border-color: #fff;
+        box-shadow: 0 0 0 0.2rem #0b61bd
+    }
+}
+
+span.upload-filename {
+    font-style: italic;
+    margin-right: 0.5em;
+}

@@ -139,10 +139,6 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.6, )"
-            },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[3.1.8, )"

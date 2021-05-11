@@ -1,13 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace API.Dtos
 {
     public class AppDetailsReturnDto
     {
         public string CompanyName { get; set; }
-        public string MainLogoImage { get; set; }
+        public IFormFile MainLogoImage { get; set; }
         public string AboutDescription { get; set; }
-        public string AboutPicture { get; set; }
+        public IFormFile ContactPageImage { get; set; }
+        public IFormFile  AboutPictur { get; set; }
         public string FacebookLink { get; set; }
         public string Instagram { get; set; }
         public string Pinterest { get; set; }
