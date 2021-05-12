@@ -20,11 +20,11 @@ import { AboutEditComponent } from './about-edit/about-edit.component';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
     AdminRoutingModule,
     FormsModule,
     FileUploadModule,
     CoreModule,
+    SharedModule,
     TabsModule.forRoot(),
     ModalModule.forRoot()
   ],

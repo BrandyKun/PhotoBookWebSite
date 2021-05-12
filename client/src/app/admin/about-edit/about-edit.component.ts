@@ -84,6 +84,8 @@ export class AboutEditComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
       const mainLogoControl$ = this._getImagePreviewStream(this.logofileUploadModel);
+      const aboutImgControl$ = this._getImagePreviewStream(this.aboutImgUploadModel);
+      const contactImgControl$ = this._getImagePreviewStream(this.contactImgoUploadModel);
 
       this.mainLogoPreview$ = 
         merge(
@@ -93,6 +95,26 @@ export class AboutEditComponent implements OnInit, AfterViewInit {
                 map<IAppDetails, string>(x => x.mainLogoImageUrl)
             ),
             mainLogoControl$
+        );
+
+      this.aboutImgPreview$ = 
+        merge(
+          this.appSettings$
+            .pipe(
+                takeUntil(aboutImgControl$),
+                map<IAppDetails, string>(x => x.aboutPictureUrl)
+            ),
+            aboutImgControl$
+        );
+
+      this.contactImgPreview$ = 
+        merge(
+          this.appSettings$
+            .pipe(
+                takeUntil(contactImgControl$),
+                map<IAppDetails, string>(x => x.contactPicUrl)
+            ),
+            contactImgControl$
         );
   }
 

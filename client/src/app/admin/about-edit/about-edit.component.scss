@@ -27,6 +27,12 @@
           width: 50%;
           height: 200px;
           padding: 20px;
+
+          .img-prw{
+            width: 100%;
+            height: 200px;
+          }
+
         }
         .uploader {
           width: 50%;
@@ -49,6 +55,10 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #c2c2c2;
+        .img-prw{
+          width: 200px;
+          height: 200px;
+        }
         input {
           position: relative;
           top: 230px;

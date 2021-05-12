@@ -12,31 +12,17 @@
       <div class="website-settings">
         <h4> Website Settings </h4>
         <div class="logo-container" style="background-color:#1919191e ;">
-          <img
-            src="{{mainLogoPreview$ | async }}"
-            alt="Logo"
-            style="object-fit:scale-down;"
-          />
+          <app-image-preview class="img-prw" [imageUrl]="mainLogoPreview$ | async"></app-image-preview>
         </div>
         <app-file-upload
         aria-describedby="main-logo-validation-message"
         name="mainLogoUpload"
+        class="uploader"
         #mainLogoUpload = "ngModel"
         [(ngModel)]="PageSettings.mainLogoImageUrl"
         [chooseAFileLabel]= "'Choose a file for Main Logo'"
         [chooseADifferentFileLabel] = " 'Cho0se a different file for Main Logo' ">
-        </app-file-upload>
-        <!-- <div
-          ng2FileDrop
-          [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
-          (fileOver)="fileOverBase($event)"
-          [uploader]="uploader"
-          name="mainLogoUpload"
-          #mainLogoUpload= "ngModel"
-          [(ngModel)]=" PageSettings.mainLogoImageUrl"
-          class="uploader"
-        ><i class="fa fa-upload fa-3x"></i>
-        drop Image <br />or <br /> <input type="file" ng2FileSelect [uploader]="uploader" /><br /></div> -->
+      </app-file-upload>
 
         <label for="websiteName">Website Name:</label>
         <input
@@ -47,7 +33,16 @@
         />
       </div>
       <div class="about-img">
-        <input type="file" ng2FileSelect [uploader]="aboutUploader" /><br />
+        <app-image-preview class="img-prw" [imageUrl]="aboutImgPreview$ | async"></app-image-preview>
+        <app-file-upload 
+        aria-describedby="about-message"
+        name="aboutImgUpload"
+        class="bio-uploader"
+        #aboutImgUpload = "ngModel"
+        [(ngModel)]="PageSettings.aboutPictUrl"
+        [chooseAFileLabel]= "'Choose a file the About Page'"
+        [chooseADifferentFileLabel] = " 'Choose a different file for Main Logo' "></app-file-upload>
+        <!-- <input type="file" ng2FileSelect [uploader]="aboutUploader" /><br /> -->
         <img
           src="https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png"
           srcset="
