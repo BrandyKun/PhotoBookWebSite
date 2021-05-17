@@ -52,17 +52,10 @@ namespace API.Controllers
         {
             var spec = new PhotosWithTagsSpecification(photoSpecParams);
 
-            // // var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
-
-            // // var totalItems = await _unitOfWork.Repository<Photo>().CountAsync(spec);
-
-            // var photos = await _unitOfWork.Repository<Photo>().ListAsync(spec);
-
             var photos = await _photoRepository.GetPhotosAsync();
 
             return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
 
-            // return Ok(new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}", Name = "GetPhoto")]
@@ -82,7 +75,6 @@ namespace API.Controllers
         [HttpPost("addPhoto")]
         public async Task<IActionResult> AddPhoto([FromForm]PhotoForCreationDto photoForCreationDto)
         {
-            // IEnumerable<Photo> photosfromRepo = await _unitOfWork.Repository<Photo>().ListAllAsync();
 
             var file = photoForCreationDto.File;
 

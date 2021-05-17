@@ -1,6 +1,6 @@
 <header>
   <img
-    src="../../assets/AdelgioMain.svg"
+    src="{{ pageSettings.mainLogoImageUrl }}"
     class="logo"
     [routerLink]="['/']"
     style="width: 24em; align-content: center"
@@ -13,21 +13,15 @@
       [routerLinkActiveOptions]="{ exact: true }"
       >Photos</a
     >
-    <a
+    <!-- <a
       [routerLink]="['/photos']"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
       >Collections</a
-    >
+    > -->
     <!-- <a>Digital store</a> -->
     <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
     <a [routerLink]="['/home/contact-us']" routerLinkActive="active">Contact</a>
-    <a
-      *appHasRole="['Admin']"
-      [routerLink]="['/test-error']"
-      routerLinkActive="active"
-      >Errors</a
-    >
 
     <ng-container *ngIf="(currentUser$ | async) == null">
       <a [routerLink]="['/account/login']" routerLinkActive="active">Login</a>
@@ -42,34 +36,47 @@
           <div class="navbutton"><a (click)="logOut()">Logout</a></div>
         </div>
       </div>
-      <!-- <a href="#"> Welcome {{(currentUser$ | async).displayName }}</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a (click)="logOut()">Logout</a>
-      </div> -->
-        <a
-          *appHasRole="['Admin', 'Moderator']"
-          [routerLink]="['admin/']"
-          routerLinkActive="active"
-          >Admin Module</a
-        >
+      <a
+        *appHasRole="['Admin', 'Moderator']"
+        [routerLink]="['admin/']"
+        routerLinkActive="active"
+        >Admin Module</a
+      >
     </ng-container>
   </nav>
   <div class="social">
     <a
-      href="{{ appDetails?.instagram }}"
+      *ngIf="pageSettings.instagram"
+      href="{{ pageSettings.instagram }}"
       target="_blank"
       rel="noopener noreferrer"
     >
       <i class="fa fa-instagram"></i
     ></a>
     <a
-      href="{{ appDetails?.facebookLink }}"
+      *ngIf="pageSettings.facebookLink"
+      href="{{ pageSettings.facebookLink }}"
       target="_blank"
       rel="noopener noreferrer"
       ><i class="fa fa-facebook-f"></i
     ></a>
     <a
-      href="{{ appDetails?.pinterest }}"
+      *ngIf="pageSettings.twitter"
+      href="{{ pageSettings.twitter }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><i class="fa fa-pinterest"></i
+    ></a>
+    <a
+      *ngIf="pageSettings.linkedIn"
+      href="{{ pageSettings.linkedIn }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><i class="fa fa-pinterest"></i
+    ></a>
+    <a
+      *ngIf="pageSettings.pinterest"
+      href="{{ pageSettings.pinterest }}"
       target="_blank"
       rel="noopener noreferrer"
       ><i class="fa fa-pinterest"></i
@@ -88,8 +95,8 @@
                 <a [routerLink]="['/']" routerLinkActive="active">Photos</a>
               </li>
               <!-- <li><a>Digital store</a></li> -->
-              <li [routerLink]="['/home/about']" routerLinkActive="active">
-                <a>About Us</a>
+              <li>
+                <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
               </li>
               <li><a>Contact</a></li>
               <li *appHasRole="['Admin']">
@@ -132,18 +139,31 @@
             </ul>
             <ul class="social-link">
               <li class="mob-social">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a
+                  *ngIf="pageSettings.instagram"
+                  href="{{ pageSettings.instagram }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i class="fa fa-instagram"></i
                 ></a>
               </li>
               <li class="mob-social">
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a
+                  *ngIf="pageSettings.instagram"
+                  href="{{ pageSettings.facebookLink }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   ><i class="fa fa-facebook-f"></i
                 ></a>
               </li>
               <li class="mob-social">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa fa-pinterest"></i
+                <a
+                  *ngIf="pageSettings.twitter"
+                  href="{{ pageSettings.twitter }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fa fa-twitter"></i
                 ></a>
               </li>
             </ul>
@@ -151,86 +171,5 @@
         </div>
       </div>
     </div>
-    <!-- <div class="menu-wrap">
-      <input type="checkbox" class="toggler">
-      <div class="hamburger"><div></div></div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <li><a [routerLink]="['/']"  routerLinkActive="active">Photos</a></li> -->
-    <!-- <li><a>Digital store</a></li> -->
-    <!-- <li [routerLink]="['/home/about']"  routerLinkActive="active"><a>About Us</a></li>
-              <li><a>Contact</a></li>
-              <li *appHasRole="['Admin']"><a  [routerLink]="['/test-error']"  routerLinkActive="active">Errors</a></li>
-              <ng-container *ngIf="(currentUser$ | async) === null">
-                <li>
-                  <a [routerLink]="['/account/login']"  routerLinkActive="active">Login</a>
-                </li>
-                <li>
-                  <a [routerLink]="['/account/register']"  routerLinkActive="active">Register</a>
-                </li>
-              </ng-container>
-              <ng-container *ngIf="currentUser$ | async">
-                  <li>
-                    <a href="#" >Welcome {{(currentUser$ | async).displayName }}</a>
-                  </li>
-                    <li>
-                      <a (click)="logOut()">Logout</a>
-                    </li>
-                <li>
-                  <a  *appHasRole="['Admin','Moderator']" [routerLink]="['admin']"  routerLinkActive="active">Admin</a>
-                </li>
-              </ng-container>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <i class="fa fa-instagram"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa fa-facebook-f"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                  ><i class="fa fa-pinterest"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-          <div class="social">
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa fa-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                ><i class="fa fa-facebook-f"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                ><i class="fa fa-pinterest"></i
-              ></a>
-            </li>
-          </div>
-        </div>
-
-      </div>
-    </div> -->
-    <!-- <img
-      src="../../assets/icon-burger-menu.svg"
-      alt="Mobile Menu Icon"
-      style="width: 40px;"
-      class="burgermenu"
-    />
-    <div class="mob-nav">
-      <a>Photos</a>
-      <a>Digital store</a>
-      <a>About Us</a>
-      <a>Contact</a>
-    </div> -->
   </div>
 </header>

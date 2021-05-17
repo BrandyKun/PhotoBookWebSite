@@ -15,23 +15,48 @@ import { HomeService } from 'src/app/home/home.service';
 })
 export class NavBarComponent implements OnInit {
   currentUser$: Observable<IUser>
-  appDetails:  IAppDetails;
+
+  pageSettings: IAppDetails = {
+    companyName: '',
+    mainLogoImageUrl: '',
+    aboutDescription: '',
+    aboutPictureUrl: '',
+    contactPictureUrl: '',
+    favIconUrl: '',
+    facebookLink: '',
+    instagram: '',
+    pinterest: '',
+    linkedIn: '',
+    twitter: '',
+    contactEmail: '',
+    contactNumber: '',
+    id: 1,
+  }
   
   constructor(private accountService: AccountService, private router: Router, private homeService: HomeService) { }
+  appSettings$: Observable<IAppDetails> = this.homeService.getAppDetails();
 
   ngOnInit() {
     this.currentUser$ = this.accountService.currentUser$;
-    this.getAppDetails();
+    this.appSettings$.subscribe(settings => {
+      this.pageSettings.id = settings.id,
+        this.pageSettings.aboutDescription = settings.aboutDescription,
+        this.pageSettings.aboutPictureUrl = settings.aboutPictureUrl,
+        this.pageSettings.companyName = settings.companyName,
+        this.pageSettings.contactPictureUrl = settings.contactPictureUrl,
+        this.pageSettings.contactEmail = settings.contactEmail,
+        this.pageSettings.contactNumber = settings.contactNumber,
+        this.pageSettings.mainLogoImageUrl = settings.mainLogoImageUrl,
+        this.pageSettings.instagram = settings.instagram,
+        this.pageSettings.facebookLink = settings.facebookLink,
+        this.pageSettings.linkedIn = settings.linkedIn,
+        this.pageSettings.twitter = settings.twitter,
+        this.pageSettings.pinterest = settings.pinterest,
+        this.pageSettings.favIconUrl = settings.favIconUrl
+    });
   }
 
   logOut(){
     this.accountService.logout();
-  }
-  getAppDetails() {
-    this.homeService.getAppDetails().subscribe((response)=> {
-      this.appDetails = response;
-    }, error => {
-      console.log(error);
-    })
   }
 }

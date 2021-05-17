@@ -1,19 +1,19 @@
 import { ISelectedFile } from "../components/file-upload/file-upload.component";
 
 export interface IAppDetails {
-    companyName: string;
+    companyName?: string;
     mainLogoImageUrl?: string;
-    aboutDescription?: string;
+    aboutDescription: string;
     aboutPictureUrl?: string;
-    contactPicUrl?: string;
+    contactPictureUrl?: string;
     favIconUrl?: string;
     facebookLink?: string;
     instagram?: string;
     pinterest?: string;
     linkedIn?: string;
     twitter?: string;
-    contactEmail?: string;
-    contactNumber?: string;
+    contactEmail: string;
+    contactNumber: string;
     id: number;
 }
 

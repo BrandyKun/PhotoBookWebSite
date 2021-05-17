@@ -1,11 +1,27 @@
-<div class="page">
-  <div class="contact-image">
-    <img src="https://cdn2.outdoorphotographer.com/2020/06/miller-hdr-feat-481x305.jpg" alt="image">
+
+<div class="page" *ngIf="($appSettings | async ) as dets">
+
+  <div class="contact-image"><div class="image-container">
+    
+      <img src="{{dets.adcontactPictureUrl}}" alt="image">
   </div>
-  
-  <form (ngSubmit)="onSubmit()" #form="ngForm">
-    <input type="text" name="name">
-    <input type="email" name="email address" id="">
-    <input type="text">
-  </form>
+  </div><div class="info">
+    
+    <div class="contact-info">
+   <ng-container >
+     <h2>{{dets.companyName}}</h2>
+     <br>
+     <h5>{{dets.contactEmail}}</h5>
+
+     <p>Contact me regarding inquiries , partnerships, or any photography questions you may have.  </p>
+   </ng-container>
+    
+    </div>
+    
+    <form [formGroup]='contactForm' (ngSubmit)="onSubmit()" #form="ngForm">
+      <app-text-input formControlName="name" [label]="'Name'" [type]="'text'"></app-text-input>
+      <app-text-input formControlName="email" [label]="'Email Address'"></app-text-input>
+      <app-text-input formControlName="message" id='messageBox' [label]="'Message'" [type]="'text'"></app-text-input>
+    </form>
+  </div>
 </div>

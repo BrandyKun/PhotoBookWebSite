@@ -1,46 +1,12 @@
-<div class="container-fluid d-flex justify-content-between">
-    <div class="row">
-     
-        <div class="col-md-4 col-sm-12 col-xs-12">
-          <a>
-            <img
-              src="https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png"
-              srcset="
-                https://format-com-cld-res.cloudinary.com/image/private/s--BZBZgYg6--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png       1x,
-                https://format-com-cld-res.cloudinary.com/image/private/s--RQ_ZeVEU--/c_crop,h_2989,w_2988,x_1547,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95,r_max/v1/8d06225feb1ab12065e636ad5c061efc/20160116_1716401.png 2x
-              "
-            />
-          </a>
-        </div>
-     
-    <div class="col-md-8 col-sm-12 col-xs-12" style="padding: auto 0; margin: auto">
-      <div
-        data-editable-type="text"
-        id="text_1"
-        class=" container  "
-        data-force-html-mode="false"
-        data-id="23209145"
-        data-content-module-unique-id=""
-      >
-        <h2>Biography</h2>
-        <p class="about-bio" >
-          {{appDetails?.aboutDescription}}
-        </p>
-        <p>
-          His portraits have been featured by numerous fashion, photography, and
-          international publications internationally including Conde Nast
-          Traveler, Google, Lonely Planet, Adobe, and many more.&nbsp;
-        </p>
-        <p>
-          TJ's unique photographic approach has captured the respect and
-          appreciation of an ever-expanding international social media following.
-          A romantic, graceful, and understated style has become the hallmark of
-          his work.
-        </p>
-        <p><br /></p>
-      </div>
-      </div>
-    </div>
-  
-</div>
+<div class="about-page">
+  <div class="picture">
+      <img src="{{ PageSettings.aboutPictureUrl }}" />
+  </div>
 
+  <div class="description">
+    <h2>Biography</h2>
+    <p class="about-bio">
+      {{ PageSettings.aboutDescription }}
+    </p>
+  </div>
+</div>

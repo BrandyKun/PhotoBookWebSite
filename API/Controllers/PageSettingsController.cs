@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Microsoft.Extensions.Options;
 using API.Helpers;
-using CloudinaryDotNet;
 using API.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace API.Controllers
 {
@@ -15,24 +15,11 @@ namespace API.Controllers
     public class PageSettingsController : BaseApiController
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
-        private Cloudinary _cloudinary;
         private readonly IBrandingService _brandService;
-        public PageSettingsController(IUnitOfWork unitOfWork, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig, IBrandingService brandService)
+        public PageSettingsController(IUnitOfWork unitOfWork, IBrandingService brandService)
         {
             _brandService = brandService;
-            _mapper = mapper;
-            _cloudinaryConfig = cloudinaryConfig;
             _unitOfWork = unitOfWork;
-
-            Account acc = new Account(
-                _cloudinaryConfig.Value.CloudName,
-                _cloudinaryConfig.Value.ApiKey,
-                _cloudinaryConfig.Value.ApiSecret
-            );
-
-            _cloudinary = new Cloudinary(acc);
 
         }
 
@@ -53,13 +40,38 @@ namespace API.Controllers
 
             var settings = await _brandService.UpdateApplicationSettings(detailsDto);
 
-            _mapper.Map(detailsDto, details);
-
-            // _unitOfWork.Repository<AppDetails>().Update(details);
-
             await _unitOfWork.Complete();
 
             return StatusCode(201);
+        }
+        [HttpPost]
+        [Route("mainLogo")]
+        public async Task<IActionResult> mainLogoUpload([FromForm(Name = "file")]IFormFile logo)
+        {
+            var url = await _brandService.mainLogoUpload(logo);
+            await _unitOfWork.Complete();
+
+            return Ok(url);
+        }
+        [HttpPost]
+        [Route("aboutimg")]
+        public async Task<IActionResult> aboutImageUpload([FromForm(Name = "file")]IFormFile picture)
+        {
+            var url = await _brandService.aboutImageUpload(picture);
+
+            await _unitOfWork.Complete();
+
+            return Ok(url);
+        }
+        [HttpPost]
+        [Route("contactimg")]
+        public async Task<IActionResult> contactImageUpload([FromForm(Name = "file")]IFormFile image)
+        {
+            var url = await _brandService.contactImageUpload(image);
+
+            await _unitOfWork.Complete();
+
+            return Ok(url);
         }
     }
 }

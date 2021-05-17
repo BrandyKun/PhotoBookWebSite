@@ -37,6 +37,8 @@ namespace API.Services
 
         public async Task<string> aboutImageUpload(IFormFile aboutImg)
         {
+            var settings = await _unitOfWork.Repository<AppDetails>().GetById(1);
+
             var file = aboutImg;
 
             var uploadResult = new ImageUploadResult();
@@ -54,12 +56,17 @@ namespace API.Services
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }
+            settings.AboutPictureUrl = uploadResult.SecureUrl.ToString();
+
+            await _unitOfWork.Complete();
 
             return uploadResult.Uri.ToString();
         }
 
         public async Task<string> contactImageUpload(IFormFile contactImg)
         {
+            var settings = await _unitOfWork.Repository<AppDetails>().GetById(1);
+
             var file = contactImg;
 
             var uploadResult = new ImageUploadResult();
@@ -77,12 +84,16 @@ namespace API.Services
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }
+            settings.ContactPictureUrl = uploadResult.SecureUrl.ToString();
+
+            await _unitOfWork.Complete();
 
             return uploadResult.Uri.ToString();
         }
 
         public async Task<string> mainLogoUpload(IFormFile mainLogo)
         {
+            var settings = await _unitOfWork.Repository<AppDetails>().GetById(1);
             var file = mainLogo;
 
             var uploadResult = new ImageUploadResult();
@@ -101,6 +112,10 @@ namespace API.Services
                 }
             }
 
+            settings.MainLogoImageUrl = uploadResult.Uri.ToString();
+
+            await _unitOfWork.Complete();
+
             return uploadResult.Uri.ToString();
         }
 
@@ -108,13 +123,7 @@ namespace API.Services
         {
              var details = await _unitOfWork.Repository<AppDetails>().GetById(1);
 
-             details.MainLogoImageUrl = await mainLogoUpload(appDetsDto.MainLogoImage);
-             details.AboutPictureUrl = await aboutImageUpload(appDetsDto.AboutPictur);
-             details.ContactPictureUrl = await contactImageUpload(appDetsDto.ContactPageImage);
-
             _mapper.Map(appDetsDto, details);
-
-             await _unitOfWork.Complete();
 
              return details;
         }
