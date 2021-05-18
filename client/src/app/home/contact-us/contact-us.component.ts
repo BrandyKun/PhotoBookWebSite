@@ -26,6 +26,8 @@ export class ContactUsComponent implements OnInit {
     this.contactForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators
       .pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
+      name: new FormControl(''),
+      message: new FormControl('')
     })
   }
 

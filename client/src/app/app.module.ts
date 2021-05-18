@@ -12,6 +12,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
 import { SharedModule } from './shared/shared.module';
+import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     FormsModule,
     FileUploadModule,
-    SharedModule
+    SharedModule,
+    ImageViewerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}

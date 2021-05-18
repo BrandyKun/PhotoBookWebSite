@@ -14,7 +14,7 @@ import { HomeService } from 'src/app/home/home.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  currentUser$: Observable<IUser>
+  currentUser$: Observable<IUser>;
 
   pageSettings: IAppDetails = {
     companyName: '',

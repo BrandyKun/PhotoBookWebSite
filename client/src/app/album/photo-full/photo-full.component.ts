@@ -1,6 +1,11 @@
+import { PhotoEditComponent } from './../../admin/photo-edit/photo-edit.component';
+import { map, mergeMap } from 'rxjs/operators';
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { IPhoto } from 'src/app/shared/models/photo';
 import { AlbumService } from '../album.service';
+import { AlbumParams } from 'src/app/shared/models/albumParams';
 
 @Component({
   selector: 'app-photo-full',
@@ -10,41 +15,49 @@ import { AlbumService } from '../album.service';
 export class PhotoFullComponent implements OnInit {
   @Input() open: boolean;
   @Input() photo: IPhoto;
+  photos: Array<IPhoto> = [];
+  showFlag: boolean = false;
+  selectedImageIndex: number = -1;
+  albumParams = new AlbumParams();
 
-  @Output() close = new EventEmitter();
+ 
 
-  constructor(private _albumservice: AlbumService) { }
+  constructor(private _albumService: AlbumService, private _route: ActivatedRoute) { }
+
+  photoId$: Observable<string> = this._route.paramMap.pipe(
+    map((paramMap) => paramMap.get("id"))
+  );
+
+  photoFull$: Observable<IPhoto> = this.photoId$.pipe(
+    mergeMap((id) => 
+    this._albumService.getPhoto(parseInt(id)))
+  );
 
   ngOnInit() {
-    this.getPhoto(this.photo.id)
+     this.photoFull$.subscribe(photoSet => {
+       this.photo = photoSet;
+     })
   }
 
-  getPhoto(id:number) {
-    this._albumservice.getPhoto(id).subscribe((response) => {
-      this.photo = response;
-    }, (error)=> {
+  getPhotos() {
+    this._albumService.getPhotos(this.albumParams).subscribe((response) => {
+      this.photos = response;
+      // this.albumParams.pageNumber = response.pageIndex;
+      // this.albumParams.pageSize = response.pageSize;
+      // this.totalCount = response.count;
+    },(error) => {
       console.log(error);
-    });
+    }
+  );
   }
 
-  // nextPhoto(){
-  //   let next = this.photo.id + 1;
+  showLightbox(index) {
+    this.selectedImageIndex = index;
+    this.showFlag = true;
+}
 
-  //   this._albumservice.getPhoto(next).subscribe((response) => {
-  //     this.photo = response;
-  //   }, (error)=> {
-  //     console.log(error);
-  //   });
-
-  // }
-
-  // previousPhoto(id: number){
-  //   let previous = id + 1;
-
-  //   this._albumservice.getPhoto(previous).subscribe((response) => {
-  //     this.photo = response;
-  //   }, (error)=> {
-  //     console.log(error);
-  //   });
-  // }
+closeEventHandler() {
+    this.showFlag = false;
+    this.selectedImageIndex = -1;
+}
 }

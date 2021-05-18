@@ -11,6 +11,8 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { PhotoFullComponent } from './photo-full/photo-full.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
+import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
     FormsModule,
     FileUploadModule,
     FlexLayoutModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    NgImageFullscreenViewModule,
+    ImageViewerModule
   ],
   exports: [],
 })
