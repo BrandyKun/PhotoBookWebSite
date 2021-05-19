@@ -4,19 +4,17 @@ import { AlbumComponent } from './album.component';
 import { NgMasonryGridModule } from 'ng-masonry-grid';
 import { PhotoItemComponent } from './photo-item/photo-item.component';
 import { SharedModule } from '../shared/shared.module';
-import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { AlbumRoutingModule } from './album-routing.module';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
 import { PhotoFullComponent } from './photo-full/photo-full.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxMasonryModule } from 'ngx-masonry';
-import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
-import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 
 
 @NgModule({
-  declarations: [AlbumComponent, PhotoItemComponent, PhotoDetailsComponent,PhotoFullComponent],
+  declarations: [AlbumComponent, PhotoItemComponent,PhotoFullComponent],
   imports: [
     CommonModule,
     NgMasonryGridModule,
@@ -26,8 +24,7 @@ import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
     FileUploadModule,
     FlexLayoutModule,
     NgxMasonryModule,
-    NgImageFullscreenViewModule,
-    ImageViewerModule
+    NgxIonicImageViewerModule
   ],
   exports: [],
 })

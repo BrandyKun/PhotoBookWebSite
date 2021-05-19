@@ -1,10 +1,13 @@
 
-<a [routerLink]="['/photos/' + photo.id]">
+<a>
   <div class="image">
     <img
-      src="{{ photo.url }}"
+      ionImgViewer  
+      [src]="photo.url"
       alt="{{ photo.description }}"
       class="image-fluid"
     />
+   
   </div>
 </a>
+

@@ -8,11 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
-// import { HomeModule } from './home/home.module';
 import { FormsModule } from '@angular/forms';
 import { FileUploadModule } from 'ng2-file-upload';
 import { SharedModule } from './shared/shared.module';
-import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { ImageViewerModule } from '@emazv72/ngx-imageviewer';
     FormsModule,
     FileUploadModule,
     SharedModule,
-    ImageViewerModule
+    NgxIonicImageViewerModule,
+    IonicModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
