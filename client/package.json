@@ -30,6 +30,7 @@
     "goog-webfont-dl": "^1.0.3",
     "i": "^0.3.6",
     "imagesloaded": "^4.1.4",
+    "ionicons": "^5.5.1",
     "jquery": "^3.5.1",
     "masonry-layout": "^4.2.2",
     "ng-image-fullscreen-view": "^2.0.0",

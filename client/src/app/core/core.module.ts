@@ -1,3 +1,4 @@
+import { ErrorPageComponent } from './error-page/error-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -9,11 +10,11 @@ import { HasRoleDirective } from './directives/hasRole.directive';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [NavBarComponent, TestErrorComponent, NotFoundComponent, ServerErrorComponent, HasRoleDirective],
+  declarations: [NavBarComponent, TestErrorComponent, NotFoundComponent, ServerErrorComponent, HasRoleDirective,ErrorPageComponent ],
   imports: [CommonModule, RouterModule, ToastrModule.forRoot({
     positionClass: 'toast-bottom-right',
     preventDuplicates: true
   })],
-  exports: [NavBarComponent, TestErrorComponent, HasRoleDirective],
+  exports: [NavBarComponent, TestErrorComponent, HasRoleDirective, ErrorPageComponent],
 })
 export class CoreModule {}

@@ -1,3 +1,4 @@
+import { ErrorPageComponent } from './core/error-page/error-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: '', component: AlbumComponent },
   { path: 'test-error', component: TestErrorComponent },
   { path: 'server-error', component: ServerErrorComponent },
+  { path: 'error', component: ErrorPageComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
   { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)},

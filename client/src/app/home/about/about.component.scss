@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   align-items:stretch;
   justify-content: flex-start;
+  padding: 20px;
   
   .picture{
       width: 400px;
@@ -25,7 +26,7 @@
   .description {
     display: flex;
     flex-direction: column;
-    margin-left: 2.15rem;
+    margin-left: 5.15rem;
     .about-bio {
       line-height: 1.2;
     }
