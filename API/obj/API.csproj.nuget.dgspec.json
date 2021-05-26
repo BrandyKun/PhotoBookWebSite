@@ -14,7 +14,7 @@
         "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
+          "/Users/brandymkundenga/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -115,7 +115,7 @@
         "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
+          "/Users/brandymkundenga/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -173,7 +173,7 @@
         "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
+          "/Users/brandymkundenga/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"

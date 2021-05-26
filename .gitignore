@@ -1,5 +1,6 @@
 wwwroot
 publish
+API/wwwroot
 # Logs
 logs
 *.log

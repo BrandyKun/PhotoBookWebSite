@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
   { path: 'admin',
     runGuardsAndResolvers: 'always',
-    canActivateChild:[AuthGuard], 
+    canActivate:[AuthGuard], 
     loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)},
   // { path: 'admin', component: AdminPanelComponent},
   // { path: 'admin-panel', component: AdminPanelComponent},

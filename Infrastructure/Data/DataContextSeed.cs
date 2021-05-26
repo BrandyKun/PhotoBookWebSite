@@ -20,8 +20,8 @@ namespace Infrastructure.Data
 
                 if (!context.Tags.Any())
                 {
-                    //var tagsData = File.ReadAllText(path + @"/Data/SeedData/Tags.json");
-                    var tagsData = File.ReadAllText("../Infrastructure/Data/SeedData/Tags.json");
+                    var tagsData = File.ReadAllText(path + @"/Data/SeedData/Tags.json");
+                    // var tagsData = File.ReadAllText("../Infrastructure/Data/SeedData/Tags.json");
 
                     var tags = JsonSerializer.Deserialize<List<Tag>>(tagsData);
 
@@ -35,8 +35,8 @@ namespace Infrastructure.Data
 
                 if (!context.Photos.Any())
                 {
-                    //var photosData = File.ReadAllText(path + @"/Data/SeedData/Photos.json");
-                    var photosData = File.ReadAllText("../Infrastructure/Data/SeedData/Photos.json");
+                    var photosData = File.ReadAllText(path + @"/Data/SeedData/Photos.json");
+                    // var photosData = File.ReadAllText("../Infrastructure/Data/SeedData/Photos.json");
 
                     var photos = JsonSerializer.Deserialize<List<Photo>>(photosData);
 

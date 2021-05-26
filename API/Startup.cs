@@ -38,13 +38,13 @@ namespace API
             
             ConfigureServices(services);
         }
-        // public void ConfigureProductionServices(IServiceCollection services)
-        // {
-        //     services.AddDbContext<DataContext>(x => x.UseMySql(_config.GetConnectionString("DefaultConnection")));
-        //     services.AddDbContext<AppIdentityDbContext>(x => x.UseMySql(_config.GetConnectionString("IdentityConnection")));
+        public void ConfigureProductionServices(IServiceCollection services)
+        {
+            services.AddDbContext<DataContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentitySQlConnection")));
 
-        //     ConfigureServices(services);
-        // }
+            ConfigureServices(services);
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -119,8 +119,9 @@ namespace API
 
             app.UseRouting();
 
+            app.UseDefaultFiles();
+
             app.UseStaticFiles();
-           
 
             app.UseCors("CorsPolicy");
 
