@@ -9776,7 +9776,7 @@
       "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/brandymkundenga/.config/NuGet/NuGet.Config"
+        "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

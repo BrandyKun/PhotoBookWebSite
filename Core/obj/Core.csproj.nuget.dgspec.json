@@ -14,7 +14,7 @@
         "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/brandymkundenga/.config/NuGet/NuGet.Config"
+          "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"

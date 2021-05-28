@@ -3,7 +3,7 @@ import { ISelectedFile } from "../components/file-upload/file-upload.component";
 export interface IAppDetails {
     companyName?: string;
     mainLogoImageUrl?: string;
-    aboutDescription: string;
+    aboutDescription?: string;
     aboutPictureUrl?: string;
     contactPictureUrl?: string;
     favIconUrl?: string;
@@ -12,19 +12,19 @@ export interface IAppDetails {
     pinterest?: string;
     linkedIn?: string;
     twitter?: string;
-    contactEmail: string;
-    contactNumber: string;
+    contactEmail?: string;
+    contactNumber?: string;
     id: number;
 }
 
 export interface IAppDetailsView {
     companyName: string;
-    mainLogoImage: ISelectedFile;
+    mainLogoImage?: ISelectedFile;
     mainLogoImageUrl?: string;
     aboutDescription?: string;
     aboutPicture?: ISelectedFile;
     aboutPictUrl?: string;
-    contactPicture: ISelectedFile;
+    contactPicture?: ISelectedFile;
     contactPicUrl: string;
     favIconUrl?: string;
     facebookLink?: string;

@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IAppDetails } from '../shared/models/appDetails';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,11 @@ export class HomeService {
   getAppDetails(): Observable<IAppDetails> {
     const headers = new HttpHeaders().set('X-Requested-With', 'XMLHttpRequest');
     
-    return this.http.get<IAppDetails>(this.baseUrl + 'pagesettings', {headers});
+    return this.http.get<IAppDetails>(this.baseUrl + 'pagesettings').pipe(
+      map((response) => {
+        return response;
+      })
+    );;
   }
 
   async updateAppSettings(changedDets : IAppDetails): Promise<void> {

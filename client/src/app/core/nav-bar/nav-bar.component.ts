@@ -39,7 +39,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.currentUser$ = this.accountService.currentUser$;
     this.appSettings$.subscribe(settings => {
-      this.pageSettings.id = settings.id,
+      this.pageSettings.id = 1,
         this.pageSettings.aboutDescription = settings.aboutDescription,
         this.pageSettings.aboutPictureUrl = settings.aboutPictureUrl,
         this.pageSettings.companyName = settings.companyName,
