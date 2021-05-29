@@ -1,27 +1,43 @@
-
-<div class="page" *ngIf="($appSettings | async ) as dets">
-
-  <div class="contact-image"><div class="image-container">
-    
-      <img src="{{dets.contactPictureUrl}}" alt="image">
-  </div>
-  </div><div class="info">
-    
-    <div class="contact-info">
-   <ng-container >
-     <h2>{{dets.companyName}}</h2>
-     <br>
-     <h5>{{dets.contactEmail}}</h5>
-
-     <p>Contact me regarding inquiries , partnerships, or any photography questions you may have.  </p>
-   </ng-container>
-    
+<div class="page" *ngIf="$appSettings | async as dets">
+  <div class="contact-image">
+    <div class="image-container">
+      <img src="{{ dets.contactPictureUrl }}" alt="image" />
     </div>
-    
-    <!-- <form [formGroup]='contactForm' (ngSubmit)="onSubmit()" #form="ngForm">
-      <app-text-input formControlName="name" [label]="'Name'" [type]="'text'"></app-text-input>
-      <app-text-input formControlName="email" [label]="'Email Address'"></app-text-input>
-      <app-text-input formControlName="message" id='messageBox' [label]="'Message'" [type]="'text'"></app-text-input>
-    </form> -->
+  </div>
+  <div class="info">
+    <div class="contact-info">
+      <ng-container>
+        <h2>{{ dets.companyName }}</h2>
+        <p>
+          Contact me regarding inquiries , partnerships, or any photography
+          questions you may have.
+        </p>
+        <br />
+        <h5>Email Address: {{ dets.contactEmail }}</h5>
+        <h5>
+          <span *ngIf="dets.contactNumber">
+            Phone Number: {{ dets.contactNumber }}</span
+          >
+        </h5>
+      </ng-container>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" #form="ngForm">
+      <app-text-input
+        formControlName="name"
+        [label]="'Name'"
+        [type]="'text'"
+      ></app-text-input>
+      <app-text-input
+        formControlName="email"
+        [label]="'Email Address'"
+      ></app-text-input>
+      <app-text-input
+        formControlName="message"
+        id="messageBox"
+        [label]="'Message'"
+        [type]="'text'"
+      ></app-text-input>
+    </form>
   </div>
 </div>

@@ -13,6 +13,8 @@ namespace Infrastructure.Data
         public DbSet<Tag> Tags { get; set; }
         public DbSet<PhotoTag> photoTags { get; set; }
         public DbSet<AppDetails> AppDets { get; set; }
+        public DbSet<Collection> Collections { get; set; }
+        public DbSet<PhotoCollection> PhotoCollection { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +23,7 @@ namespace Infrastructure.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             
             modelBuilder.Entity<PhotoTag>(x=> x.HasKey(pt => new {pt.PhotoId, pt.TagId}));
+            modelBuilder.Entity<PhotoCollection>(x=> x.HasKey(pt => new {pt.PhotoId, pt.CollectionId}));
 
             modelBuilder.Entity<PhotoTag>()
                 .HasOne(p => p.Photo)
@@ -31,6 +34,16 @@ namespace Infrastructure.Data
                 .HasOne(t => t.Tag)
                 .WithMany(p => p.Photos)
                 .HasForeignKey(pt => pt.TagId);
+
+            modelBuilder.Entity<PhotoCollection>()
+                .HasOne(p => p.Photo)
+                .WithMany(c => c.Collectios)
+                .HasForeignKey(pc => pc.PhotoId);
+
+            modelBuilder.Entity<PhotoCollection>()
+                .HasOne(c => c.Collection)
+                .WithMany(p => p.Photos)
+                .HasForeignKey(pc => pc.CollectionId);
 
         }
     }

@@ -60,7 +60,7 @@ namespace API.Services
 
             await _unitOfWork.Complete();
 
-            return uploadResult.Uri.ToString();
+            return uploadResult.SecureUri.ToString();
         }
 
         public async Task<string> contactImageUpload(IFormFile contactImg)
@@ -88,7 +88,7 @@ namespace API.Services
 
             await _unitOfWork.Complete();
 
-            return uploadResult.Uri.ToString();
+            return uploadResult.SecureUri.ToString();
         }
 
         public async Task<string> mainLogoUpload(IFormFile mainLogo)
@@ -112,11 +112,11 @@ namespace API.Services
                 }
             }
 
-            settings.MainLogoImageUrl = uploadResult.Uri.ToString();
+            settings.MainLogoImageUrl = uploadResult.SecureUrl.ToString();
 
             await _unitOfWork.Complete();
 
-            return uploadResult.Uri.ToString();
+            return uploadResult.SecureUri.ToString();
         }
 
         public async Task<AppDetails> UpdateApplicationSettings(AppDetailsReturnDto appDetsDto)

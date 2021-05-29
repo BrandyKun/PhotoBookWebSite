@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qqyhZ2UdGSzR4GudMeG+ARcqRi/8pQCxQiX/71T2VDBmhHK7c33LnxZTmbsx8jZUzKwdPt1p7qO8Uaqqga9lQA==",
+  "dgSpecHash": "qc+rtP5qQIPjwgHShm51R+bFTXe9Eo8UMNez0DQ4z7S1plgoBliY8iCYfGe/NtFTi3LA9hHIY7R3aq+lbzJX0g==",
   "success": true,
-  "projectFilePath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj",
+  "projectFilePath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
   "expectedPackageFiles": [
     "/Users/brandymkundenga/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.1.8/microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "/Users/brandymkundenga/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.1.8/microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

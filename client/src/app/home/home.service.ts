@@ -13,14 +13,14 @@ export class HomeService {
 
   constructor(private http: HttpClient) {}
 
-  getAppDetails(): Observable<IAppDetails> {
+  getAppDetails(){
     const headers = new HttpHeaders().set('X-Requested-With', 'XMLHttpRequest');
     
     return this.http.get<IAppDetails>(this.baseUrl + 'pagesettings').pipe(
       map((response) => {
         return response;
       })
-    );;
+    );
   }
 
   async updateAppSettings(changedDets : IAppDetails): Promise<void> {

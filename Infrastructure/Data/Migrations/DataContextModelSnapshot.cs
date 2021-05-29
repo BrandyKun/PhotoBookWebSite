@@ -70,6 +70,21 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("AppDets");
                 });
 
+            modelBuilder.Entity("Core.Entities.Collection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Collections");
+                });
+
             modelBuilder.Entity("Core.Entities.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -94,6 +109,24 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("Core.Entities.PhotoCollection", b =>
+                {
+                    b.Property<int>("PhotoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CollectionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("PhotoId", "CollectionId");
+
+                    b.HasIndex("CollectionId");
+
+                    b.ToTable("PhotoCollection");
                 });
 
             modelBuilder.Entity("Core.Entities.PhotoTag", b =>
@@ -124,6 +157,21 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("Core.Entities.PhotoCollection", b =>
+                {
+                    b.HasOne("Core.Entities.Collection", "Collection")
+                        .WithMany("Photos")
+                        .HasForeignKey("CollectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Photo", "Photo")
+                        .WithMany("Collectios")
+                        .HasForeignKey("PhotoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Core.Entities.PhotoTag", b =>

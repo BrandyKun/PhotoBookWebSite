@@ -10,6 +10,7 @@ namespace Core.Entities
         public string Description { get; set; }
         public string PublicId { get; set; }
         public IEnumerable<PhotoTag>  Tags {get; set;}
+        public IEnumerable<PhotoCollection> Collectios { get; set; }
         public Photo()
         {
             DataCreated = DateTime.UtcNow;

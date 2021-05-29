@@ -47,6 +47,17 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
+                if (!context.AppDets.Any())
+                {
+                    var appSettingsData = File.ReadAllText(path + @"/Data/SeedData/Settings.json");
+
+                    var settings = JsonSerializer.Deserialize<AppDetails>(appSettingsData);
+
+                    
+                        context.AppDets.Add(settings);
+                    
+                    await context.SaveChangesAsync();
+                }
             }
             catch (Exception ex)
             {

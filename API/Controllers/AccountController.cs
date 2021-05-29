@@ -33,7 +33,7 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
 
-            var user = await _userManager.FindByEmailFromClaimsPrincipal(HttpContext.User);
+            var user = await _userManager.FindByEmailFromClaimsPrincipal(User);
 
             return new UserDto
             {
@@ -54,7 +54,7 @@ namespace API.Controllers
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
-            var user = await _userManager.FIndByEmailWithAddressAsync(HttpContext.User);
+            var user = await _userManager.FIndByEmailWithAddressAsync(User);
 
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
@@ -63,7 +63,7 @@ namespace API.Controllers
         [HttpPut("addres")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
-            var user =  await _userManager.FIndByEmailWithAddressAsync(HttpContext.User);
+            var user =  await _userManager.FIndByEmailWithAddressAsync(User);
 
             user.Address = _mapper.Map<AddressDto, Address>(address);
 

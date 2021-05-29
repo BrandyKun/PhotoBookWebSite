@@ -1,0 +1,17 @@
+[
+    {
+        "companyName": "Adelgio Pic",
+        "mainLogoImageUrl": "https://res.cloudinary.com/degiopics/image/upload/v1621073522/samples/ecommerce/accessories-bag.jpg",
+        "aboutDescription": "Some description for the page",
+        "aboutPictureUrl": "https://res.cloudinary.com/degiopics/image/upload/v1621073525/samples/landscapes/nature-mountains.jpg",
+        "contactPictureUrl": "https://res.cloudinary.com/degiopics/image/upload/v1621073520/samples/landscapes/architecture-signs.jpg",
+        "favIconUrl": "",
+        "facebookLink": "https://www.facebook.com/",
+        "instagram": "https://www.instagram.com/degio_pics/",
+        "pinterest": null,
+        "linkedIn": null,
+        "twitter": null,
+        "contactEmail": "Someemail@gmail.com",
+        "contactNumber": "3424078478584"
+    }
+]
