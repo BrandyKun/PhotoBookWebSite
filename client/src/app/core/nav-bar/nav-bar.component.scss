@@ -106,7 +106,11 @@ header {
   header {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    img {
+      width: 13rem !important;
+      margin: 0.75rem 2rem !important;
+
+    }
 
     nav {
       display: none;
@@ -234,8 +238,8 @@ header {
       .menu-wrap .menu > div {
         background: var(--overlay-color);
         border-radius: 50%;
-        width: 250vw;
-        height: 250vw;
+        width: 270vw;
+        height: 270vw;
         display: flex;
         flex: none;
         align-items: center;
@@ -248,7 +252,7 @@ header {
       .menu-wrap .menu > div > div {
         text-align: center;
         max-width: 90vw;
-        max-height: 100vh;
+        max-height: 110vh;
         opacity: 0;
         transition: opacity 0.4s ease;
       }

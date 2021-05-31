@@ -13,8 +13,8 @@
       width: 100%;
       .website-settings {
         display: flex;
-        justify-content: flex-start;
-        height: 300px;
+        justify-content: space-between;
+        height: 450px;
         flex-wrap: wrap;
         align-items: center;
         width: 100%;
@@ -49,7 +49,7 @@
       }
 
       .about-img {
-        flex: 0.1;
+        width: 25%;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -74,9 +74,9 @@
           font-weight: bold;
           background-color: rgba(90, 90, 90, 0.192);
 
-          &:hover{
+          &:hover {
             color: black;
-            background-color:white;
+            background-color: white;
             border: 2px solid rgb(94, 94, 94);
           }
         }
@@ -104,7 +104,7 @@
         }
       }
       .about-bio {
-        flex: 0.9;
+        width: 75%;
         padding: 20px;
         border-bottom: 1px solid #c2c2c2;
 
@@ -146,9 +146,8 @@
           // flex: 100% 100% 100%;
         }
         table {
-          flex: 0.5;
+          width: 30%;
           margin: 1.75rem 0.75rem;
-          width: 50%;
           border-radius: 10px;
 
           td {
@@ -156,9 +155,13 @@
             margin-top: 20px;
           }
         }
+
+        .bio-uploader{
+          width: 30%;
+          border: 1px solid grey;
+        }
         .contact-image {
-          flex: 0.5;
-          width: 50%;
+          width: 30%;
           max-height: 500px;
           height: 300px;
 
@@ -180,11 +183,48 @@
 }
 
 @media (max-width: 1181px) {
-  .form-inline {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .website-settings {
+    height: auto !important;
+
+    .logo-container {
+      width: 100% !important;
+    }
+    .uploader {
+      width: 100% !important;
+    }
+  }
+
+  .about-img {
+    padding: 0 !important;
+    width: 100% !important;
+
+    .img-prw {
+      width: 100% !important;
+    }
+  }
+  .about-bio {
+    width: 100% !important;
+
+    .form-inline {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  .contact-bio {
+      height: auto !important ;
+    table{
+      width: 100% !important;
+    }
+
+    .bio-uploader{
+      width: 100% !important;
+    }
+    .contact-image{
+      width: 100% !important;
+    }
+
   }
 }

@@ -29,18 +29,18 @@
   }
 
   .info {
-      display: grid;
-      width: 100%;
-      height: 100%;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      .contact-info{
-          width: 100%;
-          font-size:1.75rem;
-          h5{
-            font-weight: bold;
-          }
+    .contact-info {
+      width: 100%;
+      font-size: 1.75rem;
+      h5 {
+        font-weight: bold;
       }
+    }
     form {
       flex: 1;
       width: 100%;
@@ -48,6 +48,29 @@
 
       input#Message {
         height: 430px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    img {
+      width: 90% !important;
+    }
+    .info {
+      display: grid;
+      width: 90%;
+      height: 100%;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+
+      .contact-info {
+        width: 100%;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+        h5 {
+          font-weight: bold;
+        }
       }
     }
   }

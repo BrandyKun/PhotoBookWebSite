@@ -15,7 +15,7 @@ namespace API.Dtos
         public IEnumerable<Tag> TagId { get; set; }
         public PhotoForCreationDto()
         {
-            DateAdded  = DateTime.Now;
+            DateAdded  = DateTime.UtcNow;
         }
     }
 }

@@ -15,7 +15,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RoleModalComponent } from './role-modal/role-modal.component';
 import { AboutEditComponent } from './about-edit/about-edit.component';
-
+import { CollectionsComponent } from "./collections/collections.component";
 
 @NgModule({
   imports: [
@@ -35,7 +35,8 @@ import { AboutEditComponent } from './about-edit/about-edit.component';
     AdminPanelComponent,
     AboutEditComponent,
     RoleModalComponent, 
-    AdminComponent
+    AdminComponent,
+    CollectionsComponent
   ],
   entryComponents: [
     RoleModalComponent

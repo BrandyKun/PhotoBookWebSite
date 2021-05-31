@@ -96,12 +96,7 @@
               <li>
                 <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
               </li>
-              <li><a>Contact</a></li>
-              <li *appHasRole="['Admin']">
-                <a [routerLink]="['/test-error']" routerLinkActive="active"
-                  >Errors</a
-                >
-              </li>
+              <li><a [routerLink]="['/home/contact-us']" >Contact</a></li>
               <ng-container *ngIf="(currentUser$ | async) === null">
                 <li>
                   <a [routerLink]="['/account/login']" routerLinkActive="active"

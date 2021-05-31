@@ -1,3 +1,4 @@
+import { CollectionsComponent } from './collections/collections.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutEditComponent } from './about-edit/about-edit.component';
@@ -8,7 +9,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 const routes: Routes = [
       { path: '', component: AdminComponent, data: { roles: ['Admin'] } },
       { path: 'users-roles', component: UserManagementComponent, data: { roles: ['Admin'] } },
-      // { path: 'collections', component: RoleModalComponent, data: { roles: ['Admin'] } },
+      { path: 'collections', component: CollectionsComponent, data: { roles: ['Admin'] } },
       { path: 'album-editor', component: AlbumEditorComponent, data: { roles: ['Admin'] } },
       { path: 'edit-pages', component: AboutEditComponent, data: { roles: ['Admin'] } },
 
