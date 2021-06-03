@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ITag } from 'src/app/shared/models/tag';
 import { formatCurrency } from '@angular/common';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { IPhoto } from 'src/app/shared/models/photo';
+import { AlbumParams } from 'src/app/shared/models/albumParams';
 
 @Component({
   selector: 'app-album-editor',
@@ -21,6 +23,8 @@ export class AlbumEditorComponent implements OnInit {
   tags: ITag[];
   baseUrl = environment.apiUrl;
   photoTags : ITag[] = [];
+  photos: IPhoto[];
+  albumParams = new AlbumParams();
 
   constructor(private albumService: AlbumService,
               private toastr: ToastrService,
@@ -29,6 +33,7 @@ export class AlbumEditorComponent implements OnInit {
   ngOnInit(){
     this.initializeUploader();
     this.getTags();
+    this.getPhotos();
     this.ngForm = this.fb.group({
       name: this.fb.array([])});
   }
@@ -57,14 +62,11 @@ export class AlbumEditorComponent implements OnInit {
   }
 
   deletePhoto(id: number) {
-    this.toastr.warning('Are you sure you want ot delete this photo?');
-    //  () =>{
-    //   this.albumService.deletePhoto(id).subscribe(() => {
-    //     this.toastr.success('photo has been deleted');
-    //   }, error => {
-    //     this.toastr.error('Failed to load the photo')
-    //   })
-    // })
+      this.albumService.deletePhoto(id).subscribe(() => {
+        this.toastr.success('photo has been deleted');
+      }, error => {
+        this.toastr.error('Failed to load the photo')
+      });
   }
 
   getTags() {
@@ -91,9 +93,15 @@ export class AlbumEditorComponent implements OnInit {
       console.log(this.photoTags);
     }
   }
-
-//   submit(){
-//     let formData: FormData = new FormData();
-//     formData.append('TagId', this.photoTags);
-// }
+  getPhotos() {
+    this.albumService.getPhotos(this.albumParams).subscribe((response) => {
+        this.photos = response;
+        // this.albumParams.pageNumber = response.pageIndex;
+        // this.albumParams.pageSize = response.pageSize;
+        // this.totalCount = response.count;
+      },(error) => {
+        console.log(error);
+      }
+    );
+  }
 }

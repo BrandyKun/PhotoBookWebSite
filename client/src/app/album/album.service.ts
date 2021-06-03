@@ -51,6 +51,6 @@ export class AlbumService {
   }
 
   deletePhoto(id: number) {
-    return this.http.delete(this.baseUrl + 'photo' + id)
+    return this.http.delete(this.baseUrl + 'photo/' + id)
   }
 }

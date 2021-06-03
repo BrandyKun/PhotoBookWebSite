@@ -1,3 +1,4 @@
+import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { SharedModule } from './shared/shared.module';
 import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 import { IonicModule } from '@ionic/angular';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -28,10 +30,12 @@ import { IonicModule } from '@ionic/angular';
     FileUploadModule,
     SharedModule,
     NgxIonicImageViewerModule,
+    NgxSpinnerModule,
     IonicModule.forRoot()
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
 })

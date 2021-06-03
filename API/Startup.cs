@@ -16,6 +16,7 @@ using Infrastructure.Identity;
 using API.Extensions;
 using Infrastructure.Services;
 using API.Services;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -51,26 +52,17 @@ namespace API
         {
             
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            // services.AddControllers();
-            services
-                .AddControllers();
-                // .AddCofoundry(Configuration);
-            //     options => 
-            // {
-            //     var policy = new AuthorizationPolicyBuilder()
-            //         .RequireAuthenticatedUser()
-            //         .Build();
-
-            //         options.Filters.Add(new AuthorizeFilter(policy));
-            // })
-            //     .AddNewtonsoftJson(opt =>
-            //     {
-            //         opt.SerializerSettings.ReferenceLoopHandling =
-            //         Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            //     });
+            services.AddControllers();
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+                var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
+               
             services.Configure<ApiBehaviorOptions>(options =>
                 {
                     options.InvalidModelStateResponseFactory = actionContext =>

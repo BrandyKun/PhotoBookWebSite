@@ -91,21 +91,20 @@
           <div>
             <ul>
               <li>
-                <a [routerLink]="['/']" routerLinkActive="active">Photos</a>
+                <a (click)="navigate('/')" >Photos</a>
               </li>
               <li>
-                <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
+                <a (click)="navigate('/home/about')" >About Us</a>
               </li>
-              <li><a [routerLink]="['/home/contact-us']" >Contact</a></li>
+              <li><a (click)="navigate('/home/contact-us')" >Contact</a></li>
               <ng-container *ngIf="(currentUser$ | async) === null">
                 <li>
-                  <a [routerLink]="['/account/login']" routerLinkActive="active"
-                    >Login</a
+                  <a (click)="navigate('/account/login')" >Login</a
                   >
                 </li>
                 <li>
                   <a
-                    [routerLink]="['/account/register']"
+                  (click)="navigate('/account/register')"
                     routerLinkActive="active"
                     >Register</a
                   >
@@ -113,12 +112,7 @@
               </ng-container>
               <ng-container *ngIf="currentUser$ | async">
                 <li>
-                  <a
-                    *appHasRole="['Admin', 'Moderator']"
-                    [routerLink]="['admin']"
-                    routerLinkActive="active"
-                    >Admin</a
-                  >
+                  <a *appHasRole="['Admin', 'Moderator']" (click)="navigate('admin')">Admin</a>
                 </li>
                 <li>
                   <a href="#"

@@ -1,3 +1,30 @@
-.contenitore{
-    padding: 20px;
+.contenitore {
+  padding: 20px;
+
+  .images-prw {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    .card-body{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contenitore {
+    .drop-zone {
+      margin-bottom: 1.75rem !important;
+    }
+
+    .images-prw {
+      width: 100%;
+      height: auto;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
 }

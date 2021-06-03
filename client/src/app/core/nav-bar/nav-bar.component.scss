@@ -222,6 +222,10 @@ header {
         transition: opacity 0.4s ease 0.4s;
       }
 
+      .menu-wrap .menu > div > div > ul > li > a:visited{
+        opacity: 0;
+      }
+
       .menu-wrap .menu {
         position: fixed;
         top: 0;

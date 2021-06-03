@@ -33,7 +33,7 @@ export class NavBarComponent implements OnInit {
     id: 1,
   }
   
-  constructor(private accountService: AccountService, private router: Router, private homeService: HomeService) { }
+  constructor(private accountService: AccountService, private _router: Router, private homeService: HomeService) { }
   appSettings$: Observable<IAppDetails> = this.homeService.getAppDetails();
 
   ngOnInit() {
@@ -58,5 +58,11 @@ export class NavBarComponent implements OnInit {
 
   logOut(){
     this.accountService.logout();
+  }
+
+  navigate(navigateRoute: string){
+    this._router.navigateByUrl(navigateRoute).then(() => {
+      window.location.reload();
+    });
   }
 }

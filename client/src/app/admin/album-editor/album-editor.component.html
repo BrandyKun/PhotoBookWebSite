@@ -1,6 +1,6 @@
 <div class="contenitore">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 drop-zone">
           <h3>Select files</h3>
       
           <div
@@ -8,7 +8,7 @@
             [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
             (fileOver)="fileOverBase($event)"
             [uploader]="uploader"
-            class="card bg-faded text-center mb-3 my-drop-zone"
+            class="card bg-faded text-center mb-3 my-drop-zone upl"
           >
           <i class="fa fa-upload fa-3x"></i>
             Base drop zone
@@ -26,9 +26,6 @@
             <thead>
               <tr>
                 <th width="50%">Name</th>
-                <th width="20%">Tags
-                  
-                </th>
                 <th>Size</th>
                 <th>Progress</th>
                 <th>Status</th>
@@ -40,7 +37,7 @@
                 <td>
                   <strong>{{ item?.file?.name }}</strong>
                 </td>
-                <td>
+                <!-- <td>
                   <div class="tags-selector">
                       <form *ngIf="ngForm" [formGroup]="ngForm" id="rolesForm">
                             <div class="form-check" *ngFor="let tag of tags">
@@ -49,12 +46,12 @@
                               value="={{tag.name}}" 
                               [checked]="tag.checked"
                               (change)="onChange(tag, $event.target.checked)">
-                              <!-- (change)="tag.checked = !tag.checked"> -->
+                               (change)="tag.checked = !tag.checked">
                               <label>{{tag.name}}</label>
                             </div>
                           </form>
                   </div>
-                </td>
+                </td> -->
                 <td *ngIf="uploader.options.isHTML5" nowrap>
                   {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB
                 </td>
@@ -145,4 +142,15 @@
           </div>
         </div>
       </div>
+    <div class="images-prw">
+      <div class="photos" *ngFor="let photo of photos">
+        <div class="card" style="width: 18rem;">
+          <img src="{{photo.url}}" class="card-img-top" alt="{{photo.description}}">
+          <div class="card-body">
+            <a  class="btn btn-danger" (click)="deletePhoto(photo.id)">Detele</a>
+            <input type="checkbox" name="" id="">
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
