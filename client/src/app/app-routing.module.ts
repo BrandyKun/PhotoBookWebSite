@@ -1,3 +1,4 @@
+import { StoreModule } from './store/store.module';
 import { ErrorPageComponent } from './core/error-page/error-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'photos', loadChildren: () => import('./album/album.module').then(mod => mod.AlbumModule)},
   { path: 'home', loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)},
   { path: 'account', loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule)},
+  { path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule)},
   { path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule)},
   { path: 'admin',
     runGuardsAndResolvers: 'always',

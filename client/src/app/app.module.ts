@@ -15,10 +15,11 @@ import { SharedModule } from './shared/shared.module';
 import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 import { IonicModule } from '@ionic/angular';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { StoreComponent } from './store/store.component';
 
 
 @NgModule({
-  declarations: [		AppComponent ],
+  declarations: [		AppComponent, StoreComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

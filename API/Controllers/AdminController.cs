@@ -14,7 +14,6 @@ namespace API.Controllers
     [AllowAnonymous]
     public class AdminController : BaseApiController
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly AppIdentityDbContext _context;
         private readonly UserManager<User> _userManager;
         public AdminController(UserManager<User> userManager, AppIdentityDbContext context)
