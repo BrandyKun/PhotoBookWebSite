@@ -5,6 +5,7 @@ import { IPagination } from './shared/models/pagination';
 import { AccountService } from './account/account.service';
 import { custom } from '../assets/scripts/custom.js';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { BasketService } from './basket/basket.service';
 declare var $: any;
 
 @Component({
@@ -17,10 +18,18 @@ export class AppComponent implements OnInit {
   jwtHelper = new JwtHelperService();
 
 
-  constructor(private accountService: AccountService,) {}
+  constructor(private accountService: AccountService, private basketService: BasketService) {}
 
   ngOnInit() {
     this.loadCurrentUser();
+    const basketId = localStorage.getItem('basket_id');
+    if (basketId) {
+      this.basketService.getBasket(basketId).subscribe(()=> {
+        console.log('initialised basket');
+      }, error => {
+        console.log(error);
+      })
+    }
   }
 
   loadCurrentUser() {

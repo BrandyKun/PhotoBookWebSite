@@ -1,3 +1,5 @@
+import { BasketModule } from './basket/basket.module';
+import { CheckoutModule } from './checkout/checkout.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +34,8 @@ import { StoreComponent } from './store/store.component';
     SharedModule,
     NgxIonicImageViewerModule,
     NgxSpinnerModule,
+    CheckoutModule,
+    BasketModule,
     IonicModule.forRoot()
   ],
   providers: [

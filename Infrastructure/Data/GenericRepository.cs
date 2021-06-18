@@ -26,12 +26,12 @@ namespace Infrastructure.Data
             return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<T>> ListAllAsync()
+        public async Task<IReadOnlyList<T>> ListAllAsync()
         {
            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> ListAsync(ISpecification<T> spec)
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).ToListAsync();
         }

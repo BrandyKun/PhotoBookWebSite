@@ -1,3 +1,4 @@
+import { IAddress } from './../shared/models/address';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -84,5 +85,17 @@ export class AccountService {
       }
     });
     return isMatch;
+  }
+
+  checkEmailExists(email: string) {
+    return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  getUserAddress() {
+    return this.http.get<IAddress>(this.baseUrl + 'account/address');
+  }
+
+  updateUserAddress(address: IAddress) {
+    return this.http.put<IAddress>(this.baseUrl + 'account/address', address);
   }
 }

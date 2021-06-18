@@ -1,5 +1,6 @@
 using System.Reflection;
 using Core.Entities;
+using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
@@ -15,6 +16,8 @@ namespace Infrastructure.Data
         public DbSet<AppDetails> AppDets { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<PhotoCollection> PhotoCollection { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

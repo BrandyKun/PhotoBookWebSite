@@ -26,6 +26,18 @@ const routes: Routes = [
     canActivate:[AuthGuard], 
     loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)},
   { path: 'edit-about', component: AboutEditComponent},
+  {
+    path: 'checkout', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule),
+    data: { breadcrumb: 'Checkout' }
+  },
+  // {
+  //   path: 'orders', 
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule),
+  //   data: { breadcrumb: 'Orders' }
+  // },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 

@@ -470,6 +470,7 @@
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.core.dll
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.provider.dynamic_cdecl.dll
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/StackExchange.Redis.dll
+/Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/Stripe.net.dll
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/brandymkundenga/Desktop/Projects/PhotoBook/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
