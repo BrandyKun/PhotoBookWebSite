@@ -1,4 +1,4 @@
-<div class="mt-4" [formGroup]="checkoutForm">
+<form class="mt-4" [formGroup]="checkoutForm" #form="ngForm">
     <div class="d-flex justify-content-between align-items-center">
         <h4>Shipping address</h4>
         <button 
@@ -9,7 +9,7 @@
             Save as default address
         </button>
     </div>
-    <div class="row" formGroupName="addressForm">
+    <div class="row" formGroupName="addressForm" >
         <div class="form-group col-6">
             <app-text-input [label]="'First name'" formControlName="firstName"></app-text-input>
         </div>
@@ -29,7 +29,7 @@
             <app-text-input [label]="'Zip code'" formControlName="zipCode"></app-text-input>
         </div>
     </div>
-</div>
+</form>
 
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
     <button class="btn btn-outline-primary" routerLink="/basket">
@@ -39,3 +39,4 @@
         Go to delivery <i class="fa fa-angle-right"></i>
     </button>
 </div>
+

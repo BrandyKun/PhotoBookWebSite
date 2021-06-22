@@ -56,11 +56,11 @@ namespace API.Controllers
         {
             var user = await _userManager.FIndByEmailWithAddressAsync(User);
 
-            return _mapper.Map<Address, AddressDto>(user.Address);
+            return _mapper.Map<AddressDto>(user.Address);
         }
 
         [Authorize]
-        [HttpPut("addres")]
+        [HttpPut("address")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
             var user =  await _userManager.FIndByEmailWithAddressAsync(User);

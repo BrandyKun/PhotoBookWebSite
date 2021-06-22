@@ -65,9 +65,13 @@ namespace Infrastructure.Data
                 {
                     var appSettingsData = File.ReadAllText(path + @"/Data/SeedData/Setting.json");
 
-                    var settings = JsonSerializer.Deserialize<AppDetails>(appSettingsData);
+                    var settings = JsonSerializer.Deserialize<List<AppDetails>>(appSettingsData);
 
-                    context.AppDets.Add(settings);
+                    foreach (var item in settings)
+                    {
+                        context.AppDets.Add(item);
+                    }
+                    // settings);
                     
                     await context.SaveChangesAsync();
                 }
