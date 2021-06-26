@@ -28,10 +28,10 @@ export class AlbumService {
     // params = params.append('pageSize', albumParams.pageSize.toString());
 
     return this.http
-      .get<IPhoto[]>(this.baseUrl+'photo', { observe: 'response', params })
+      .get<IPhoto[]>(this.baseUrl+'photo')
       .pipe(
         map((response) => {
-          return response.body;
+          return response;
         })
       );
   }

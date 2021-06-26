@@ -1781,7 +1781,7 @@
           "lib/netcoreapp3.1/StackExchange.Redis.dll": {}
         }
       },
-      "Stripe.net/39.53.0": {
+      "Stripe.net/39.54.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
@@ -3386,7 +3386,7 @@
           "Microsoft.IdentityModel.Tokens": "6.7.1",
           "Pomelo.EntityFrameworkCore.MySql": "3.1.1",
           "StackExchange.Redis": "2.2.4",
-          "Stripe.net": "39.53.0",
+          "Stripe.net": "39.54.0",
           "System.IdentityModel.Tokens.Jwt": "6.7.1"
         },
         "compile": {
@@ -5591,10 +5591,10 @@
         "stackexchange.redis.nuspec"
       ]
     },
-    "Stripe.net/39.53.0": {
-      "sha512": "wAK122asZA3sIgp1cyhIYeXD1iuB3VMm60dlmWbOIqdF4VPjomh/fRIs7Lr0p2n0gfreP2JCDL+ntELJl0tuZg==",
+    "Stripe.net/39.54.0": {
+      "sha512": "RSDI6qS1/lHhKrPEULZ/27YD7fUtlYb0Co57wM6LQ+7P4fKVjhLXw2P/xXVbL0ja0Kr0GvUhua+5A1XmPABf/w==",
       "type": "package",
-      "path": "stripe.net/39.53.0",
+      "path": "stripe.net/39.54.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5609,7 +5609,7 @@
         "lib/netstandard2.0/Stripe.net.dll",
         "lib/netstandard2.0/Stripe.net.pdb",
         "lib/netstandard2.0/Stripe.net.xml",
-        "stripe.net.39.53.0.nupkg.sha512",
+        "stripe.net.39.54.0.nupkg.sha512",
         "stripe.net.nuspec"
       ]
     },

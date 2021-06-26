@@ -1,3 +1,4 @@
+import { IPhoto } from 'src/app/shared/models/photo';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBasketItem } from '../../models/basket';
 import { IOrderItem } from '../../models/order';
@@ -12,12 +13,13 @@ export class BasketSummaryComponent implements OnInit {
   @Output() increment: EventEmitter<IBasketItem> = new EventEmitter<IBasketItem>();
   @Output() remove: EventEmitter<IBasketItem> = new EventEmitter<IBasketItem>();
   @Input() isBasket = true;
-  @Input() items: any;
+  @Input() items: IPhoto[];
   @Input() isOrder = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.items);
   }
 
   decrementItemQuantity(item: IBasketItem) {

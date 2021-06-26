@@ -31,12 +31,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule)
   },
-  // {
-  //   path: 'orders', 
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule),
-  //   data: { breadcrumb: 'Orders' }
-  // },
+  {
+    path: 'orders', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./orders/orders.module').then(mod => mod.OrdersModule)
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 

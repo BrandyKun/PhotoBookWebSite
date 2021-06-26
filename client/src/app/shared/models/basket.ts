@@ -15,8 +15,6 @@ export interface IBasketItem {
     price: number;
     quantity: number;
     pictureUrl: string;
-    brand: string;
-    type: string;
 }
 
 export class Basket implements IBasket{

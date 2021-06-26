@@ -46,6 +46,7 @@ export class AlbumComponent implements OnInit {
   getPhotos() {
     this.albumService.getPhotos(this.albumParams).subscribe((response) => {
         this.photos = response;
+        console.log(this.photos);
         // this.albumParams.pageNumber = response.pageIndex;
         // this.albumParams.pageSize = response.pageSize;
         // this.totalCount = response.count;

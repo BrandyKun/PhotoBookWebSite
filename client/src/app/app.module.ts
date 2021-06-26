@@ -1,3 +1,5 @@
+import { OrdersModule } from './orders/orders.module';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { BasketModule } from './basket/basket.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
@@ -18,10 +20,12 @@ import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 import { IonicModule } from '@ionic/angular';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { StoreComponent } from './store/store.component';
+import { OrderDetailedComponent } from './orders/order-detailed/order-detailed.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
-  declarations: [		AppComponent, StoreComponent ],
+  declarations: [		AppComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,11 +40,13 @@ import { StoreComponent } from './store/store.component';
     NgxSpinnerModule,
     CheckoutModule,
     BasketModule,
+    OrdersModule,
     IonicModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
 })

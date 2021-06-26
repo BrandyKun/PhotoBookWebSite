@@ -1684,7 +1684,7 @@
           "lib/netcoreapp3.1/StackExchange.Redis.dll": {}
         }
       },
-      "Stripe.net/39.53.0": {
+      "Stripe.net/39.54.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "Newtonsoft.Json": "12.0.3",
@@ -1692,8 +1692,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Stripe.net.dll": {
-            "assemblyVersion": "39.53.0.0",
-            "fileVersion": "39.53.0.0"
+            "assemblyVersion": "39.54.0.0",
+            "fileVersion": "39.54.0.0"
           }
         },
         "compile": {
@@ -2762,7 +2762,7 @@
           "Microsoft.IdentityModel.Tokens": "6.7.1",
           "Pomelo.EntityFrameworkCore.MySql": "3.1.1",
           "StackExchange.Redis": "2.2.4",
-          "Stripe.net": "39.53.0",
+          "Stripe.net": "39.54.0",
           "System.IdentityModel.Tokens.Jwt": "6.7.1"
         },
         "runtime": {
@@ -5266,12 +5266,12 @@
       "path": "stackexchange.redis/2.2.4",
       "hashPath": "stackexchange.redis.2.2.4.nupkg.sha512"
     },
-    "Stripe.net/39.53.0": {
+    "Stripe.net/39.54.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wAK122asZA3sIgp1cyhIYeXD1iuB3VMm60dlmWbOIqdF4VPjomh/fRIs7Lr0p2n0gfreP2JCDL+ntELJl0tuZg==",
-      "path": "stripe.net/39.53.0",
-      "hashPath": "stripe.net.39.53.0.nupkg.sha512"
+      "sha512": "sha512-RSDI6qS1/lHhKrPEULZ/27YD7fUtlYb0Co57wM6LQ+7P4fKVjhLXw2P/xXVbL0ja0Kr0GvUhua+5A1XmPABf/w==",
+      "path": "stripe.net/39.54.0",
+      "hashPath": "stripe.net.39.54.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/5.6.3": {
       "type": "package",

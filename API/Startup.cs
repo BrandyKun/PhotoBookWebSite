@@ -55,6 +55,7 @@ namespace API
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<ICollectionRepository, CollectionRepository>();
+            services.AddScoped<IPaymentService, PaymentService>();
             services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<IUnitOfWork, UnitOfWork>();

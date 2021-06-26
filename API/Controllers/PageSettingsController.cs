@@ -27,7 +27,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetDetails()
         {
-            var details = await _unitOfWork.Repository<AppDetails>().GetById(1);
+            var details = await _unitOfWork.Repository<AppDetails>().GetById(3);
 
             return Ok(details);
         }

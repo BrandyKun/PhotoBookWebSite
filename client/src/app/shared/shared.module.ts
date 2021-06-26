@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
@@ -25,6 +26,7 @@ import { NgxUploaderModule } from 'ngx-uploader';
     FlexLayoutModule,
     NgxUploaderModule,
     CdkStepperModule,
+    RouterModule
   ],
   exports: [
     ReactiveFormsModule,
