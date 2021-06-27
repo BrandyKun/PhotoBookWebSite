@@ -3,9 +3,9 @@ using Core.Specification;
 
 namespace Core.Specifications
 {
-    public class OrderByPaymentIntentWithItemsSpecification :  BaseSpecification<Order>
+    public class OrderByPaymentIntentSpecification :  BaseSpecification<Order>
     {
-        public OrderByPaymentIntentWithItemsSpecification(string paymentIntentId) 
+        public OrderByPaymentIntentSpecification(string paymentIntentId) 
             : base(o => o.PaymentIntentId == paymentIntentId)
         {
         }
