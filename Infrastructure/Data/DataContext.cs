@@ -40,7 +40,7 @@ namespace Infrastructure.Data
 
             modelBuilder.Entity<PhotoCollection>()
                 .HasOne(p => p.Photo)
-                .WithMany(c => c.Collectios)
+                .WithMany(c => c.Collections)
                 .HasForeignKey(pc => pc.PhotoId);
 
             modelBuilder.Entity<PhotoCollection>()

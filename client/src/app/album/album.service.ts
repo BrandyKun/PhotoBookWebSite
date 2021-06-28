@@ -6,6 +6,7 @@ import { ITag } from '../shared/models/tag';
 import { map, delay } from 'rxjs/operators';
 import { IPhoto } from '../shared/models/photo';
 import { environment } from '../../../src/environments/environment';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ import { environment } from '../../../src/environments/environment';
 })
 export class AlbumService {
   baseUrl = environment.apiUrl;
+  photos: IPhoto[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,10 +30,11 @@ export class AlbumService {
     // params = params.append('pageSize', albumParams.pageSize.toString());
 
     return this.http
-      .get<IPhoto[]>(this.baseUrl+'photo')
+      .get<IPhoto[]>(this.baseUrl+'photo', {observe: 'response'})
       .pipe(
         map((response) => {
-          return response;
+          this.photos = response.body;
+          return response.body;
         })
       );
   }
@@ -47,6 +50,12 @@ export class AlbumService {
   }
 
   getPhoto(id: number) {
+
+    const photo = this.photos.find(p => p.id === id);
+
+    if(photo){
+      return of(photo);
+    }
     return this.http.get<IPhoto>(this.baseUrl + 'photo/' + id);
   }
 

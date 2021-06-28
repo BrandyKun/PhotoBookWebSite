@@ -47,21 +47,23 @@ namespace API.Controllers
 
         }
 
+        [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PhotoForReturnDto>>> GetPhotos([FromQuery] PhotoSpecParams photoSpecParams)
         {
-            var spec = new PhotosWithTagsSpecification(photoSpecParams);
+            var spec = new PhotosWithTagsAndCollectionSpecification(photoSpecParams);
 
             var photos = await _photoRepository.GetPhotosAsync();
 
             return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
 
         }
-
+        
+        [Cached(600)]
         [HttpGet("{id}", Name = "GetPhoto")]
         public async Task<ActionResult<PhotoForReturnDto>> GetPhoto(int id)
         {
-            var spec = new PhotosWithTagsSpecification(id);
+            var spec = new PhotosWithTagsAndCollectionSpecification(id);
 
             var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
             
@@ -71,7 +73,7 @@ namespace API.Controllers
         }
 
         
-
+        [Authorize(Policy = "RequireAdminRole")]
         [HttpPost("addPhoto")]
         public async Task<IActionResult> AddPhoto([FromForm]PhotoForCreationDto photoForCreationDto)
         {
@@ -95,6 +97,7 @@ namespace API.Controllers
 
             photoForCreationDto.Url = uploadResult.SecureUri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
+            photoForCreationDto.ProductName = uploadResult.OriginalFilename;
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 
@@ -107,11 +110,12 @@ namespace API.Controllers
             }
             return BadRequest("could not return photo");
         }
-
+        
+        [Authorize(Policy = "RequireAdminRole")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeletePhoto(int id)
         {
-            var spec = new PhotosWithTagsSpecification(id);
+            var spec = new PhotosWithTagsAndCollectionSpecification(id);
 
             var photoFromRepo = await _unitOfWork.Repository<Photo>().GetEntityWithSpec(spec);
 
@@ -130,7 +134,7 @@ namespace API.Controllers
 
             return BadRequest("Failed to deelte image");
         }
-
+        [Cached(600)]
         [HttpGet("tags")]
         public async Task<ActionResult<IReadOnlyList<Tag>>> GetPhotoTags(int Id)
         {

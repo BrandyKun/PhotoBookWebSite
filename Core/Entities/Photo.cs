@@ -12,7 +12,7 @@ namespace Core.Entities
         public string PublicId { get; set; }
         public decimal Price { get; set; }
         public IEnumerable<PhotoTag>  Tags {get; set;}
-        public IEnumerable<PhotoCollection> Collectios { get; set; }
+        public IEnumerable<PhotoCollection> Collections { get; set; }
         public Photo()
         {
             DataCreated = DateTime.UtcNow;

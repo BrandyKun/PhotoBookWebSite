@@ -23,7 +23,7 @@ namespace API.Controllers
 
         }
 
-
+        [Cached(600)]
         [HttpGet]
         public async Task<IActionResult> GetDetails()
         {

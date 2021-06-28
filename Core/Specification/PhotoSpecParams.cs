@@ -12,6 +12,7 @@ namespace Core.Specification
         // }
 
         public int? TagId { get; set; }
+        public int? CollectionId { get; set;}
         public string Sort { get; set; }
 
         private string _search;

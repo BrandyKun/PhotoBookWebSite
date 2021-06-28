@@ -28,7 +28,7 @@ namespace Infrastructure.Services
             await _database.StringSetAsync(cacheKey, serialisedResponse, timeToLive);
         }
 
-        public async Task<string> GetCachedResponse(string cacheKey)
+        public async Task<string> GetCachedResponseAsync(string cacheKey)
         {
             var cachedResponse = await _database.StringGetAsync(cacheKey);
 

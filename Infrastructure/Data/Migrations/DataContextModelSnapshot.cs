@@ -326,7 +326,7 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Core.Entities.Photo", "Photo")
-                        .WithMany("Collectios")
+                        .WithMany("Collections")
                         .HasForeignKey("PhotoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
