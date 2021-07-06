@@ -299,13 +299,13 @@ namespace Infrastructure.Data.Migrations
                                 .HasColumnType("int")
                                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                            b1.Property<string>("PictureUrl")
-                                .HasColumnType("nvarchar(max)");
-
                             b1.Property<int>("ProductItemId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("ProductName")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Url")
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("OrderItemId");

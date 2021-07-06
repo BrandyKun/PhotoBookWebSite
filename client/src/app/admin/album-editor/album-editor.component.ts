@@ -1,4 +1,3 @@
-// import { ITag } from './../../shared/models/tag';
 import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
@@ -94,8 +93,8 @@ export class AlbumEditorComponent implements OnInit {
     }
   }
   getPhotos() {
-    this.albumService.getPhotos(this.albumParams).subscribe((response) => {
-        this.photos = response;
+    this.albumService.getPhotos().subscribe((response) => {
+        this.photos = response.data;
         // this.albumParams.pageNumber = response.pageIndex;
         // this.albumParams.pageSize = response.pageSize;
         // this.totalCount = response.count;

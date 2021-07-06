@@ -28,7 +28,7 @@ namespace Core.Specification
 
         public int Skip { get; private set; }
 
-        public bool IsPageingEnable { get; private set; }
+        public bool IsPagingEnable { get; private set; }
 
         protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
@@ -53,7 +53,7 @@ namespace Core.Specification
         {
             this.Skip = skip;
             Take = take;
-            IsPageingEnable = true;
+            IsPagingEnable = true;
         }
     }
 }

@@ -21,17 +21,20 @@ namespace API.Controllers
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private readonly IPhotosRepository _photoRepository;
+        private readonly IGenericRepository<Photo> _photoRepo;
         private Cloudinary _cloudinary;
         private readonly IUnitOfWork _unitOfWork;
 
         public PhotoController(IOptions<CloudinarySettings> cloudinaryConfig,
                                 IPhotosRepository photoRepository,
+                                IGenericRepository<Photo> photoRepo,
                                 IUnitOfWork unitOfWork,
                                 IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _cloudinaryConfig = cloudinaryConfig;
             _photoRepository = photoRepository;
+            _photoRepo = photoRepo;
             _mapper = mapper;
             
 
@@ -53,9 +56,19 @@ namespace API.Controllers
         {
             var spec = new PhotosWithTagsAndCollectionSpecification(photoSpecParams);
 
-            var photos = await _photoRepository.GetPhotosAsync();
+            var countSpec = new PhotoWithFiltersForCountSpecification(photoSpecParams);
 
-            return Ok( _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos));
+            var totalItems = await _photoRepo.CountAsync(countSpec);
+
+            var photos = await _photoRepo.ListAsync(spec);
+
+            var data = _mapper.Map<IEnumerable<Photo>, IEnumerable<PhotoForReturnDto>>(photos);
+
+            // var photos = await _photoRepository.GetPhotosAsync();
+
+            return Ok( new Pagination<PhotoForReturnDto>(photoSpecParams.PageIndex, photoSpecParams.PageSize, totalItems, data));
+
+            // return Ok(data);
 
         }
         

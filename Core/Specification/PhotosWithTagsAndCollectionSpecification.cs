@@ -1,3 +1,4 @@
+using System.Linq;
 using Core.Entities;
 
 namespace Core.Specification
@@ -6,14 +7,16 @@ namespace Core.Specification
     {
         public PhotosWithTagsAndCollectionSpecification(PhotoSpecParams photoSpecParams)
             : base(x => 
-            (!photoSpecParams.TagId.HasValue || x.Tags.)
-
+            (string.IsNullOrEmpty(photoSpecParams.Search) || x.Tags.Any(x => x.Tag.Name.ToLower().Contains(photoSpecParams.Search))) &&
+            (!photoSpecParams.TagId.HasValue || x.Tags.Any(x => x.TagId == photoSpecParams.TagId)) &&
+            (!photoSpecParams.CollectionId.HasValue || x.Collections.Any(x => x.CollectionId == photoSpecParams.CollectionId))
+            )
            
         {
             AddInclude(x => x.Tags);
             AddInclude(x => x.Collections);
             AddOrdebyDescending(x => x.Id);
-            // ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
+            ApplyPaging(photoSpecParams.PageSize * (photoSpecParams.PageIndex - 1), photoSpecParams.PageSize);
 
 
             if (!string.IsNullOrEmpty(photoSpecParams.Sort))
@@ -26,7 +29,7 @@ namespace Core.Specification
                     case "priceAsc": 
                         AddOrdeby(p=>p.Price);
                         break;
-                    case "priceDescening": 
+                    case "priceDesc": 
                         AddOrdebyDescending(p=>p.Price);
                         break;
                     case "name": 

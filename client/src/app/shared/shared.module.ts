@@ -1,3 +1,5 @@
+import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
+import { PagerComponent } from './components/pager/pager.component';
 import { RouterModule } from '@angular/router';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
@@ -17,7 +19,7 @@ import { NgxUploaderModule } from 'ngx-uploader';
 
 
 @NgModule({
-  declarations: [TextInputComponent, FileUploadComponent, ImagePreviewComponent, OrderTotalsComponent, BasketSummaryComponent,StepperComponent],
+  declarations: [TextInputComponent, FileUploadComponent, ImagePreviewComponent, OrderTotalsComponent, BasketSummaryComponent,StepperComponent, PagerComponent, PagingHeaderComponent],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
@@ -37,7 +39,10 @@ import { NgxUploaderModule } from 'ngx-uploader';
     CdkStepperModule,
     StepperComponent,
     OrderTotalsComponent,
-    BasketSummaryComponent]
+    BasketSummaryComponent,
+    PaginationModule,
+    PagerComponent,
+    PagingHeaderComponent]
 
 })
 export class SharedModule { }

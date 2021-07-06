@@ -42,8 +42,8 @@ export class PhotoFullComponent implements OnInit {
   }
 
   getPhotos() {
-    this._albumService.getPhotos(this.albumParams).subscribe((response) => {
-      this.photos = response;
+    this._albumService.getPhotos().subscribe((response) => {
+      this.photos = response.data;
       // this.albumParams.pageNumber = response.pageIndex;
       // this.albumParams.pageSize = response.pageSize;
       // this.totalCount = response.count;

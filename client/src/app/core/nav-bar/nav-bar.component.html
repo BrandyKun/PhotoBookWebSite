@@ -1,10 +1,38 @@
-<header>
-  <img
-    src="{{ pageSettings.mainLogoImageUrl }}"
-    class="logo"
-    [routerLink]="['/']"
-    style="width: 24em; align-content: center"
-  />
+<header >
+  <div class="login-basket-container">
+    <img
+      src="{{ pageSettings.mainLogoImageUrl }}"
+      class="logo"
+      [routerLink]="['/']"
+      style="width: 24em; align-content: center"
+    />
+    <div class="signInSection">
+      <a routerLink='/basket' class="position-relative">
+        <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
+        <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
+      </a>
+    <ng-container *ngIf="(currentUser$ | async) === null">
+      <a routerLink="/account/login" class="btn btn-outline-secondary mr-2" href="#">Login</a>
+      <a routerLink="/account/register" class="btn btn-outline-secondary mr-3" href="#">Sign up</a>
+    </ng-container>
+    <ng-container *ngIf="currentUser$ | async">
+      <div class="navbutton">
+        <a class="btn btn-outline-secondary mr-3">Welcome {{ (currentUser$ | async).displayName }}</a>
+        <div class="dropdown">
+          <div class="navbutton"><a class="btn btn-outline-secondary mr-3" (click)="logOut()">Logout</a></div>
+        </div>
+      </div>
+      <a
+        *appHasRole="['Admin', 'Moderator']"
+        [routerLink]="['admin/']"
+        routerLinkActive="active"
+        class="btn btn-outline-secondary mr-3"
+        >Admin Module</a
+      >
+    </ng-container>
+    </div>
+    
+  </div>
   <nav style="margin-top: 35px">
     <a
       [routerLink]="['/photos']"
@@ -18,42 +46,9 @@
       [routerLinkActiveOptions]="{ exact: true }"
       >Store</a
     >
-    <a
-      [routerLink]="['/basket']"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >Basket</a
-    >
-    <a
-      [routerLink]="['/checkout']"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      >Checkout</a
-    >
-    <!-- <a>Digital store</a> -->
     <a [routerLink]="['/home/about']" routerLinkActive="active">About Us</a>
     <a [routerLink]="['/home/contact-us']" routerLinkActive="active">Contact</a>
-
-    <ng-container *ngIf="(currentUser$ | async) == null">
-      <a [routerLink]="['/account/login']" routerLinkActive="active">Login</a>
-      <a [routerLink]="['/account/register']" routerLinkActive="active"
-        >Register</a
-      >
-    </ng-container>
-    <ng-container *ngIf="currentUser$ | async">
-      <div class="navbutton">
-        <a>Welcome {{ (currentUser$ | async).displayName }}</a>
-        <div class="dropdown">
-          <div class="navbutton"><a (click)="logOut()">Logout</a></div>
-        </div>
-      </div>
-      <a
-        *appHasRole="['Admin', 'Moderator']"
-        [routerLink]="['admin/']"
-        routerLinkActive="active"
-        >Admin Module</a
-      >
-    </ng-container>
+    
   </nav>
   <div class="social">
     <a

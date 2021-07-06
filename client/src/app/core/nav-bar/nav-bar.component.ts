@@ -6,6 +6,8 @@ import { AccountService } from 'src/app/account/account.service';
 import { Router } from '@angular/router';
 import { IAppDetails } from 'src/app/shared/models/appDetails';
 import { HomeService } from 'src/app/home/home.service';
+import { BasketService } from 'src/app/basket/basket.service';
+import { IBasket } from 'src/app/shared/models/basket';
 
 
 @Component({
@@ -15,6 +17,8 @@ import { HomeService } from 'src/app/home/home.service';
 })
 export class NavBarComponent implements OnInit {
   currentUser$: Observable<IUser>;
+  basket$: Observable<IBasket>;
+
 
   pageSettings: IAppDetails = {
     companyName: '',
@@ -33,11 +37,12 @@ export class NavBarComponent implements OnInit {
     id: 1,
   }
   
-  constructor(private accountService: AccountService, private _router: Router, private homeService: HomeService) { }
+  constructor(private accountService: AccountService, private _router: Router, private homeService: HomeService, private basketService: BasketService) { }
   appSettings$: Observable<IAppDetails> = this.homeService.getAppDetails();
 
   ngOnInit() {
     this.currentUser$ = this.accountService.currentUser$;
+    this.basket$ = this.basketService.basket$;
     this.appSettings$.subscribe(settings => {
       this.pageSettings.id = 1,
         this.pageSettings.aboutDescription = settings.aboutDescription,

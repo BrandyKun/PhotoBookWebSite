@@ -11,20 +11,47 @@ header {
   align-items: center;
   margin-bottom: 100px;
   z-index: 10;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  // border-bottom: 1px solid black;
+  .login-basket-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
 
-  img {
-    outline: none;
-  }
+    img {
+      outline: none;
+    }
 
-  .logo {
-    max-height: 150px;
-    padding: 40px 0 20px 0;
-  }
-  .logo:hover {
-    transition: ease-in-out;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
+    .logo {
+      max-height: 150px;
+      padding: 40px 0 20px 0;
+    }
+    .logo:hover {
+      transition: ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .signInSection {
+      display: flex;
+      align-items: center;
+
+      .cart-no {
+        position: absolute;
+        min-height: 25px;
+        min-width: 25px;
+        border-radius: 50%;
+        font-size: 1em;
+        background: #F84401;
+        color: white;
+        text-align: center;
+        top: -12px;
+        right: 32px;
+      }
+    }
   }
 
   nav {
@@ -106,10 +133,16 @@ header {
   header {
     display: flex;
     flex-direction: row;
-    img {
-      width: 13rem !important;
-      margin: 0.75rem 2rem !important;
-
+    box-shadow: none;
+    width: 80%;
+    .login-basket-container {
+      img {
+        width: 13rem !important;
+        margin: 0.75rem 2rem !important;
+      }
+      .signInSection {
+        display: none;
+      }
     }
 
     nav {
@@ -222,7 +255,7 @@ header {
         transition: opacity 0.4s ease 0.4s;
       }
 
-      .menu-wrap .menu > div > div > ul > li > a:visited{
+      .menu-wrap .menu > div > div > ul > li > a:visited {
         opacity: 0;
       }
 

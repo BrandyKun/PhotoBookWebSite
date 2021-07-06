@@ -12,8 +12,9 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<Photo, PhotoForReturnDto>()
-                .ForMember(t => t.Tags, o => o.MapFrom(o => o.Tags.Select(cs => cs.Tag)));
-            CreateMap<PhotoForCreationDto, Photo>();
+                .ForMember(t => t.Tags, o => o.MapFrom(o => o.Tags.Select(cs => cs.Tag)))
+                .ForMember(c => c.Collections, o => o.MapFrom(o => o.Collections.Select(cs => cs.Collection)));
+            // CreateMap<PhotoForCreationDto, Photo>();
             CreateMap<Photo, PhotoForCreationDto>();
             CreateMap<Core.Entities.Identity.Address, AddressDto>().ReverseMap();
             CreateMap<AppDetailsDto, AppDetails>();
@@ -25,7 +26,7 @@ namespace API.Helpers
             CreateMap<OrderItem, OrderItemDto>()
                 .ForMember(d => d.PhotoId, o => o.MapFrom(s => s.ItemOrdered.ProductItemId))
                 .ForMember(d => d.ProductName, o => o.MapFrom(s => s.ItemOrdered.ProductName))
-                .ForMember(d => d.Url, o => o.MapFrom(s => s.ItemOrdered.PictureUrl));
+                .ForMember(d => d.Url, o => o.MapFrom(s => s.ItemOrdered.Url));
         }
     }
 }

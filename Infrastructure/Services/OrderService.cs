@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
 using Core.Interfaces;
+using Core.Specification;
 using Core.Specifications;
 
 namespace Infrastructure.Services
@@ -27,8 +28,9 @@ namespace Infrastructure.Services
             var items = new List<OrderItem>();
             foreach (var item in basket.Items)
             {
+                // var speci = new PhotosWithTagsAndCollectionSpecification(item.Id);
                 var photoItem = await _unitOfWork.Repository<Photo>().GetById(item.Id);
-                var itemOrdered = new ProductItemOrdered(photoItem.Id, photoItem.Description, photoItem.Url);
+                var itemOrdered = new ProductItemOrdered(photoItem.Id, photoItem.ProductName, photoItem.Url);
                 var orderItem = new OrderItem(itemOrdered, photoItem.Price, item.Quantity);
                 items.Add(orderItem);
             }
@@ -60,7 +62,7 @@ namespace Infrastructure.Services
             return order;
         }
 
-        public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
+        public async Task<IEnumerable<DeliveryMethod>> GetDeliveryMethodsAsync()
         {
             return await _unitOfWork.Repository<DeliveryMethod>().ListAllAsync();
         }
@@ -73,7 +75,7 @@ namespace Infrastructure.Services
 
         }
 
-        public async Task<IReadOnlyList<Order>> GetOrdersForUserAsync(string buyerEmail)
+        public async Task<IEnumerable<Order>> GetOrdersForUserAsync(string buyerEmail)
         {
             var spec = new OrdersWithItemsAndOrderingSpecification(buyerEmail);
 
