@@ -36,6 +36,9 @@ namespace API
             // services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlite(_config.GetConnectionString("IdentityConnection")));
             services.AddDbContext<DataContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentitySQlConnection")));
+            // services.AddStackExchangeRedisCache(options => {
+            //     options.Configuration =  "178.128.175.139:6379,password=negio88#Loso,user=root";
+            // });
             
             ConfigureServices(services);
         }
@@ -43,6 +46,7 @@ namespace API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection")));
             services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_config.GetConnectionString("IdentitySQlConnection")));
+            
 
             ConfigureServices(services);
         }
@@ -61,6 +65,9 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllers();
+            services.AddStackExchangeRedisCache(options => {
+                options.Configuration =  "178.128.175.139:6379,password=negio88#Loso,user=root";
+            });
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);

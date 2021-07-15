@@ -105,14 +105,14 @@
         }
       }
     },
-    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj": {
+    "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj",
+        "projectUniqueName": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj",
+        "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj",
         "packagesPath": "/Users/brandymkundenga/.nuget/packages/",
-        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/obj/",
+        "outputPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/brandymkundenga/.nuget/NuGet/NuGet.Config"
@@ -185,8 +185,8 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj": {
-                "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/core/Core.csproj"
+              "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj": {
+                "projectPath": "/Users/brandymkundenga/Desktop/Projects/PhotoBook/Core/Core.csproj"
               }
             }
           }
@@ -221,6 +221,10 @@
               "target": "Package",
               "version": "[3.1.6, )"
             },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.7.1, )"
@@ -228,10 +232,6 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[3.1.1, )"
-            },
-            "StackExchange.Redis": {
-              "target": "Package",
-              "version": "[2.2.4, )"
             },
             "Stripe.net": {
               "target": "Package",
